@@ -22,6 +22,7 @@
 - Data bits:	Eight (8)
 
 ### NOTE
+
 - A logic converter module is required such as TTL-to-USB converter.
 
 -   MikroElektronika Usart Terminal provides for selecting Data format and New Line settings, which will help you in printing return values of both printable and non-printable keys. In this case, you can select HEX or DEC, instead of ASCII.
