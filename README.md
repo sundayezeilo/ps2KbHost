@@ -4,7 +4,7 @@
 
 - Software Platform: 	Embedded C 
 - Hardware Platform:	ATMEL® AVR MCU
-- Compiler: ImageCraft for AVR (ICCAVR) v7
+- Compiler: ImageCraft for AVR (ICCAVR) v8
 - Firmware Revision:	April, 2018
 
 ##  NOTE:	ENSURE TO READ THIS CAREFULLY BEFORE USING THE FIRMWARE
