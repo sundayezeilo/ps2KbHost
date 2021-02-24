@@ -16,10 +16,10 @@
 
 - For a fully interactive test, prototype the keyboard circuit (refer to PS2 keyboard user manual for current requirements) and connect to the PC via USART0 with the following COM port configuration:
 
-*** Baud rate:	57600
-*** Stop bits:	one (1)
-*** Parity:		None
-*** Data bits:	Eight (8)
+- Baud rate:	57600
+- Stop bits:	one (1)
+- Parity:		None
+- Data bits:	Eight (8)
 
 ### NOTE
 - A logic converter module is required such as TTL-to-USB converter.
@@ -28,7 +28,7 @@
 0x0A (‘\n’) is returned for Line Feed when Enter key is pressed, and 0x09 (‘\t’) for Tab key.
 - The following table lists the supported non-printable keys and their return bytes.
 
-![Key Chart](../table.png)
+![Key Chart](table.png)
 
 ### IMPORTANT NOTES
 
