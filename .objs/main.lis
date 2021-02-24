@@ -1,0 +1,3101 @@
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 4
+ 0004 0C940000          jmp _INT0_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 8
+ 0008 0C940000          jmp _INT1_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 12
+ 000C 0C940000          jmp _PCINT0_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 16
+ 0010 0C940000          jmp _PCINT1_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 20
+ 0014 0C940000          jmp _PCINT2_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 24
+ 0018 0C940000          jmp _wdt_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 28
+ 001C 0C940000          jmp _timer2_compa_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 32
+ 0020 0C940000          jmp _timer2_compb_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 36
+ 0024 0C940000          jmp _timer2_ovf_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 40
+ 0028 0C940000          jmp _timer1_capt_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 44
+ 002C 0C940000          jmp _timer1_compa_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 48
+ 0030 0C940000          jmp _timer1_compb_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 52
+ 0034 0C940000          jmp _timer1_ovf_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 56
+ 0038 0C940000          jmp _timer0_compa_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 60
+ 003C 0C940000          jmp _timer0_compb_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 64
+ 0040 0C940000          jmp _timer0_ovf_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 68
+ 0044 0C940000          jmp _spi_stc_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 72
+ 0048 0C940000          jmp _usart_rxc_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 76
+ 004C 0C940000          jmp _usart_udre_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 80
+ 0050 0C940000          jmp _usart_txc_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 84
+ 0054 0C940000          jmp _adc_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 88
+ 0058 0C940000          jmp _ee_ready_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 92
+ 005C 0C940000          jmp _analog_comp_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 96
+ 0060 0C940000          jmp _twi_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area vector(rom, abs)
+                        .org 100
+ 0064 0C940000          jmp _spm_rdy_isr
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area lit(rom, con, rel)
+ 0000           _shiftedNumbers#A_Kh::
+ 0000 2921              .byte 41,33
+ 0002 4023              .byte 64,35
+ 0004 2425              .byte 36,37
+ 0006 5E26              .byte 94,38
+ 0008 2A28              .byte 42,40
+ 000A                   .dbsym e shiftedNumbers _shiftedNumbers#A_Kh A[10:10]kc
+ 000A           _shiftedSymbols#A_Kh::
+ 000A 3C3E              .byte 60,62
+ 000C 3F3A              .byte 63,58
+ 000E 227B              .byte 34,123
+ 0010 7D5F              .byte 125,95
+ 0012 2B7C              .byte 43,124
+ 0014 7E20              .byte 126,32
+ 0016                   .dbsym e shiftedSymbols _shiftedSymbols#A_Kh A[12:12]kc
+ 0016           _asciiSymbols#A_Kh::
+ 0016 2C2E              .byte 44,46
+ 0018 2F3B              .byte 47,59
+ 001A 275B              .byte 39,91
+ 001C 5D2D              .byte 93,45
+ 001E 3D5C              .byte 61,92
+ 0020 6020              .byte 96,32
+ 0022                   .dbsym e asciiSymbols _asciiSymbols#A_Kh A[12:12]kc
+ 0022           _symbolsScancodes#A_Kh::
+ 0022 4149              .byte 'A,'I
+ 0024 4A4C              .byte 'J,'L
+ 0026 5254              .byte 'R,'T
+ 0028 5B4E              .byte 91,'N
+ 002A 555D              .byte 'U,93
+ 002C 0E29              .byte 14,41
+ 002E                   .dbsym e symbolsScancodes _symbolsScancodes#A_Kh A[12:12]kc
+ 002E           _alphaScancodes#A_Kh::
+ 002E 1C32              .byte 28,50
+ 0030 2123              .byte 33,35
+ 0032 242B              .byte 36,43
+ 0034 3433              .byte 52,51
+ 0036 433B              .byte 'C,59
+ 0038 424B              .byte 'B,'K
+ 003A 3A31              .byte 58,49
+ 003C 444D              .byte 'D,'M
+ 003E 152D              .byte 21,45
+ 0040 1B2C              .byte 27,44
+ 0042 3C2A              .byte 60,42
+ 0044 1D22              .byte 29,34
+ 0046 351A              .byte 53,26
+ 0048                   .dbsym e alphaScancodes _alphaScancodes#A_Kh A[26:26]kc
+ 0048           _numbersScancodes#A_Kh::
+ 0048 4516              .byte 'E,22
+ 004A 1E26              .byte 30,38
+ 004C 252E              .byte 37,46
+ 004E 363D              .byte 54,61
+ 0050 3E46              .byte 62,'F
+ 0052                   .dbsym e numbersScancodes _numbersScancodes#A_Kh A[10:10]kc
+ 0052           _numKeysScancodes#A_Kh::
+ 0052 7069              .byte 'p,'i
+ 0054 727A              .byte 'r,'z
+ 0056 6B73              .byte 'k,'s
+ 0058 746C              .byte 't,'l
+ 005A 757D              .byte 'u,125
+ 005C                   .dbsym e numKeysScancodes _numKeysScancodes#A_Kh A[10:10]kc
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 0000           L191:
+ 0000                   .blkb 1
+                        .area idata(rom)
+ 0000 00                .byte 0
+                        .area data(ram, con, rel)
+ 0001                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 0001           L192:
+ 0001                   .blkb 1
+                        .area idata(rom)
+ 0001 00                .byte 0
+                        .area data(ram, con, rel)
+ 0002                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 0002           L193:
+ 0002                   .blkb 1
+                        .area idata(rom)
+ 0002 00                .byte 0
+                        .area data(ram, con, rel)
+ 0003                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area bss(ram, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 0000           L410:
+ 0000                   .blkb 1
+                        .area data(ram, con, rel)
+ 0003                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 0003           _msTick#Vh::
+ 0003                   .blkb 1
+                        .area idata(rom)
+ 0003 00                .byte 0
+                        .area data(ram, con, rel)
+ 0004                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 0004                   .dbsym e msTick _msTick#Vh c
+ 0004           _sysReady#Vh::
+ 0004                   .blkb 1
+                        .area idata(rom)
+ 0004 00                .byte 0
+                        .area data(ram, con, rel)
+ 0005                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 0005                   .dbsym e sysReady _sysReady#Vh c
+ 0005           L493:
+ 0005                   .blkb 2
+                        .area idata(rom)
+ 0005 0000              .word 0
+                        .area data(ram, con, rel)
+ 0007                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 0007           L494:
+ 0007                   .blkb 1
+                        .area idata(rom)
+ 0007 00                .byte 0
+                        .area data(ram, con, rel)
+ 0008                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 0000                   .dbfunc e PCINT0_isr _PCINT0_isr#Fvv fV 75 10399316
+                        .even
+ 0000           _PCINT0_isr#Fvv::
+ 0000                   .dbblock 75
+ 0000                   .dbblkend 75
+ 0000           L1:
+ 0000 1895              reti
+ 0002                   .dbfuncend
+ 0002                   .dbstacksize -2
+ 0002                   .dbfunc e PCINT1_isr _PCINT1_isr#Fvv fV 76 10399316
+                        .even
+ 0002           _PCINT1_isr#Fvv::
+ 0002                   .dbblock 76
+ 0002                   .dbblkend 76
+ 0002           L2:
+ 0002 1895              reti
+ 0004                   .dbfuncend
+ 0004                   .dbstacksize -2
+ 0004                   .dbfunc e PCINT2_isr _PCINT2_isr#Fvv fV 77 10399316
+                        .even
+ 0004           _PCINT2_isr#Fvv::
+ 0004                   .dbblock 77
+ 0004                   .dbblkend 77
+ 0004           L3:
+ 0004 1895              reti
+ 0006                   .dbfuncend
+ 0006                   .dbstacksize -2
+ 0006                   .dbfunc e wdt_isr _wdt_isr#Fvv fV 78 10399316
+                        .even
+ 0006           _wdt_isr#Fvv::
+ 0006                   .dbblock 78
+ 0006                   .dbblkend 78
+ 0006           L4:
+ 0006 1895              reti
+ 0008                   .dbfuncend
+ 0008                   .dbstacksize -2
+ 0008                   .dbfunc e timer2_compa_isr _timer2_compa_isr#Fvv fV 79 10399316
+                        .even
+ 0008           _timer2_compa_isr#Fvv::
+ 0008                   .dbblock 79
+ 0008                   .dbblkend 79
+ 0008           L5:
+ 0008 1895              reti
+ 000A                   .dbfuncend
+ 000A                   .dbstacksize -2
+ 000A                   .dbfunc e timer2_compb_isr _timer2_compb_isr#Fvv fV 80 10399316
+                        .even
+ 000A           _timer2_compb_isr#Fvv::
+ 000A                   .dbblock 80
+ 000A                   .dbblkend 80
+ 000A           L6:
+ 000A 1895              reti
+ 000C                   .dbfuncend
+ 000C                   .dbstacksize -2
+ 000C                   .dbfunc e timer2_ovf_isr _timer2_ovf_isr#Fvv fV 81 10399316
+                        .even
+ 000C           _timer2_ovf_isr#Fvv::
+ 000C                   .dbblock 81
+ 000C                   .dbblkend 81
+ 000C           L7:
+ 000C 1895              reti
+ 000E                   .dbfuncend
+ 000E                   .dbstacksize -2
+ 000E                   .dbfunc e timer1_capt_isr _timer1_capt_isr#Fvv fV 82 10399316
+                        .even
+ 000E           _timer1_capt_isr#Fvv::
+ 000E                   .dbblock 82
+ 000E                   .dbblkend 82
+ 000E           L8:
+ 000E 1895              reti
+ 0010                   .dbfuncend
+ 0010                   .dbstacksize -2
+ 0010                   .dbfunc e timer1_compa_isr _timer1_compa_isr#Fvv fV 83 10399316
+                        .even
+ 0010           _timer1_compa_isr#Fvv::
+ 0010                   .dbblock 83
+ 0010                   .dbblkend 83
+ 0010           L9:
+ 0010 1895              reti
+ 0012                   .dbfuncend
+ 0012                   .dbstacksize -2
+ 0012                   .dbfunc e timer1_compb_isr _timer1_compb_isr#Fvv fV 84 10399316
+                        .even
+ 0012           _timer1_compb_isr#Fvv::
+ 0012                   .dbblock 84
+ 0012                   .dbblkend 84
+ 0012           L10:
+ 0012 1895              reti
+ 0014                   .dbfuncend
+ 0014                   .dbstacksize -2
+ 0014                   .dbfunc e timer1_ovf_isr _timer1_ovf_isr#Fvv fV 85 10399316
+                        .even
+ 0014           _timer1_ovf_isr#Fvv::
+ 0014                   .dbblock 85
+ 0014                   .dbblkend 85
+ 0014           L11:
+ 0014 1895              reti
+ 0016                   .dbfuncend
+ 0016                   .dbstacksize -2
+ 0016                   .dbfunc e timer0_compb_isr _timer0_compb_isr#Fvv fV 87 10399316
+                        .even
+ 0016           _timer0_compb_isr#Fvv::
+ 0016                   .dbblock 87
+ 0016                   .dbblkend 87
+ 0016           L12:
+ 0016 1895              reti
+ 0018                   .dbfuncend
+ 0018                   .dbstacksize -2
+ 0018                   .dbfunc e timer0_ovf_isr _timer0_ovf_isr#Fvv fV 88 10399316
+                        .even
+ 0018           _timer0_ovf_isr#Fvv::
+ 0018                   .dbblock 88
+ 0018                   .dbblkend 88
+ 0018           L13:
+ 0018 1895              reti
+ 001A                   .dbfuncend
+ 001A                   .dbstacksize -2
+ 001A                   .dbfunc e spi_stc_isr _spi_stc_isr#Fvv fV 89 10399316
+                        .even
+ 001A           _spi_stc_isr#Fvv::
+ 001A                   .dbblock 89
+ 001A                   .dbblkend 89
+ 001A           L14:
+ 001A 1895              reti
+ 001C                   .dbfuncend
+ 001C                   .dbstacksize -2
+ 001C                   .dbfunc e usart_udre_isr _usart_udre_isr#Fvv fV 91 10399316
+                        .even
+ 001C           _usart_udre_isr#Fvv::
+ 001C                   .dbblock 91
+ 001C                   .dbblkend 91
+ 001C           L15:
+ 001C 1895              reti
+ 001E                   .dbfuncend
+ 001E                   .dbstacksize -2
+ 001E                   .dbfunc e usart_txc_isr _usart_txc_isr#Fvv fV 92 10399316
+                        .even
+ 001E           _usart_txc_isr#Fvv::
+ 001E                   .dbblock 92
+ 001E                   .dbblkend 92
+ 001E           L16:
+ 001E 1895              reti
+ 0020                   .dbfuncend
+ 0020                   .dbstacksize -2
+ 0020                   .dbfunc e adc_isr _adc_isr#Fvv fV 93 10399316
+                        .even
+ 0020           _adc_isr#Fvv::
+ 0020                   .dbblock 93
+ 0020                   .dbblkend 93
+ 0020           L17:
+ 0020 1895              reti
+ 0022                   .dbfuncend
+ 0022                   .dbstacksize -2
+ 0022                   .dbfunc e ee_ready_isr _ee_ready_isr#Fvv fV 94 10399316
+                        .even
+ 0022           _ee_ready_isr#Fvv::
+ 0022                   .dbblock 94
+ 0022                   .dbblkend 94
+ 0022           L18:
+ 0022 1895              reti
+ 0024                   .dbfuncend
+ 0024                   .dbstacksize -2
+ 0024                   .dbfunc e analog_comp_isr _analog_comp_isr#Fvv fV 95 10399316
+                        .even
+ 0024           _analog_comp_isr#Fvv::
+ 0024                   .dbblock 95
+ 0024                   .dbblkend 95
+ 0024           L19:
+ 0024 1895              reti
+ 0026                   .dbfuncend
+ 0026                   .dbstacksize -2
+ 0026                   .dbfunc e twi_isr _twi_isr#Fvv fV 96 10399316
+                        .even
+ 0026           _twi_isr#Fvv::
+ 0026                   .dbblock 96
+ 0026                   .dbblkend 96
+ 0026           L20:
+ 0026 1895              reti
+ 0028                   .dbfuncend
+ 0028                   .dbstacksize -2
+ 0028                   .dbfunc e spm_rdy_isr _spm_rdy_isr#Fvv fV 97 10399316
+                        .even
+ 0028           _spm_rdy_isr#Fvv::
+ 0028                   .dbblock 97
+ 0028                   .dbblkend 97
+ 0028           L21:
+ 0028 1895              reti
+ 002A                   .dbfuncend
+ 002A                   .dbstacksize -2
+ 002A                   .dbfunc e writeUart _writeUart#FvVh fV 100 10399316
+ 002A           ;              c -> y+0
+                        .even
+ 002A           _writeUart#FvVh::
+ 002A 1A93              st -y,r17
+ 002C 0A93              st -y,r16
+ 002E                   .dbblock 101
+ 002E           L23:
+ 002E           L24:
+ 002E                   .dbline 102
+ 002E 2090C000          lds R2,192
+ 0032 25FE              sbrs R2,5
+ 0034 FCCF              rjmp L23
+ 0036           X0:
+ 0036                   .dbline 103
+ 0036 2880              ldd R2,y+0
+ 0038 2092C600          sts 198,R2
+ 003C           L26:
+ 003C           L27:
+ 003C                   .dbline 104
+ 003C 2090C000          lds R2,192
+ 0040 26FE              sbrs R2,6
+ 0042 FCCF              rjmp L26
+ 0044           X1:
+ 0044                   .dbline 105
+ 0044 8091C000          lds R24,192
+ 0048 8064              ori R24,64
+ 004A 8093C000          sts 192,R24
+ 004E                   .dbblkend 106
+ 004E           L22:
+ 004E 2296              adiw R28,2
+ 0050 0895              ret
+ 0052                   .dbfuncend
+ 0052                   .dbsym l c 0 c
+ 0052                   .dbstacksize -2
+ 0052                   .dbfunc e uartInit _uartInit#Fvm fV 127 10399316
+ 0052           ;       baudRate -> y+4
+                        .even
+ 0052           _uartInit#Fvm::
+ 0052 0E940000          xcall push_arg4
+ 0056 0E940000          xcall push_xgsetF000
+ 005A                   .dbblock 128
+ 005A                   .dbline 129
+ 005A 8091C100          lds R24,193
+ 005E 8F77              andi R24,127
+ 0060 8093C100          sts 193,R24
+ 0064                   .dbline 130
+ 0064 589A              sbi 0xb,0
+ 0066                   .dbline 131
+ 0066 5098              cbi 0xa,0
+ 0068                   .dbline 132
+ 0068 2C80              ldd R2,y+4
+ 006A 3D80              ldd R3,y+5
+ 006C 4E80              ldd R4,y+6
+ 006E 5F80              ldd R5,y+7
+ 0070 40E0              ldi R20,0
+ 0072 5DE2              ldi R21,45
+ 0074 61E3              ldi R22,49
+ 0076 71E0              ldi R23,1
+ 0078 5A92              st -y,R5
+ 007A 4A92              st -y,R4
+ 007C 3A92              st -y,R3
+ 007E 2A92              st -y,R2
+ 0080 8A01              movw R16,R20
+ 0082 9B01              movw R18,R22
+ 0084 0E940000          xcall div32u
+ 0088 83E0              ldi R24,3
+ 008A 90E0              ldi R25,0
+ 008C 8A93              st -y,R24
+ 008E 0E940000          xcall lsr32
+ 0092 1801              movw R2,R16
+ 0094 2901              movw R4,R18
+ 0096 41E0              ldi R20,1
+ 0098 50E0              ldi R21,0
+ 009A 60E0              ldi R22,0
+ 009C 70E0              ldi R23,0
+ 009E 241A              sub R2,R20
+ 00A0 350A              sbc R3,R21
+ 00A2 460A              sbc R4,R22
+ 00A4 570A              sbc R5,R23
+ 00A6 2C82              std y+4,R2
+ 00A8 3D82              std y+5,R3
+ 00AA 4E82              std y+6,R4
+ 00AC 5F82              std y+7,R5
+ 00AE                   .dbline 133
+ 00AE 88E0              ldi R24,8
+ 00B0 90E0              ldi R25,0
+ 00B2 0C81              ldd R16,y+4
+ 00B4 1D81              ldd R17,y+5
+ 00B6 2E81              ldd R18,y+6
+ 00B8 3F81              ldd R19,y+7
+ 00BA 8A93              st -y,R24
+ 00BC 0E940000          xcall lsr32
+ 00C0 0093C500          sts 197,R16
+ 00C4                   .dbline 134
+ 00C4 2C80              ldd R2,y+4
+ 00C6 2092C400          sts 196,R2
+ 00CA                   .dbline 135
+ 00CA 8091C000          lds R24,192
+ 00CE 8260              ori R24,2
+ 00D0 8093C000          sts 192,R24
+ 00D4                   .dbline 136
+ 00D4 88E9              ldi R24,152
+ 00D6 8093C100          sts 193,R24
+ 00DA                   .dbline 137
+ 00DA 86E0              ldi R24,6
+ 00DC 8093C200          sts 194,R24
+ 00E0                   .dbblkend 138
+ 00E0           L29:
+ 00E0 0E940000          xcall pop_xgsetF000
+ 00E4 2496              adiw R28,4
+ 00E6 0895              ret
+ 00E8                   .dbfuncend
+ 00E8                   .dbsym l baudRate 4 l
+ 00E8                   .dbstacksize 2
+ 00E8                   .dbfunc e initTimer0 _initTimer0#Fvv fV 141 10399316
+                        .even
+ 00E8           _initTimer0#Fvv::
+ 00E8                   .dbblock 142
+ 00E8                   .dbline 143
+ 00E8 A99A              sbi 0x15,1
+ 00EA                   .dbline 144
+ 00EA 85B5              in R24,0x25
+ 00EC 887F              andi R24,248
+ 00EE 85BD              out 0x25,R24
+ 00F0                   .dbline 145
+ 00F0 2224              clr R2
+ 00F2 24BC              out 0x24,R2
+ 00F4                   .dbline 146
+ 00F4 84B5              in R24,0x24
+ 00F6 8260              ori R24,2
+ 00F8 84BD              out 0x24,R24
+ 00FA                   .dbline 147
+ 00FA 26BC              out 0x26,R2
+ 00FC                   .dbline 148
+ 00FC 8EE4              ldi R24,78
+ 00FE 87BD              out 0x27,R24
+ 0100                   .dbline 149
+ 0100 80916E00          lds R24,110
+ 0104 8260              ori R24,2
+ 0106 80936E00          sts 110,R24
+ 010A                   .dbline 150
+ 010A 85B5              in R24,0x25
+ 010C 8460              ori R24,4
+ 010E 85BD              out 0x25,R24
+ 0110                   .dbblkend 151
+ 0110           L30:
+ 0110 0895              ret
+ 0112                   .dbfuncend
+ 0112                   .dbstacksize -2
+ 0112                   .dbfunc e initTimer1 _initTimer1#Fvv fV 153 10399316
+                        .even
+ 0112           _initTimer1#Fvv::
+ 0112                   .dbblock 154
+ 0112                   .dbline 155
+ 0112 86B3              in R24,0x16
+ 0114 8360              ori R24,3
+ 0116 86BB              out 0x16,R24
+ 0118                   .dbline 156
+ 0118 80918100          lds R24,129
+ 011C 887F              andi R24,248
+ 011E 80938100          sts 129,R24
+ 0122                   .dbline 157
+ 0122 2224              clr R2
+ 0124 20928000          sts 128,R2
+ 0128                   .dbline 158
+ 0128 3324              clr R3
+ 012A 30928500          sts 132+1,R3
+ 012E 20928400          sts 132,R2
+ 0132                   .dbline 160
+ 0132 80918100          lds R24,129
+ 0136 8160              ori R24,1
+ 0138 80938100          sts 129,R24
+ 013C                   .dbblkend 161
+ 013C           L31:
+ 013C 0895              ret
+ 013E                   .dbfuncend
+ 013E                   .dbstacksize -2
+ 013E                   .dbfunc e resetKBVars _resetKBVars#Fvv fV 294 10399316
+                        .even
+ 013E           _resetKBVars#Fvv::
+ 013E                   .dbblock 295
+ 013E                   .dbline 296
+ 013E 2224              clr R2
+ 0140 20920700          sts _kb#us2_32+6,R2
+ 0144                   .dbline 296
+ 0144 20920F00          sts _kb#us2_32+14,R2
+ 0148                   .dbline 296
+ 0148 20920900          sts _kb#us2_32+8,R2
+ 014C                   .dbline 296
+ 014C 20921000          sts _kb#us2_32+15,R2
+ 0150                   .dbline 297
+ 0150 20920800          sts _kb#us2_32+7,R2
+ 0154                   .dbline 297
+ 0154 20920A00          sts _kb#us2_32+9,R2
+ 0158                   .dbline 297
+ 0158 3324              clr R3
+ 015A 30921800          sts _kb#us2_32+22+1,R3
+ 015E 20921700          sts _kb#us2_32+22,R2
+ 0162                   .dbline 297
+ 0162 20920B00          sts _kb#us2_32+10,R2
+ 0166                   .dbline 298
+ 0166 20920200          sts _kb#us2_32+1,R2
+ 016A                   .dbline 298
+ 016A 20920D00          sts _kb#us2_32+12,R2
+ 016E                   .dbline 298
+ 016E 20920500          sts _kb#us2_32+4,R2
+ 0172                   .dbline 298
+ 0172 20920300          sts _kb#us2_32+2,R2
+ 0176                   .dbline 299
+ 0176 20920C00          sts _kb#us2_32+11,R2
+ 017A                   .dbline 299
+ 017A 20920100          sts _kb#us2_32,R2
+ 017E                   .dbline 299
+ 017E 30921400          sts _kb#us2_32+18+1,R3
+ 0182 20921300          sts _kb#us2_32+18,R2
+ 0186                   .dbline 299
+ 0186 20921100          sts _kb#us2_32+16,R2
+ 018A                   .dbline 300
+ 018A 81E0              ldi R24,1
+ 018C 80930400          sts _kb#us2_32+3,R24
+ 0190                   .dbline 300
+ 0190 82E0              ldi R24,2
+ 0192 80931200          sts _kb#us2_32+17,R24
+ 0196                   .dbblkend 301
+ 0196           L33:
+ 0196 0895              ret
+ 0198                   .dbfuncend
+ 0198                   .dbstacksize -2
+ 0198                   .dbfunc e initExtInt _initExtInt#Fvv fV 304 10399316
+                        .even
+ 0198           _initExtInt#Fvv::
+ 0198                   .dbblock 305
+ 0198                   .dbline 308
+ 0198 8CB3              in R24,0x1c
+ 019A 8360              ori R24,3
+ 019C 8CBB              out 0x1c,R24
+ 019E                   .dbline 309
+ 019E 2224              clr R2
+ 01A0 20926900          sts 105,R2
+ 01A4                   .dbline 310
+ 01A4 80916900          lds R24,105
+ 01A8 8A60              ori R24,10
+ 01AA 80936900          sts 105,R24
+ 01AE                   .dbline 311
+ 01AE 2DBA              out 0x1d,R2
+ 01B0                   .dbline 312
+ 01B0 8DB3              in R24,0x1d
+ 01B2 8360              ori R24,3
+ 01B4 8DBB              out 0x1d,R24
+ 01B6                   .dbblkend 313
+ 01B6           L51:
+ 01B6 0895              ret
+ 01B8                   .dbfuncend
+ 01B8                   .dbstacksize -2
+ 01B8                   .dbfunc e scanKey _scanKey#Fhh fc 316 10399316
+                        .area  func_lit(rom, con, rel)
+ 0000           _118#A13_Pv:
+ 0000 7E01              .word `L110
+ 0002 8E01              .word `L103
+ 0004 8401              .word `L113
+ 0006 8801              .word `L115
+ 0008 8E01              .word `L103
+ 000A 8E01              .word `L103
+ 000C 8E01              .word `L103
+ 000E 7C01              .word `L109
+ 0010 7A01              .word `L108
+ 0012 8001              .word `L111
+ 0014 8E01              .word `L103
+ 0016 8601              .word `L114
+ 0018 8A01              .word `L116
+ 001A 8E01              .word `L103
+ 001C 8E01              .word `L103
+ 001E 8E01              .word `L103
+ 0020 7801              .word `L107
+ 0022 8201              .word `L112
+ 0024 7601              .word `L106
+ 0026 7401              .word `L105
+ 0028 8C01              .word `L117
+                        .area text(rom, con, rel)
+                        .area  func_lit(rom, con, rel)
+ 002A           _188#A13_Pv:
+ 002A C901              .word `L132
+ 002C E901              .word `L119
+ 002E C101              .word `L128
+ 0030 BD01              .word `L126
+ 0032 B901              .word `L124
+ 0034 BB01              .word `L125
+ 0036 CF01              .word `L135
+ 0038 E901              .word `L119
+ 003A CB01              .word `L133
+ 003C C701              .word `L131
+ 003E C301              .word `L129
+ 0040 BF01              .word `L127
+ 0042 B501              .word `L122
+ 0044 E901              .word `L119
+ 0046 E901              .word `L119
+ 0048 E901              .word `L119
+ 004A D501              .word `L138
+ 004C E901              .word `L119
+ 004E E901              .word `L119
+ 0050 DF01              .word `L143
+                        .area text(rom, con, rel)
+                ;            ctr -> R20
+                ;              i -> R16
+                        .even
+ 01B8           _scanKey#Fhh::
+ 01B8 4A93              st -y,R20
+ 01BA 6A93              st -y,R22
+ 01BC                   .dbblock 317
+ 01BC                   .dbline 318
+ 01BC 4427              clr R20
+ 01BE                   .dbline 319
+ 01BE 20900800          lds R2,_kb#us2_32+7
+ 01C2 2220              tst R2
+ 01C4 09F4              brne X58
+ 01C6 63C0              xjmp L53
+ 01C8           X58:
+ 01C8           X2:
+ 01C8                   .dbline 321
+ 01C8 602F              mov R22,R16
+ 01CA 0A34              cpi R16,74
+ 01CC 09F4              brne X59
+ 01CE 41C0              xjmp L70
+ 01D0           X59:
+ 01D0           X3:
+ 01D0 8AE4              ldi R24,74
+ 01D2 8017              cp R24,R16
+ 01D4 68F0              brlo L87
+ 01D6           X4:
+ 01D6           L86:
+ 01D6 6131              cpi R22,17
+ 01D8 09F4              brne X60
+ 01DA 46C0              xjmp L76
+ 01DC           X60:
+ 01DC           X5:
+ 01DC 6431              cpi R22,20
+ 01DE 09F4              brne X61
+ 01E0 4CC0              xjmp L81
+ 01E2           X61:
+ 01E2           X6:
+ 01E2 6131              cpi R22,17
+ 01E4 08F4              brsh X62
+ 01E6 51C0              xjmp L57
+ 01E8           X62:
+ 01E8           X7:
+ 01E8           L88:
+ 01E8 6F32              cpi R22,47
+ 01EA 09F4              brne X63
+ 01EC 34C0              xjmp L71
+ 01EE           X63:
+ 01EE           X8:
+ 01EE 4DC0              xjmp L57
+ 01F0           L87:
+ 01F0 6936              cpi R22,105
+ 01F2 59F1              breq L68
+ 01F4           X9:
+ 01F4 6B36              cpi R22,107
+ 01F6 B9F0              breq L59
+ 01F8           X10:
+ 01F8 6C36              cpi R22,108
+ 01FA F9F0              breq L64
+ 01FC           X11:
+ 01FC 6037              cpi R22,112
+ 01FE D9F0              breq L63
+ 0200           X12:
+ 0200 6137              cpi R22,113
+ 0202 09F1              breq L67
+ 0204           X13:
+ 0204 6237              cpi R22,114
+ 0206 A9F0              breq L62
+ 0208           X14:
+ 0208 6437              cpi R22,116
+ 020A 79F0              breq L60
+ 020C           X15:
+ 020C 6537              cpi R22,117
+ 020E 79F0              breq L61
+ 0210           X16:
+ 0210 6A37              cpi R22,122
+ 0212 B9F0              breq L66
+ 0214           X17:
+ 0214 8AE7              ldi R24,122
+ 0216 8617              cp R24,R22
+ 0218 18F0              brlo L90
+ 021A           X18:
+ 021A           L89:
+ 021A 6A35              cpi R22,90
+ 021C C1F0              breq L69
+ 021E           X19:
+ 021E 35C0              xjmp L57
+ 0220           L90:
+ 0220 6D37              cpi R22,125
+ 0222 69F0              breq L65
+ 0224           X20:
+ 0224 32C0              xjmp L57
+ 0226           L59:
+ 0226                   .dbline 323
+ 0226 4CE1              ldi R20,28
+ 0228                   .dbline 323
+ 0228 30C0              xjmp L57
+ 022A           L60:
+ 022A                   .dbline 324
+ 022A 4AE1              ldi R20,26
+ 022C                   .dbline 324
+ 022C 2EC0              xjmp L57
+ 022E           L61:
+ 022E                   .dbline 325
+ 022E 48E1              ldi R20,24
+ 0230                   .dbline 325
+ 0230 2CC0              xjmp L57
+ 0232           L62:
+ 0232                   .dbline 326
+ 0232 49E1              ldi R20,25
+ 0234                   .dbline 326
+ 0234 2AC0              xjmp L57
+ 0236           L63:
+ 0236                   .dbline 327
+ 0236 47E1              ldi R20,23
+ 0238                   .dbline 327
+ 0238 28C0              xjmp L57
+ 023A           L64:
+ 023A                   .dbline 328
+ 023A 4BE0              ldi R20,11
+ 023C                   .dbline 328
+ 023C 26C0              xjmp L57
+ 023E           L65:
+ 023E                   .dbline 329
+ 023E 4DE8              ldi R20,141
+ 0240                   .dbline 329
+ 0240 24C0              xjmp L57
+ 0242           L66:
+ 0242                   .dbline 330
+ 0242 4EE8              ldi R20,142
+ 0244                   .dbline 330
+ 0244 22C0              xjmp L57
+ 0246           L67:
+ 0246                   .dbline 331
+ 0246 4FE7              ldi R20,127
+ 0248                   .dbline 331
+ 0248 20C0              xjmp L57
+ 024A           L68:
+ 024A                   .dbline 332
+ 024A 4FE8              ldi R20,143
+ 024C                   .dbline 332
+ 024C 1EC0              xjmp L57
+ 024E           L69:
+ 024E                   .dbline 333
+ 024E 4DE0              ldi R20,13
+ 0250                   .dbline 333
+ 0250 1CC0              xjmp L57
+ 0252           L70:
+ 0252                   .dbline 334
+ 0252 4FE2              ldi R20,47
+ 0254                   .dbline 334
+ 0254 1AC0              xjmp L57
+ 0256           L71:
+ 0256                   .dbline 335
+ 0256 20900D00          lds R2,_kb#us2_32+12
+ 025A 2220              tst R2
+ 025C B1F4              brne L57
+ 025E           X21:
+ 025E                   .dbline 335
+ 025E 81E0              ldi R24,1
+ 0260 80930D00          sts _kb#us2_32+12,R24
+ 0264                   .dbline 335
+ 0264 42E9              ldi R20,146
+ 0266                   .dbline 336
+ 0266 11C0              xjmp L57
+ 0268           L76:
+ 0268                   .dbline 337
+ 0268 20900D00          lds R2,_kb#us2_32+12
+ 026C 2220              tst R2
+ 026E 69F4              brne L57
+ 0270           X22:
+ 0270                   .dbline 337
+ 0270 81E0              ldi R24,1
+ 0272 80930D00          sts _kb#us2_32+12,R24
+ 0276                   .dbline 337
+ 0276 45E1              ldi R20,21
+ 0278                   .dbline 338
+ 0278 08C0              xjmp L57
+ 027A           L81:
+ 027A                   .dbline 339
+ 027A 20900D00          lds R2,_kb#us2_32+12
+ 027E 2220              tst R2
+ 0280 21F4              brne L57
+ 0282           X23:
+ 0282                   .dbline 339
+ 0282 81E0              ldi R24,1
+ 0284 80930D00          sts _kb#us2_32+12,R24
+ 0288                   .dbline 339
+ 0288 43E1              ldi R20,19
+ 028A           L57:
+ 028A                   .dbline 343
+ 028A 042F              mov R16,R20
+ 028C 18C1              xjmp L52
+ 028E           L53:
+ 028E                   .dbline 345
+ 028E 20900A00          lds R2,_kb#us2_32+9
+ 0292 2220              tst R2
+ 0294 A9F0              breq L91
+ 0296           X24:
+ 0296                   .dbline 347
+ 0296 0137              cpi R16,113
+ 0298 11F4              brne L94
+ 029A           X25:
+ 029A                   .dbline 347
+ 029A 0EE2              ldi R16,46
+ 029C 10C1              xjmp L52
+ 029E           L94:
+ 029E                   .dbline 348
+ 029E 4427              clr R20
+ 02A0 0DC0              xjmp L99
+ 02A2           L96:
+ 02A2                   .dbline 350
+ 02A2 80E0              ldi R24,<_numKeysScancodes#A_Kh
+ 02A4 90E0              ldi R25,>_numKeysScancodes#A_Kh
+ 02A6 E42F              mov R30,R20
+ 02A8 FF27              clr R31
+ 02AA E80F              add R30,R24
+ 02AC F91F              adc R31,R25
+ 02AE 2490              lpm R2,Z
+ 02B0 0215              cp R16,R2
+ 02B2 19F4              brne L100
+ 02B4           X26:
+ 02B4                   .dbline 350
+ 02B4 042F              mov R16,R20
+ 02B6 005D              subi R16,208    ; addi 48
+ 02B8 02C1              xjmp L52
+ 02BA           L100:
+ 02BA           L97:
+ 02BA                   .dbline 348
+ 02BA 4395              inc R20
+ 02BC           L99:
+ 02BC                   .dbline 348
+ 02BC 4A30              cpi R20,10
+ 02BE 88F3              brlo L96
+ 02C0           X27:
+ 02C0           L91:
+ 02C0                   .dbline 353
+ 02C0 602F              mov R22,R16
+ 02C2 0936              cpi R16,105
+ 02C4 08F4              brsh X64
+ 02C6 2AC0              xjmp L103
+ 02C8           X64:
+ 02C8           X28:
+ 02C8 8DE7              ldi R24,125
+ 02CA 8017              cp R24,R16
+ 02CC 38F1              brlo L103
+ 02CE           X29:
+ 02CE 80E0              ldi R24,<_118#A13_Pv
+ 02D0 90E0              ldi R25,>_118#A13_Pv
+ 02D2 E62F              mov R30,R22
+ 02D4 E956              subi R30,105
+ 02D6 FF27              clr R31
+ 02D8 EE0F              lsl R30
+ 02DA FF1F              rol R31
+ 02DC E80F              add R30,R24
+ 02DE F91F              adc R31,R25
+ 02E0 2590              lpm R2,Z+
+ 02E2 3490              lpm R3,Z
+ 02E4 F101              movw R30,R2
+ 02E6 0994               ijmp
+ 02E8           X30:
+ 02E8                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 02E8           L105:
+ 02E8                   .dbline 355
+ 02E8 0AE2              ldi R16,42
+ 02EA E9C0              xjmp L52
+ 02EC           L106:
+ 02EC                   .dbline 356
+ 02EC 0DE2              ldi R16,45
+ 02EE E7C0              xjmp L52
+ 02F0           L107:
+ 02F0                   .dbline 357
+ 02F0 0BE2              ldi R16,43
+ 02F2 E5C0              xjmp L52
+ 02F4           L108:
+ 02F4                   .dbline 358
+ 02F4 0FE7              ldi R16,127
+ 02F6 E3C0              xjmp L52
+ 02F8           L109:
+ 02F8                   .dbline 359
+ 02F8 07E1              ldi R16,23
+ 02FA E1C0              xjmp L52
+ 02FC           L110:
+ 02FC                   .dbline 360
+ 02FC 0FE8              ldi R16,143
+ 02FE DFC0              xjmp L52
+ 0300           L111:
+ 0300                   .dbline 361
+ 0300 09E1              ldi R16,25
+ 0302 DDC0              xjmp L52
+ 0304           L112:
+ 0304                   .dbline 362
+ 0304 0EE8              ldi R16,142
+ 0306 DBC0              xjmp L52
+ 0308           L113:
+ 0308                   .dbline 363
+ 0308 0CE1              ldi R16,28
+ 030A D9C0              xjmp L52
+ 030C           L114:
+ 030C                   .dbline 364
+ 030C 0AE1              ldi R16,26
+ 030E D7C0              xjmp L52
+ 0310           L115:
+ 0310                   .dbline 365
+ 0310 0BE0              ldi R16,11
+ 0312 D5C0              xjmp L52
+ 0314           L116:
+ 0314                   .dbline 366
+ 0314 08E1              ldi R16,24
+ 0316 D3C0              xjmp L52
+ 0318           L117:
+ 0318                   .dbline 367
+ 0318 0DE8              ldi R16,141
+ 031A D1C0              xjmp L52
+ 031C           L103:
+ 031C                   .dbline 370
+ 031C 602F              mov R22,R16
+ 031E 0636              cpi R16,102
+ 0320 09F4              brne X65
+ 0322 41C0              xjmp L137
+ 0324           X65:
+ 0324           X31:
+ 0324 86E6              ldi R24,102
+ 0326 8017              cp R24,R16
+ 0328 B0F0              brlo L186
+ 032A           X32:
+ 032A           L185:
+ 032A 6130              cpi R22,1
+ 032C 08F4              brsh X66
+ 032E 51C0              xjmp L119
+ 0330           X66:
+ 0330           X33:
+ 0330 84E1              ldi R24,20
+ 0332 8617              cp R24,R22
+ 0334 68F0              brlo L187
+ 0336           X34:
+ 0336 80E0              ldi R24,<_188#A13_Pv
+ 0338 90E0              ldi R25,>_188#A13_Pv
+ 033A E62F              mov R30,R22
+ 033C E150              subi R30,1
+ 033E FF27              clr R31
+ 0340 EE0F              lsl R30
+ 0342 FF1F              rol R31
+ 0344 E80F              add R30,R24
+ 0346 F91F              adc R31,R25
+ 0348 2590              lpm R2,Z+
+ 034A 3490              lpm R3,Z
+ 034C F101              movw R30,R2
+ 034E 0994               ijmp
+ 0350           X35:
+ 0350                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 0350           L187:
+ 0350 6A35              cpi R22,90
+ 0352 39F1              breq L136
+ 0354           X36:
+ 0354 3EC0              xjmp L119
+ 0356           L186:
+ 0356 6637              cpi R22,118
+ 0358 51F0              breq L123
+ 035A           X37:
+ 035A 6837              cpi R22,120
+ 035C F1F0              breq L134
+ 035E           X38:
+ 035E 6637              cpi R22,118
+ 0360 08F4              brsh X67
+ 0362 37C0              xjmp L119
+ 0364           X67:
+ 0364           X39:
+ 0364           L189:
+ 0364 6338              cpi R22,131
+ 0366 89F0              breq L130
+ 0368           X40:
+ 0368 34C0              xjmp L119
+ 036A           L122:
+ 036A                   .dbline 372
+ 036A 09E0              ldi R16,9
+ 036C A8C0              xjmp L52
+ 036E           L123:
+ 036E                   .dbline 373
+ 036E 0BE1              ldi R16,27
+ 0370 A6C0              xjmp L52
+ 0372           L124:
+ 0372                   .dbline 374
+ 0372 00E8              ldi R16,128
+ 0374 A4C0              xjmp L52
+ 0376           L125:
+ 0376                   .dbline 375
+ 0376 01E8              ldi R16,129
+ 0378 A2C0              xjmp L52
+ 037A           L126:
+ 037A                   .dbline 376
+ 037A 02E8              ldi R16,130
+ 037C A0C0              xjmp L52
+ 037E           L127:
+ 037E                   .dbline 377
+ 037E 03E8              ldi R16,131
+ 0380 9EC0              xjmp L52
+ 0382           L128:
+ 0382                   .dbline 378
+ 0382 04E8              ldi R16,132
+ 0384 9CC0              xjmp L52
+ 0386           L129:
+ 0386                   .dbline 379
+ 0386 05E8              ldi R16,133
+ 0388 9AC0              xjmp L52
+ 038A           L130:
+ 038A                   .dbline 380
+ 038A 06E8              ldi R16,134
+ 038C 98C0              xjmp L52
+ 038E           L131:
+ 038E                   .dbline 381
+ 038E 07E8              ldi R16,135
+ 0390 96C0              xjmp L52
+ 0392           L132:
+ 0392                   .dbline 382
+ 0392 08E8              ldi R16,136
+ 0394 94C0              xjmp L52
+ 0396           L133:
+ 0396                   .dbline 383
+ 0396 09E8              ldi R16,137
+ 0398 92C0              xjmp L52
+ 039A           L134:
+ 039A                   .dbline 384
+ 039A 0AE8              ldi R16,138
+ 039C 90C0              xjmp L52
+ 039E           L135:
+ 039E                   .dbline 385
+ 039E 0BE8              ldi R16,139
+ 03A0 8EC0              xjmp L52
+ 03A2           L136:
+ 03A2                   .dbline 386
+ 03A2 0DE0              ldi R16,13
+ 03A4 8CC0              xjmp L52
+ 03A6           L137:
+ 03A6                   .dbline 387
+ 03A6 08E0              ldi R16,8
+ 03A8 8AC0              xjmp L52
+ 03AA           L138:
+ 03AA                   .dbline 388
+ 03AA 20900D00          lds R2,_kb#us2_32+12
+ 03AE 2220              tst R2
+ 03B0 09F0              breq X68
+ 03B2 84C0              xjmp L120
+ 03B4           X68:
+ 03B4           X41:
+ 03B4                   .dbline 388
+ 03B4 81E0              ldi R24,1
+ 03B6 80930D00          sts _kb#us2_32+12,R24
+ 03BA                   .dbline 388
+ 03BA 04E1              ldi R16,20
+ 03BC 80C0              xjmp L52
+ 03BE           L143:
+ 03BE                   .dbline 390
+ 03BE 20900D00          lds R2,_kb#us2_32+12
+ 03C2 2220              tst R2
+ 03C4 09F0              breq X69
+ 03C6 7AC0              xjmp L120
+ 03C8           X69:
+ 03C8           X42:
+ 03C8                   .dbline 390
+ 03C8 81E0              ldi R24,1
+ 03CA 80930D00          sts _kb#us2_32+12,R24
+ 03CE                   .dbline 390
+ 03CE 02E1              ldi R16,18
+ 03D0 76C0              xjmp L52
+ 03D2           L119:
+ 03D2                   .dbline 393
+ 03D2 4427              clr R20
+ 03D4 2AC0              xjmp L151
+ 03D6           L148:
+ 03D6                   .dbline 395
+ 03D6 80E0              ldi R24,<_alphaScancodes#A_Kh
+ 03D8 90E0              ldi R25,>_alphaScancodes#A_Kh
+ 03DA E42F              mov R30,R20
+ 03DC FF27              clr R31
+ 03DE E80F              add R30,R24
+ 03E0 F91F              adc R31,R25
+ 03E2 2490              lpm R2,Z
+ 03E4 0215              cp R16,R2
+ 03E6 01F5              brne L152
+ 03E8           X43:
+ 03E8                   .dbline 397
+ 03E8 20900B00          lds R2,_kb#us2_32+10
+ 03EC 2220              tst R2
+ 03EE 71F0              breq L154
+ 03F0           X44:
+ 03F0                   .dbline 399
+ 03F0 20900100          lds R2,_kb#us2_32
+ 03F4 2220              tst R2
+ 03F6 21F4              brne L160
+ 03F8           X45:
+ 03F8 20900200          lds R2,_kb#us2_32+1
+ 03FC 2220              tst R2
+ 03FE 19F0              breq L157
+ 0400           X46:
+ 0400           L160:
+ 0400                   .dbline 399
+ 0400 042F              mov R16,R20
+ 0402 0F59              subi R16,159    ; addi 97
+ 0404 5CC0              xjmp L52
+ 0406           L157:
+ 0406                   .dbline 400
+ 0406 042F              mov R16,R20
+ 0408 0F5B              subi R16,191    ; addi 65
+ 040A 59C0              xjmp L52
+ 040C           L154:
+ 040C                   .dbline 402
+ 040C 20900100          lds R2,_kb#us2_32
+ 0410 2220              tst R2
+ 0412 21F4              brne L164
+ 0414           X47:
+ 0414 20900200          lds R2,_kb#us2_32+1
+ 0418 2220              tst R2
+ 041A 19F0              breq L161
+ 041C           X48:
+ 041C           L164:
+ 041C                   .dbline 402
+ 041C 042F              mov R16,R20
+ 041E 0F5B              subi R16,191    ; addi 65
+ 0420 4EC0              xjmp L52
+ 0422           L161:
+ 0422                   .dbline 403
+ 0422 042F              mov R16,R20
+ 0424 0F59              subi R16,159    ; addi 97
+ 0426 4BC0              xjmp L52
+ 0428           L152:
+ 0428           L149:
+ 0428                   .dbline 393
+ 0428 4395              inc R20
+ 042A           L151:
+ 042A                   .dbline 393
+ 042A 4A31              cpi R20,26
+ 042C A0F2              brlo L148
+ 042E           X49:
+ 042E                   .dbline 406
+ 042E 4427              clr R20
+ 0430 1DC0              xjmp L168
+ 0432           L165:
+ 0432                   .dbline 408
+ 0432 80E0              ldi R24,<_numbersScancodes#A_Kh
+ 0434 90E0              ldi R25,>_numbersScancodes#A_Kh
+ 0436 E42F              mov R30,R20
+ 0438 FF27              clr R31
+ 043A E80F              add R30,R24
+ 043C F91F              adc R31,R25
+ 043E 2490              lpm R2,Z
+ 0440 0215              cp R16,R2
+ 0442 99F4              brne L169
+ 0444           X50:
+ 0444                   .dbline 410
+ 0444 20900100          lds R2,_kb#us2_32
+ 0448 2220              tst R2
+ 044A 21F4              brne L174
+ 044C           X51:
+ 044C 20900200          lds R2,_kb#us2_32+1
+ 0450 2220              tst R2
+ 0452 41F0              breq L171
+ 0454           X52:
+ 0454           L174:
+ 0454                   .dbline 410
+ 0454 80E0              ldi R24,<_shiftedNumbers#A_Kh
+ 0456 90E0              ldi R25,>_shiftedNumbers#A_Kh
+ 0458 E42F              mov R30,R20
+ 045A FF27              clr R31
+ 045C E80F              add R30,R24
+ 045E F91F              adc R31,R25
+ 0460 0491              lpm R16,Z
+ 0462 2DC0              xjmp L52
+ 0464           L171:
+ 0464                   .dbline 411
+ 0464 042F              mov R16,R20
+ 0466 005D              subi R16,208    ; addi 48
+ 0468 2AC0              xjmp L52
+ 046A           L169:
+ 046A           L166:
+ 046A                   .dbline 406
+ 046A 4395              inc R20
+ 046C           L168:
+ 046C                   .dbline 406
+ 046C 4A30              cpi R20,10
+ 046E 08F3              brlo L165
+ 0470           X53:
+ 0470                   .dbline 414
+ 0470 4427              clr R20
+ 0472 22C0              xjmp L178
+ 0474           L175:
+ 0474                   .dbline 416
+ 0474 80E0              ldi R24,<_symbolsScancodes#A_Kh
+ 0476 90E0              ldi R25,>_symbolsScancodes#A_Kh
+ 0478 E42F              mov R30,R20
+ 047A FF27              clr R31
+ 047C E80F              add R30,R24
+ 047E F91F              adc R31,R25
+ 0480 2490              lpm R2,Z
+ 0482 0215              cp R16,R2
+ 0484 C1F4              brne L179
+ 0486           X54:
+ 0486                   .dbline 418
+ 0486 20900100          lds R2,_kb#us2_32
+ 048A 2220              tst R2
+ 048C 21F4              brne L184
+ 048E           X55:
+ 048E 20900200          lds R2,_kb#us2_32+1
+ 0492 2220              tst R2
+ 0494 41F0              breq L181
+ 0496           X56:
+ 0496           L184:
+ 0496                   .dbline 418
+ 0496 80E0              ldi R24,<_shiftedSymbols#A_Kh
+ 0498 90E0              ldi R25,>_shiftedSymbols#A_Kh
+ 049A E42F              mov R30,R20
+ 049C FF27              clr R31
+ 049E E80F              add R30,R24
+ 04A0 F91F              adc R31,R25
+ 04A2 0491              lpm R16,Z
+ 04A4 0CC0              xjmp L52
+ 04A6           L181:
+ 04A6                   .dbline 419
+ 04A6 80E0              ldi R24,<_asciiSymbols#A_Kh
+ 04A8 90E0              ldi R25,>_asciiSymbols#A_Kh
+ 04AA E42F              mov R30,R20
+ 04AC FF27              clr R31
+ 04AE E80F              add R30,R24
+ 04B0 F91F              adc R31,R25
+ 04B2 0491              lpm R16,Z
+ 04B4 04C0              xjmp L52
+ 04B6           L179:
+ 04B6           L176:
+ 04B6                   .dbline 414
+ 04B6 4395              inc R20
+ 04B8           L178:
+ 04B8                   .dbline 414
+ 04B8 4C30              cpi R20,12
+ 04BA E0F2              brlo L175
+ 04BC           X57:
+ 04BC           L120:
+ 04BC                   .dbline 424
+ 04BC 0027              clr R16
+ 04BE                   .dbblkend 425
+ 04BE           L52:
+ 04BE 6991              ld R22,y+
+ 04C0 4991              ld R20,y+
+ 04C2 0895              ret
+ 04C4                   .dbfuncend
+ 04C4                   .dbsym r ctr 20 c
+ 04C4                   .dbsym r i 16 c
+ 04C4                   .dbstacksize -2
+ 04C4                   .dbfunc e readKey _readKey#Fhh fc 428 10399316
+ 04C4                   .dbsym s printScreenUp L193 c
+ 04C4                   .dbsym s printScreenCnt L192 c
+ 04C4                   .dbsym s pauseBreakCnt L191 c
+ 04C4           ;              c -> R20
+ 04C4           ;       scancode -> R22
+                        .even
+ 04C4           _readKey#Fhh::
+ 04C4 0E940000          xcall push_xgsetF00C
+ 04C8 602F              mov R22,R16
+ 04CA                   .dbblock 429
+ 04CA                   .dbline 431
+ 04CA 4427              clr R20
+ 04CC                   .dbline 432
+ 04CC 613E              cpi R22,225
+ 04CE 39F4              brne L194
+ 04D0           X70:
+ 04D0                   .dbline 432
+ 04D0 80910000          lds R24,L191
+ 04D4 8F5F              subi R24,255    ; addi 1
+ 04D6 80930000          sts L191,R24
+ 04DA                   .dbline 432
+ 04DA 0027              clr R16
+ 04DC 81C1              xjmp L190
+ 04DE           L194:
+ 04DE                   .dbline 433
+ 04DE 20900000          lds R2,L191
+ 04E2 2220              tst R2
+ 04E4 39F1              breq L196
+ 04E6           X71:
+ 04E6                   .dbline 435
+ 04E6 A62E              mov R10,R22
+ 04E8 6737              cpi R22,119
+ 04EA 89F0              breq L202
+ 04EC           X72:
+ 04EC 87E7              ldi R24,119
+ 04EE 8617              cp R24,R22
+ 04F0 20F0              brlo L207
+ 04F2           X73:
+ 04F2           L206:
+ 04F2 8A2D              mov R24,R10
+ 04F4 8431              cpi R24,20
+ 04F6 29F0              breq L201
+ 04F8           X74:
+ 04F8 1BC0              xjmp L199
+ 04FA           L207:
+ 04FA 8A2D              mov R24,R10
+ 04FC 803F              cpi R24,240
+ 04FE 99F0              breq L205
+ 0500           X75:
+ 0500 17C0              xjmp L199
+ 0502           L201:
+ 0502                   .dbline 437
+ 0502 80910000          lds R24,L191
+ 0506 8F5F              subi R24,255    ; addi 1
+ 0508 80930000          sts L191,R24
+ 050C                   .dbline 437
+ 050C 11C0              xjmp L199
+ 050E           L202:
+ 050E                   .dbline 438
+ 050E 80910000          lds R24,L191
+ 0512 8F5F              subi R24,255    ; addi 1
+ 0514 80930000          sts L191,R24
+ 0518                   .dbline 439
+ 0518 8830              cpi R24,8
+ 051A 50F0              brlo L199
+ 051C           X76:
+ 051C                   .dbline 441
+ 051C 2224              clr R2
+ 051E 20920000          sts L191,R2
+ 0522                   .dbline 442
+ 0522 00E9              ldi R16,144
+ 0524 5DC1              xjmp L190
+ 0526           L205:
+ 0526                   .dbline 445
+ 0526 80910000          lds R24,L191
+ 052A 8F5F              subi R24,255    ; addi 1
+ 052C 80930000          sts L191,R24
+ 0530           L199:
+ 0530                   .dbline 448
+ 0530 0027              clr R16
+ 0532 56C1              xjmp L190
+ 0534           L196:
+ 0534                   .dbline 450
+ 0534 20900200          lds R2,L193
+ 0538 2220              tst R2
+ 053A 29F5              brne L208
+ 053C           X77:
+ 053C 20900100          lds R2,L192
+ 0540 2220              tst R2
+ 0542 09F1              breq L208
+ 0544           X78:
+ 0544                   .dbline 452
+ 0544 A62E              mov R10,R22
+ 0546 8A2D              mov R24,R10
+ 0548 6231              cpi R22,18
+ 054A 31F0              breq L213
+ 054C           X79:
+ 054C 6231              cpi R22,18
+ 054E D8F0              brlo L211
+ 0550           X80:
+ 0550           L218:
+ 0550 8A2D              mov R24,R10
+ 0552 8C37              cpi R24,124
+ 0554 41F0              breq L214
+ 0556           X81:
+ 0556 17C0              xjmp L211
+ 0558           L213:
+ 0558                   .dbline 454
+ 0558 80910100          lds R24,L192
+ 055C 8F5F              subi R24,255    ; addi 1
+ 055E 80930100          sts L192,R24
+ 0562                   .dbline 454
+ 0562 0027              clr R16
+ 0564 3DC1              xjmp L190
+ 0566           L214:
+ 0566                   .dbline 455
+ 0566 80910100          lds R24,L192
+ 056A 8F5F              subi R24,255    ; addi 1
+ 056C 80930100          sts L192,R24
+ 0570                   .dbline 456
+ 0570 8430              cpi R24,4
+ 0572 38F0              brlo L215
+ 0574           X82:
+ 0574                   .dbline 458
+ 0574 2224              clr R2
+ 0576 20920100          sts L192,R2
+ 057A                   .dbline 459
+ 057A 20920800          sts _kb#us2_32+7,R2
+ 057E                   .dbline 460
+ 057E 01E9              ldi R16,145
+ 0580 2FC1              xjmp L190
+ 0582           L215:
+ 0582                   .dbline 462
+ 0582 0027              clr R16
+ 0584 2DC1              xjmp L190
+ 0586           L211:
+ 0586           L208:
+ 0586                   .dbline 466
+ 0586 20900100          lds R2,L192
+ 058A 2220              tst R2
+ 058C 09F4              brne X115
+ 058E 39C0              xjmp L219
+ 0590           X115:
+ 0590           X83:
+ 0590                   .dbline 468
+ 0590 A62E              mov R10,R22
+ 0592 6C37              cpi R22,124
+ 0594 D1F0              breq L227
+ 0596           X84:
+ 0596 8CE7              ldi R24,124
+ 0598 8617              cp R24,R22
+ 059A 20F0              brlo L234
+ 059C           X85:
+ 059C           L233:
+ 059C 8A2D              mov R24,R10
+ 059E 8231              cpi R24,18
+ 05A0 D9F0              breq L228
+ 05A2           X86:
+ 05A2 2FC0              xjmp L222
+ 05A4           L234:
+ 05A4 8A2D              mov R24,R10
+ 05A6 803F              cpi R24,240
+ 05A8 09F0              breq L224
+ 05AA           X87:
+ 05AA 2BC0              xjmp L222
+ 05AC           L224:
+ 05AC                   .dbline 470
+ 05AC 80910100          lds R24,L192
+ 05B0 8F5F              subi R24,255    ; addi 1
+ 05B2 80930100          sts L192,R24
+ 05B6                   .dbline 471
+ 05B6 81E0              ldi R24,1
+ 05B8 80930200          sts L193,R24
+ 05BC                   .dbline 472
+ 05BC 80930500          sts _kb#us2_32+4,R24
+ 05C0                   .dbline 473
+ 05C0 2224              clr R2
+ 05C2 20920D00          sts _kb#us2_32+12,R2
+ 05C6                   .dbline 473
+ 05C6 0027              clr R16
+ 05C8 0BC1              xjmp L190
+ 05CA           L227:
+ 05CA                   .dbline 474
+ 05CA 80910100          lds R24,L192
+ 05CE 8F5F              subi R24,255    ; addi 1
+ 05D0 80930100          sts L192,R24
+ 05D4                   .dbline 474
+ 05D4 0027              clr R16
+ 05D6 04C1              xjmp L190
+ 05D8           L228:
+ 05D8                   .dbline 475
+ 05D8 80910100          lds R24,L192
+ 05DC 8F5F              subi R24,255    ; addi 1
+ 05DE 80930100          sts L192,R24
+ 05E2                   .dbline 476
+ 05E2 8630              cpi R24,6
+ 05E4 60F0              brlo L229
+ 05E6           X88:
+ 05E6                   .dbline 478
+ 05E6 2224              clr R2
+ 05E8 20920800          sts _kb#us2_32+7,R2
+ 05EC                   .dbline 479
+ 05EC 20920500          sts _kb#us2_32+4,R2
+ 05F0                   .dbline 480
+ 05F0 20920200          sts L193,R2
+ 05F4                   .dbline 481
+ 05F4 20920100          sts L192,R2
+ 05F8                   .dbline 482
+ 05F8 81E0              ldi R24,1
+ 05FA 80930200          sts L193,R24
+ 05FE           L229:
+ 05FE                   .dbline 484
+ 05FE 0027              clr R16
+ 0600 EFC0              xjmp L190
+ 0602           L222:
+ 0602           L219:
+ 0602                   .dbline 488
+ 0602 A62E              mov R10,R22
+ 0604 6737              cpi R22,119
+ 0606 09F4              brne X116
+ 0608 76C0              xjmp L270
+ 060A           X116:
+ 060A           X89:
+ 060A 87E7              ldi R24,119
+ 060C 8617              cp R24,R22
+ 060E 70F0              brlo L313
+ 0610           X90:
+ 0610           L312:
+ 0610 8A2D              mov R24,R10
+ 0612 8231              cpi R24,18
+ 0614 09F4              brne X117
+ 0616 61C0              xjmp L263
+ 0618           X117:
+ 0618           X91:
+ 0618 8231              cpi R24,18
+ 061A 08F4              brsh X118
+ 061C A5C0              xjmp L235
+ 061E           X118:
+ 061E           X92:
+ 061E           L314:
+ 061E 8A2D              mov R24,R10
+ 0620 8835              cpi R24,88
+ 0622 81F1              breq L247
+ 0624           X93:
+ 0624 8935              cpi R24,89
+ 0626 09F4              brne X119
+ 0628 4AC0              xjmp L258
+ 062A           X119:
+ 062A           X94:
+ 062A 9EC0              xjmp L235
+ 062C           L313:
+ 062C 8A2D              mov R24,R10
+ 062E 803E              cpi R24,224
+ 0630 61F0              breq L238
+ 0632           X95:
+ 0632 80EE              ldi R24,224
+ 0634 8A15              cp R24,R10
+ 0636 28F0              brlo L316
+ 0638           X96:
+ 0638           L315:
+ 0638 8A2D              mov R24,R10
+ 063A 8E37              cpi R24,126
+ 063C 09F4              brne X120
+ 063E 78C0              xjmp L281
+ 0640           X120:
+ 0640           X97:
+ 0640 93C0              xjmp L235
+ 0642           L316:
+ 0642 8A2D              mov R24,R10
+ 0644 803F              cpi R24,240
+ 0646 A9F0              breq L244
+ 0648           X98:
+ 0648 8FC0              xjmp L235
+ 064A           L238:
+ 064A                   .dbline 490
+ 064A 80910100          lds R24,L192
+ 064E 8F5F              subi R24,255    ; addi 1
+ 0650 80930100          sts L192,R24
+ 0654                   .dbline 490
+ 0654 81E0              ldi R24,1
+ 0656 80930800          sts _kb#us2_32+7,R24
+ 065A                   .dbline 490
+ 065A 2224              clr R2
+ 065C 20920200          sts L193,R2
+ 0660                   .dbline 491
+ 0660 20900500          lds R2,_kb#us2_32+4
+ 0664 2220              tst R2
+ 0666 09F4              brne X121
+ 0668 BAC0              xjmp L236
+ 066A           X121:
+ 066A           X99:
+ 066A                   .dbline 491
+ 066A 2224              clr R2
+ 066C 20920500          sts _kb#us2_32+4,R2
+ 0670                   .dbline 492
+ 0670 B6C0              xjmp L236
+ 0672           L244:
+ 0672                   .dbline 493
+ 0672 81E0              ldi R24,1
+ 0674 80930500          sts _kb#us2_32+4,R24
+ 0678                   .dbline 493
+ 0678 2224              clr R2
+ 067A 20920D00          sts _kb#us2_32+12,R2
+ 067E                   .dbline 494
+ 067E 80930200          sts L193,R24
+ 0682                   .dbline 494
+ 0682 ADC0              xjmp L236
+ 0684           L247:
+ 0684                   .dbline 495
+ 0684 20900500          lds R2,_kb#us2_32+4
+ 0688 2220              tst R2
+ 068A 21F0              breq L248
+ 068C           X100:
+ 068C                   .dbline 495
+ 068C 2224              clr R2
+ 068E 20920500          sts _kb#us2_32+4,R2
+ 0692                   .dbline 495
+ 0692 A5C0              xjmp L236
+ 0694           L248:
+ 0694                   .dbline 496
+ 0694 20900D00          lds R2,_kb#us2_32+12
+ 0698 2220              tst R2
+ 069A 09F0              breq X122
+ 069C A0C0              xjmp L236
+ 069E           X122:
+ 069E           X101:
+ 069E                   .dbline 498
+ 069E 81E0              ldi R24,1
+ 06A0 20900B00          lds R2,_kb#us2_32+10
+ 06A4 2826              eor R2,R24
+ 06A6 20920B00          sts _kb#us2_32+10,R2
+ 06AA                   .dbline 499
+ 06AA 80930D00          sts _kb#us2_32+12,R24
+ 06AE                   .dbline 500
+ 06AE 84E0              ldi R24,4
+ 06B0 20900900          lds R2,_kb#us2_32+8
+ 06B4 2826              eor R2,R24
+ 06B6 20920900          sts _kb#us2_32+8,R2
+ 06BA                   .dbline 501
+ 06BA 03E0              ldi R16,3
+ 06BC 91C0              xjmp L190
+ 06BE           L258:
+ 06BE                   .dbline 504
+ 06BE 20900500          lds R2,_kb#us2_32+4
+ 06C2 2220              tst R2
+ 06C4 31F0              breq L259
+ 06C6           X102:
+ 06C6                   .dbline 504
+ 06C6 2224              clr R2
+ 06C8 20920500          sts _kb#us2_32+4,R2
+ 06CC                   .dbline 504
+ 06CC 20920100          sts _kb#us2_32,R2
+ 06D0                   .dbline 504
+ 06D0 86C0              xjmp L236
+ 06D2           L259:
+ 06D2                   .dbline 505
+ 06D2 81E0              ldi R24,1
+ 06D4 80930100          sts _kb#us2_32,R24
+ 06D8                   .dbline 505
+ 06D8 82C0              xjmp L236
+ 06DA           L263:
+ 06DA                   .dbline 506
+ 06DA 20900500          lds R2,_kb#us2_32+4
+ 06DE 2220              tst R2
+ 06E0 31F0              breq L264
+ 06E2           X103:
+ 06E2                   .dbline 506
+ 06E2 2224              clr R2
+ 06E4 20920500          sts _kb#us2_32+4,R2
+ 06E8                   .dbline 506
+ 06E8 20920200          sts _kb#us2_32+1,R2
+ 06EC                   .dbline 506
+ 06EC 78C0              xjmp L236
+ 06EE           L264:
+ 06EE                   .dbline 507
+ 06EE 81E0              ldi R24,1
+ 06F0 80930200          sts _kb#us2_32+1,R24
+ 06F4                   .dbline 507
+ 06F4 74C0              xjmp L236
+ 06F6           L270:
+ 06F6                   .dbline 508
+ 06F6 20900500          lds R2,_kb#us2_32+4
+ 06FA 2220              tst R2
+ 06FC 21F0              breq L271
+ 06FE           X104:
+ 06FE                   .dbline 508
+ 06FE 2224              clr R2
+ 0700 20920500          sts _kb#us2_32+4,R2
+ 0704                   .dbline 508
+ 0704 6CC0              xjmp L236
+ 0706           L271:
+ 0706                   .dbline 509
+ 0706 20900D00          lds R2,_kb#us2_32+12
+ 070A 2220              tst R2
+ 070C 09F0              breq X123
+ 070E 67C0              xjmp L236
+ 0710           X123:
+ 0710           X105:
+ 0710                   .dbline 511
+ 0710 81E0              ldi R24,1
+ 0712 20900A00          lds R2,_kb#us2_32+9
+ 0716 2826              eor R2,R24
+ 0718 20920A00          sts _kb#us2_32+9,R2
+ 071C                   .dbline 512
+ 071C 80930D00          sts _kb#us2_32+12,R24
+ 0720                   .dbline 513
+ 0720 82E0              ldi R24,2
+ 0722 20900900          lds R2,_kb#us2_32+8
+ 0726 2826              eor R2,R24
+ 0728 20920900          sts _kb#us2_32+8,R2
+ 072C                   .dbline 514
+ 072C 03E0              ldi R16,3
+ 072E 58C0              xjmp L190
+ 0730           L281:
+ 0730                   .dbline 517
+ 0730 20900500          lds R2,_kb#us2_32+4
+ 0734 2220              tst R2
+ 0736 21F0              breq L282
+ 0738           X106:
+ 0738                   .dbline 517
+ 0738 2224              clr R2
+ 073A 20920500          sts _kb#us2_32+4,R2
+ 073E                   .dbline 517
+ 073E 4FC0              xjmp L236
+ 0740           L282:
+ 0740                   .dbline 518
+ 0740 20900D00          lds R2,_kb#us2_32+12
+ 0744 2220              tst R2
+ 0746 09F0              breq X124
+ 0748 4AC0              xjmp L236
+ 074A           X124:
+ 074A           X107:
+ 074A                   .dbline 520
+ 074A 81E0              ldi R24,1
+ 074C 20900C00          lds R2,_kb#us2_32+11
+ 0750 2826              eor R2,R24
+ 0752 20920C00          sts _kb#us2_32+11,R2
+ 0756                   .dbline 521
+ 0756 80930D00          sts _kb#us2_32+12,R24
+ 075A                   .dbline 522
+ 075A 20900900          lds R2,_kb#us2_32+8
+ 075E 2826              eor R2,R24
+ 0760 20920900          sts _kb#us2_32+8,R2
+ 0764                   .dbline 523
+ 0764 06E1              ldi R16,22
+ 0766 3CC0              xjmp L190
+ 0768           L235:
+ 0768                   .dbline 527
+ 0768 20900500          lds R2,_kb#us2_32+4
+ 076C 2220              tst R2
+ 076E E9F0              breq L292
+ 0770           X108:
+ 0770 20900800          lds R2,_kb#us2_32+7
+ 0774 2220              tst R2
+ 0776 C9F0              breq L292
+ 0778           X109:
+ 0778                   .dbline 529
+ 0778 4427              clr R20
+ 077A                   .dbline 529
+ 077A 2224              clr R2
+ 077C 20920100          sts L192,R2
+ 0780                   .dbline 529
+ 0780 20920200          sts L193,R2
+ 0784                   .dbline 529
+ 0784 20920800          sts _kb#us2_32+7,R2
+ 0788                   .dbline 529
+ 0788 20920500          sts _kb#us2_32+4,R2
+ 078C                   .dbline 530
+ 078C A62E              mov R10,R22
+ 078E 8A2D              mov R24,R10
+ 0790 6F31              cpi R22,31
+ 0792 31F0              breq L301
+ 0794           X110:
+ 0794 6F31              cpi R22,31
+ 0796 38F0              brlo L299
+ 0798           X111:
+ 0798           L303:
+ 0798 8A2D              mov R24,R10
+ 079A 8732              cpi R24,39
+ 079C 19F0              breq L302
+ 079E           X112:
+ 079E 03C0              xjmp L299
+ 07A0           L301:
+ 07A0                   .dbline 532
+ 07A0 4CE8              ldi R20,140
+ 07A2                   .dbline 532
+ 07A2 01C0              xjmp L299
+ 07A4           L302:
+ 07A4                   .dbline 533
+ 07A4 4CE8              ldi R20,140
+ 07A6           L299:
+ 07A6                   .dbline 536
+ 07A6 042F              mov R16,R20
+ 07A8 1BC0              xjmp L190
+ 07AA           L292:
+ 07AA                   .dbline 538
+ 07AA 20900500          lds R2,_kb#us2_32+4
+ 07AE 2220              tst R2
+ 07B0 51F0              breq L304
+ 07B2           X113:
+ 07B2                   .dbline 538
+ 07B2 2224              clr R2
+ 07B4 20920500          sts _kb#us2_32+4,R2
+ 07B8                   .dbline 538
+ 07B8 20920100          sts L192,R2
+ 07BC                   .dbline 538
+ 07BC 20920200          sts L193,R2
+ 07C0                   .dbline 538
+ 07C0 20920800          sts _kb#us2_32+7,R2
+ 07C4                   .dbline 538
+ 07C4 0CC0              xjmp L236
+ 07C6           L304:
+ 07C6                   .dbline 539
+ 07C6 062F              mov R16,R22
+ 07C8 F7DC              xcall _scanKey#Fhh
+ 07CA 402F              mov R20,R16
+ 07CC 4423              tst R20
+ 07CE 39F0              breq L236
+ 07D0           X114:
+ 07D0                   .dbline 539
+ 07D0 2224              clr R2
+ 07D2 20920800          sts _kb#us2_32+7,R2
+ 07D6                   .dbline 539
+ 07D6 20920100          sts L192,R2
+ 07DA                   .dbline 539
+ 07DA 20920200          sts L193,R2
+ 07DE           L236:
+ 07DE                   .dbline 542
+ 07DE 042F              mov R16,R20
+ 07E0                   .dbblkend 543
+ 07E0           L190:
+ 07E0 0C940000          xjmp pop_xgsetF00C
+ 07E4 0895              ret
+ 07E6                   .dbfuncend
+ 07E6                   .dbsym r c 20 c
+ 07E6                   .dbsym r scancode 22 c
+ 07E6                   .dbstacksize 2
+ 07E6                   .dbfunc e writeKeyboard _writeKeyboard#Fhv fc 548 10399316
+                        .even
+ 07E6           _writeKeyboard#Fhv::
+ 07E6                   .dbblock 549
+ 07E6                   .dbline 550
+ 07E6 81E0              ldi R24,1
+ 07E8 80930400          sts _kb#us2_32+3,R24
+ 07EC                   .dbline 551
+ 07EC 20901700          lds R2,_kb#us2_32+22
+ 07F0 30901800          lds R3,_kb#us2_32+22+1
+ 07F4 30921600          sts _kb#us2_32+20+1,R3
+ 07F8 20921500          sts _kb#us2_32+20,R2
+ 07FC                   .dbline 552
+ 07FC 00911500          lds R16,_kb#us2_32+20
+ 0800 05D2              xcall _getOddParity#Fhh
+ 0802 0023              tst R16
+ 0804 49F4              brne L321
+ 0806           X125:
+ 0806                   .dbline 552
+ 0806 80911500          lds R24,_kb#us2_32+20
+ 080A 90911600          lds R25,_kb#us2_32+20+1
+ 080E 9160              ori R25,1
+ 0810 90931600          sts _kb#us2_32+20+1,R25
+ 0814 80931500          sts _kb#us2_32+20,R24
+ 0818           L321:
+ 0818                   .dbline 553
+ 0818 80911500          lds R24,_kb#us2_32+20
+ 081C 90911600          lds R25,_kb#us2_32+20+1
+ 0820 9260              ori R25,2
+ 0822 90931600          sts _kb#us2_32+20+1,R25
+ 0826 80931500          sts _kb#us2_32+20,R24
+ 082A                   .dbline 554
+ 082A 81E0              ldi R24,1
+ 082C 80930700          sts _kb#us2_32+6,R24
+ 0830                   .dbline 555
+ 0830 83E0              ldi R24,3
+ 0832 80931200          sts _kb#us2_32+17,R24
+ 0836                   .dbline 556
+ 0836 8DB3              in R24,0x1d
+ 0838 8C7F              andi R24,252
+ 083A 8DBB              out 0x1d,R24
+ 083C                   .dbline 557
+ 083C 5B9A              sbi 0xb,3
+ 083E                   .dbline 558
+ 083E 5A98              cbi 0xb,2
+ 0840                   .dbline 559
+ 0840 8AB1              in R24,0xa
+ 0842 8C60              ori R24,12
+ 0844 8AB9              out 0xa,R24
+ 0846                   .dbline 560
+ 0846 0CE3              ldi R16,60
+ 0848 10E0              ldi R17,0
+ 084A 95D1              xcall _delay_us#Fvt
+ 084C                   .dbline 561
+ 084C 5B98              cbi 0xb,3
+ 084E                   .dbline 562
+ 084E 05E0              ldi R16,5
+ 0850 10E0              ldi R17,0
+ 0852 91D1              xcall _delay_us#Fvt
+ 0854                   .dbline 563
+ 0854 5A9A              sbi 0xb,2
+ 0856                   .dbline 564
+ 0856 5298              cbi 0xa,2
+ 0858                   .dbline 565
+ 0858 05E0              ldi R16,5
+ 085A 10E0              ldi R17,0
+ 085C 8CD1              xcall _delay_us#Fvt
+ 085E                   .dbline 566
+ 085E E09A              sbi 0x1c,0
+ 0860                   .dbline 566
+ 0860 80916900          lds R24,105
+ 0864 8260              ori R24,2
+ 0866 80936900          sts 105,R24
+ 086A                   .dbline 566
+ 086A E89A              sbi 0x1d,0
+ 086C                   .dbline 567
+ 086C 2224              clr R2
+ 086E 20921000          sts _kb#us2_32+15,R2
+ 0872                   .dbline 568
+ 0872 3324              clr R3
+ 0874 30928500          sts 132+1,R3
+ 0878 20928400          sts 132,R2
+ 087C           L329:
+ 087C           L330:
+ 087C                   .dbline 569
+ 087C 20901000          lds R2,_kb#us2_32+15
+ 0880 2220              tst R2
+ 0882 49F4              brne L333
+ 0884           X126:
+ 0884 80E2              ldi R24,20000
+ 0886 9EE4              ldi R25,78
+ 0888 20908400          lds R2,132
+ 088C 30908500          lds R3,132+1
+ 0890 2816              cp R2,R24
+ 0892 3906              cpc R3,R25
+ 0894 98F3              brlo L329
+ 0896           X127:
+ 0896           L333:
+ 0896                   .dbline 570
+ 0896 20901000          lds R2,_kb#us2_32+15
+ 089A 2220              tst R2
+ 089C 09F4              brne L334
+ 089E           X128:
+ 089E                   .dbline 570
+ 089E 42C0              xjmp L337
+ 08A0           L334:
+ 08A0                   .dbline 571
+ 08A0 E09A              sbi 0x1c,0
+ 08A2                   .dbline 572
+ 08A2 80916900          lds R24,105
+ 08A6 8360              ori R24,3
+ 08A8 80936900          sts 105,R24
+ 08AC                   .dbline 573
+ 08AC 2224              clr R2
+ 08AE 3324              clr R3
+ 08B0 30928500          sts 132+1,R3
+ 08B4 20928400          sts 132,R2
+ 08B8                   .dbline 574
+ 08B8 20921100          sts _kb#us2_32+16,R2
+ 08BC           L339:
+ 08BC           L340:
+ 08BC                   .dbline 575
+ 08BC 20901100          lds R2,_kb#us2_32+16
+ 08C0 2220              tst R2
+ 08C2 49F4              brne L343
+ 08C4           X129:
+ 08C4 80E3              ldi R24,30000
+ 08C6 95E7              ldi R25,117
+ 08C8 20908400          lds R2,132
+ 08CC 30908500          lds R3,132+1
+ 08D0 2816              cp R2,R24
+ 08D2 3906              cpc R3,R25
+ 08D4 98F3              brlo L339
+ 08D6           X130:
+ 08D6           L343:
+ 08D6                   .dbline 576
+ 08D6 20901100          lds R2,_kb#us2_32+16
+ 08DA 2220              tst R2
+ 08DC 09F4              brne L344
+ 08DE           X131:
+ 08DE                   .dbline 576
+ 08DE 22C0              xjmp L337
+ 08E0           L344:
+ 08E0                   .dbline 577
+ 08E0 2224              clr R2
+ 08E2 3324              clr R3
+ 08E4 30928500          sts 132+1,R3
+ 08E8 20928400          sts 132,R2
+ 08EC                   .dbline 578
+ 08EC 5A9A              sbi 0xb,2
+ 08EE                   .dbline 579
+ 08EE 5398              cbi 0xa,3
+ 08F0                   .dbline 580
+ 08F0 05E0              ldi R16,5
+ 08F2 10E0              ldi R17,0
+ 08F4 40D1              xcall _delay_us#Fvt
+ 08F6           L347:
+ 08F6           L348:
+ 08F6                   .dbline 581
+ 08F6 4B9B              sbis 0x9,3
+ 08F8 09C0              rjmp L350
+ 08FA           X132:
+ 08FA 84E1              ldi R24,1300
+ 08FC 95E0              ldi R25,5
+ 08FE 20908400          lds R2,132
+ 0902 30908500          lds R3,132+1
+ 0906 2816              cp R2,R24
+ 0908 3906              cpc R3,R25
+ 090A A8F3              brlo L347
+ 090C           X133:
+ 090C           L350:
+ 090C                   .dbline 582
+ 090C 84E1              ldi R24,1300
+ 090E 95E0              ldi R25,5
+ 0910 20908400          lds R2,132
+ 0914 30908500          lds R3,132+1
+ 0918 2816              cp R2,R24
+ 091A 3906              cpc R3,R25
+ 091C 18F4              brsh L351
+ 091E           X134:
+ 091E                   .dbline 582
+ 091E 2224              clr R2
+ 0920 20920400          sts _kb#us2_32+3,R2
+ 0924           L351:
+ 0924           L337:
+ 0924                   .dbline 584
+ 0924 5B9A              sbi 0xb,3
+ 0926                   .dbline 585
+ 0926 539A              sbi 0xa,3
+ 0928                   .dbline 586
+ 0928 82E0              ldi R24,2
+ 092A 80931200          sts _kb#us2_32+17,R24
+ 092E                   .dbline 587
+ 092E 34DC              xcall _initExtInt#Fvv
+ 0930                   .dbline 588
+ 0930 2224              clr R2
+ 0932 20921000          sts _kb#us2_32+15,R2
+ 0936                   .dbline 589
+ 0936 20920700          sts _kb#us2_32+6,R2
+ 093A                   .dbline 590
+ 093A 00910400          lds R16,_kb#us2_32+3
+ 093E                   .dbblkend 591
+ 093E           L317:
+ 093E 0895              ret
+ 0940                   .dbfuncend
+ 0940                   .dbstacksize -2
+ 0940                   .dbfunc e resetKb _resetKb#Fhv fc 594 10399316
+ 0940           ;              c -> R10
+ 0940           ;       tryWrite -> R20
+                        .even
+ 0940           _resetKb#Fhv::
+ 0940 AA92              st -y,R10
+ 0942 4A93              st -y,R20
+ 0944                   .dbblock 595
+ 0944                   .dbline 596
+ 0944 4427              clr R20
+ 0946                   .dbline 597
+ 0946 8FEF              ldi R24,255
+ 0948 90E0              ldi R25,0
+ 094A 90931800          sts _kb#us2_32+22+1,R25
+ 094E 80931700          sts _kb#us2_32+22,R24
+ 0952 06C0              xjmp L361
+ 0954           L360:
+ 0954                   .dbline 600
+ 0954 48DF              xcall _writeKeyboard#Fhv
+ 0956 A02E              mov R10,R16
+ 0958 AA20              tst R10
+ 095A 09F4              brne L363
+ 095C           X135:
+ 095C                   .dbline 600
+ 095C 03C0              xjmp L362
+ 095E           L363:
+ 095E                   .dbline 601
+ 095E 4395              inc R20
+ 0960           L361:
+ 0960                   .dbline 598
+ 0960 4330              cpi R20,3
+ 0962 C0F3              brlo L360
+ 0964           X136:
+ 0964           L362:
+ 0964                   .dbline 603
+ 0964 0A2D              mov R16,R10
+ 0966                   .dbblkend 604
+ 0966           L358:
+ 0966 4991              ld R20,y+
+ 0968 A990              ld R10,y+
+ 096A 0895              ret
+ 096C                   .dbfuncend
+ 096C                   .dbsym r c 10 c
+ 096C                   .dbsym r tryWrite 20 c
+ 096C                   .dbstacksize 0
+ 096C                   .dbfunc e toggleLed _toggleLed#Fhv fc 607 10399316
+ 096C           ;              c -> R10
+ 096C           ;       tryWrite -> R20
+                        .even
+ 096C           _toggleLed#Fhv::
+ 096C AA92              st -y,R10
+ 096E 4A93              st -y,R20
+ 0970                   .dbblock 608
+ 0970                   .dbline 609
+ 0970 4427              clr R20
+ 0972                   .dbline 610
+ 0972 8DEE              ldi R24,237
+ 0974 90E0              ldi R25,0
+ 0976 90931800          sts _kb#us2_32+22+1,R25
+ 097A 80931700          sts _kb#us2_32+22,R24
+ 097E 06C0              xjmp L368
+ 0980           L367:
+ 0980                   .dbline 613
+ 0980 32DF              xcall _writeKeyboard#Fhv
+ 0982 A02E              mov R10,R16
+ 0984 AA20              tst R10
+ 0986 09F4              brne L370
+ 0988           X137:
+ 0988                   .dbline 613
+ 0988 03C0              xjmp L369
+ 098A           L370:
+ 098A                   .dbline 614
+ 098A 4395              inc R20
+ 098C           L368:
+ 098C                   .dbline 611
+ 098C 4330              cpi R20,3
+ 098E C0F3              brlo L367
+ 0990           X138:
+ 0990           L369:
+ 0990                   .dbline 616
+ 0990 AA20              tst R10
+ 0992 79F5              brne L372
+ 0994           X139:
+ 0994                   .dbline 618
+ 0994 2224              clr R2
+ 0996 3324              clr R3
+ 0998 30928500          sts 132+1,R3
+ 099C 20928400          sts 132,R2
+ 09A0                   .dbline 619
+ 09A0 20921100          sts _kb#us2_32+16,R2
+ 09A4                   .dbline 620
+ 09A4 82E0              ldi R24,2
+ 09A6 80931200          sts _kb#us2_32+17,R24
+ 09AA           L376:
+ 09AA           L377:
+ 09AA                   .dbline 621
+ 09AA 20901100          lds R2,_kb#us2_32+16
+ 09AE 2220              tst R2
+ 09B0 49F4              brne L380
+ 09B2           X140:
+ 09B2 80E4              ldi R24,40000
+ 09B4 9CE9              ldi R25,156
+ 09B6 20908400          lds R2,132
+ 09BA 30908500          lds R3,132+1
+ 09BE 2816              cp R2,R24
+ 09C0 3906              cpc R3,R25
+ 09C2 98F3              brlo L376
+ 09C4           X141:
+ 09C4           L380:
+ 09C4                   .dbline 622
+ 09C4 20901100          lds R2,_kb#us2_32+16
+ 09C8 2220              tst R2
+ 09CA 99F0              breq L381
+ 09CC           X142:
+ 09CC 80911300          lds R24,_kb#us2_32+18
+ 09D0 8F7F              andi R24,255
+ 09D2 8A3F              cpi R24,250
+ 09D4 71F4              brne L381
+ 09D6           X143:
+ 09D6                   .dbline 624
+ 09D6 83E0              ldi R24,3
+ 09D8 80931200          sts _kb#us2_32+17,R24
+ 09DC                   .dbline 625
+ 09DC 20900900          lds R2,_kb#us2_32+8
+ 09E0 3324              clr R3
+ 09E2 30921800          sts _kb#us2_32+22+1,R3
+ 09E6 20921700          sts _kb#us2_32+22,R2
+ 09EA                   .dbline 626
+ 09EA FDDE              xcall _writeKeyboard#Fhv
+ 09EC 00930400          sts _kb#us2_32+3,R16
+ 09F0 01C0              xjmp L365
+ 09F2           L381:
+ 09F2           L372:
+ 09F2                   .dbline 629
+ 09F2 0A2D              mov R16,R10
+ 09F4                   .dbblkend 630
+ 09F4           L365:
+ 09F4 4991              ld R20,y+
+ 09F6 A990              ld R10,y+
+ 09F8 0895              ret
+ 09FA                   .dbfuncend
+ 09FA                   .dbsym r c 10 c
+ 09FA                   .dbsym r tryWrite 20 c
+ 09FA                   .dbstacksize 0
+ 09FA                   .dbfunc e detectKb _detectKb#Fhv fc 633 10399316
+ 09FA           ;              c -> R10
+ 09FA           ;       tryWrite -> R20
+                        .even
+ 09FA           _detectKb#Fhv::
+ 09FA AA92              st -y,R10
+ 09FC 4A93              st -y,R20
+ 09FE                   .dbblock 634
+ 09FE                   .dbline 635
+ 09FE 4427              clr R20
+ 0A00                   .dbline 636
+ 0A00 8EEE              ldi R24,238
+ 0A02 90E0              ldi R25,0
+ 0A04 90931800          sts _kb#us2_32+22+1,R25
+ 0A08 80931700          sts _kb#us2_32+22,R24
+ 0A0C 06C0              xjmp L392
+ 0A0E           L391:
+ 0A0E                   .dbline 639
+ 0A0E EBDE              xcall _writeKeyboard#Fhv
+ 0A10 A02E              mov R10,R16
+ 0A12 AA20              tst R10
+ 0A14 09F4              brne L394
+ 0A16           X144:
+ 0A16                   .dbline 639
+ 0A16 03C0              xjmp L393
+ 0A18           L394:
+ 0A18                   .dbline 640
+ 0A18 4395              inc R20
+ 0A1A           L392:
+ 0A1A                   .dbline 637
+ 0A1A 4330              cpi R20,3
+ 0A1C C0F3              brlo L391
+ 0A1E           X145:
+ 0A1E           L393:
+ 0A1E                   .dbline 642
+ 0A1E AA20              tst R10
+ 0A20 19F5              brne L396
+ 0A22           X146:
+ 0A22                   .dbline 644
+ 0A22 2224              clr R2
+ 0A24 3324              clr R3
+ 0A26 30928500          sts 132+1,R3
+ 0A2A 20928400          sts 132,R2
+ 0A2E                   .dbline 645
+ 0A2E 20921100          sts _kb#us2_32+16,R2
+ 0A32                   .dbline 646
+ 0A32 82E0              ldi R24,2
+ 0A34 80931200          sts _kb#us2_32+17,R24
+ 0A38           L400:
+ 0A38           L401:
+ 0A38                   .dbline 647
+ 0A38 20901100          lds R2,_kb#us2_32+16
+ 0A3C 2220              tst R2
+ 0A3E 49F4              brne L404
+ 0A40           X147:
+ 0A40 80E4              ldi R24,40000
+ 0A42 9CE9              ldi R25,156
+ 0A44 20908400          lds R2,132
+ 0A48 30908500          lds R3,132+1
+ 0A4C 2816              cp R2,R24
+ 0A4E 3906              cpc R3,R25
+ 0A50 98F3              brlo L400
+ 0A52           X148:
+ 0A52           L404:
+ 0A52                   .dbline 648
+ 0A52 20901100          lds R2,_kb#us2_32+16
+ 0A56 2220              tst R2
+ 0A58 39F0              breq L405
+ 0A5A           X149:
+ 0A5A 80911300          lds R24,_kb#us2_32+18
+ 0A5E 8F7F              andi R24,255
+ 0A60 8E3E              cpi R24,238
+ 0A62 11F4              brne L405
+ 0A64           X150:
+ 0A64                   .dbline 648
+ 0A64 0027              clr R16
+ 0A66 01C0              xjmp L389
+ 0A68           L405:
+ 0A68           L396:
+ 0A68                   .dbline 650
+ 0A68 01E0              ldi R16,1
+ 0A6A                   .dbblkend 651
+ 0A6A           L389:
+ 0A6A 4991              ld R20,y+
+ 0A6C A990              ld R10,y+
+ 0A6E 0895              ret
+ 0A70                   .dbfuncend
+ 0A70                   .dbsym r c 10 c
+ 0A70                   .dbsym r tryWrite 20 c
+ 0A70                   .dbstacksize 0
+ 0A70                   .dbfunc e getKb _getKb#Fvv fV 654 10399316
+ 0A70                   .dbsym s c L410 c
+                        .even
+ 0A70           _getKb#Fvv::
+ 0A70 AA92              st -y,R10
+ 0A72 4A93              st -y,R20
+ 0A74                   .dbblock 655
+ 0A74                   .dbline 655
+ 0A74 69C0              xjmp L412
+ 0A76           L411:
+ 0A76                   .dbline 659
+ 0A76 20900600          lds R2,_kb#us2_32+5
+ 0A7A 2220              tst R2
+ 0A7C 21F4              brne L414
+ 0A7E           X151:
+ 0A7E                   .dbline 659
+ 0A7E 60DF              xcall _resetKb#Fhv
+ 0A80                   .dbline 659
+ 0A80 81E0              ldi R24,1
+ 0A82 80930600          sts _kb#us2_32+5,R24
+ 0A86           L414:
+ 0A86                   .dbline 660
+ 0A86 20901100          lds R2,_kb#us2_32+16
+ 0A8A 2220              tst R2
+ 0A8C 09F4              brne X166
+ 0A8E 48C0              xjmp L418
+ 0A90           X166:
+ 0A90           X152:
+ 0A90                   .dbline 662
+ 0A90 2224              clr R2
+ 0A92 20921100          sts _kb#us2_32+16,R2
+ 0A96                   .dbline 663
+ 0A96 20901300          lds R2,_kb#us2_32+18
+ 0A9A 30901400          lds R3,_kb#us2_32+18+1
+ 0A9E 31FE              sbrs R3,1
+ 0AA0 08C0              rjmp L426
+ 0AA2           X153:
+ 0AA2 00911300          lds R16,_kb#us2_32+18
+ 0AA6 10911400          lds R17,_kb#us2_32+18+1
+ 0AAA 1170              andi R17,1
+ 0AAC 93D0              xcall _checkOddParity#Fht
+ 0AAE 0023              tst R16
+ 0AB0 39F0              breq L422
+ 0AB2           X154:
+ 0AB2           L426:
+ 0AB2                   .dbline 665
+ 0AB2 2224              clr R2
+ 0AB4 3324              clr R3
+ 0AB6 30921400          sts _kb#us2_32+18+1,R3
+ 0ABA 20921300          sts _kb#us2_32+18,R2
+ 0ABE                   .dbline 666
+ 0ABE 30C0              xjmp L423
+ 0AC0           L422:
+ 0AC0                   .dbline 667
+ 0AC0 20901300          lds R2,_kb#us2_32+18
+ 0AC4 20920300          sts _kb#us2_32+2,R2
+ 0AC8                   .dbline 668
+ 0AC8 2224              clr R2
+ 0ACA 3324              clr R3
+ 0ACC 30921400          sts _kb#us2_32+18+1,R3
+ 0AD0 20921300          sts _kb#us2_32+18,R2
+ 0AD4                   .dbline 669
+ 0AD4 20900300          lds R2,_kb#us2_32+2
+ 0AD8 2220              tst R2
+ 0ADA 29F0              breq L437
+ 0ADC           X155:
+ 0ADC 822D              mov R24,R2
+ 0ADE 8F3F              cpi R24,255
+ 0AE0 11F0              breq L437
+ 0AE2           X156:
+ 0AE2 8A3A              cpi R24,170
+ 0AE4 11F4              brne L431
+ 0AE6           X157:
+ 0AE6           L437:
+ 0AE6                   .dbline 669
+ 0AE6 2BDB              xcall _resetKBVars#Fvv
+ 0AE8 1BC0              xjmp L432
+ 0AEA           L431:
+ 0AEA                   .dbline 672
+ 0AEA 00910300          lds R16,_kb#us2_32+2
+ 0AEE EADC              xcall _readKey#Fhh
+ 0AF0 00930000          sts L410,R16
+ 0AF4                   .dbline 673
+ 0AF4 402F              mov R20,R16
+ 0AF6 0330              cpi R16,3
+ 0AF8 11F0              breq L441
+ 0AFA           X158:
+ 0AFA 0631              cpi R16,22
+ 0AFC 59F4              brne L439
+ 0AFE           X159:
+ 0AFE           L441:
+ 0AFE                   .dbline 675
+ 0AFE 83E0              ldi R24,3
+ 0B00 80931200          sts _kb#us2_32+17,R24
+ 0B04                   .dbline 676
+ 0B04 80910000          lds R24,L410
+ 0B08 8631              cpi R24,22
+ 0B0A 11F4              brne L443
+ 0B0C           X160:
+ 0B0C                   .dbline 676
+ 0B0C 082F              mov R16,R24
+ 0B0E 8DDA              xcall _writeUart#FvVh
+ 0B10           L443:
+ 0B10                   .dbline 677
+ 0B10 2DDF              xcall _toggleLed#Fhv
+ 0B12                   .dbline 678
+ 0B12 06C0              xjmp L440
+ 0B14           L439:
+ 0B14                   .dbline 678
+ 0B14 20900000          lds R2,L410
+ 0B18 2220              tst R2
+ 0B1A 11F0              breq L445
+ 0B1C           X161:
+ 0B1C                   .dbline 678
+ 0B1C 022D              mov R16,R2
+ 0B1E 85DA              xcall _writeUart#FvVh
+ 0B20           L445:
+ 0B20           L440:
+ 0B20           L432:
+ 0B20           L423:
+ 0B20           L418:
+ 0B20                   .dbline 682
+ 0B20 20900700          lds R2,_kb#us2_32+6
+ 0B24 2220              tst R2
+ 0B26 81F4              brne L447
+ 0B28           X162:
+ 0B28 20900F00          lds R2,_kb#us2_32+14
+ 0B2C 2220              tst R2
+ 0B2E 61F0              breq L447
+ 0B30           X163:
+ 0B30                   .dbline 684
+ 0B30 2224              clr R2
+ 0B32 20920F00          sts _kb#us2_32+14,R2
+ 0B36                   .dbline 685
+ 0B36 61DF              xcall _detectKb#Fhv
+ 0B38 A02E              mov R10,R16
+ 0B3A 0023              tst R16
+ 0B3C 19F4              brne L452
+ 0B3E           X164:
+ 0B3E                   .dbline 685
+ 0B3E 0EEE              ldi R16,238
+ 0B40 74DA              xcall _writeUart#FvVh
+ 0B42 02C0              xjmp L453
+ 0B44           L452:
+ 0B44                   .dbline 686
+ 0B44 0FEF              ldi R16,255
+ 0B46 71DA              xcall _writeUart#FvVh
+ 0B48           L453:
+ 0B48           L447:
+ 0B48           L412:
+ 0B48                   .dbline 657
+ 0B48 96CF              xjmp L411
+ 0B4A           X165:
+ 0B4A                   .dbblkend 691
+ 0B4A           L409:
+ 0B4A 4991              ld R20,y+
+ 0B4C A990              ld R10,y+
+ 0B4E 0895              ret
+ 0B50                   .dbfuncend
+ 0B50                   .dbstacksize 0
+ 0B50                   .dbfunc e main _main#Fiv fI 695 10399316
+                        .even
+ 0B50           _main#Fiv::
+ 0B50                   .dbblock 696
+ 0B50                   .dbline 697
+ 0B50 F6DA              xcall _resetKBVars#Fvv
+ 0B52                   .dbline 698
+ 0B52 2224              clr R2
+ 0B54 20920600          sts _kb#us2_32+5,R2
+ 0B58                   .dbline 699
+ 0B58 00E0              ldi R16,0
+ 0B5A 11EE              ldi R17,225
+ 0B5C 20E0              ldi R18,0
+ 0B5E 30E0              ldi R19,0
+ 0B60 78DA              xcall _uartInit#Fvm
+ 0B62                   .dbline 700
+ 0B62 81E0              ldi R24,1
+ 0B64 80930400          sts _sysReady#Vh,R24
+ 0B68                   .dbline 701
+ 0B68 D4DA              xcall _initTimer1#Fvv
+ 0B6A                   .dbline 703
+ 0B6A 16DB              xcall _initExtInt#Fvv
+ 0B6C                   .dbline 704
+ 0B6C 7894              sei
+ 0B6E 01C0              xjmp L457
+ 0B70           L456:
+ 0B70                   .dbline 706
+ 0B70 7FDF              xcall _getKb#Fvv
+ 0B72           L457:
+ 0B72                   .dbline 706
+ 0B72 FECF              xjmp L456
+ 0B74           X167:
+ 0B74                   .dbblkend 708
+ 0B74           L454:
+ 0B74 0895              ret
+ 0B76                   .dbfuncend
+ 0B76                   .dbstacksize -2
+ 0B76                   .dbfunc e delay_us _delay_us#Fvt fV 711 10399316
+ 0B76           ;              t -> R16,R17
+                        .even
+ 0B76           _delay_us#Fvt::
+ 0B76                   .dbblock 712
+ 0B76                   .dbline 712
+ 0B76 11C0              xjmp L461
+ 0B78           L460:
+ 0B78                   .dbline 715
+ 0B78 2224              clr R2
+ 0B7A 3324              clr R3
+ 0B7C 30928500          sts 132+1,R3
+ 0B80 20928400          sts 132,R2
+ 0B84           L463:
+ 0B84           L464:
+ 0B84                   .dbline 716
+ 0B84 84E1              ldi R24,20
+ 0B86 90E0              ldi R25,0
+ 0B88 20908400          lds R2,132
+ 0B8C 30908500          lds R3,132+1
+ 0B90 2816              cp R2,R24
+ 0B92 3906              cpc R3,R25
+ 0B94 B8F3              brlo L463
+ 0B96           X168:
+ 0B96                   .dbline 717
+ 0B96 0150              subi R16,1
+ 0B98 1040              sbci R17,0
+ 0B9A           L461:
+ 0B9A                   .dbline 713
+ 0B9A 0030              cpi R16,0
+ 0B9C 0107              cpc R16,R17
+ 0B9E 61F7              brne L460
+ 0BA0           X169:
+ 0BA0                   .dbblkend 719
+ 0BA0           L459:
+ 0BA0 0895              ret
+ 0BA2                   .dbfuncend
+ 0BA2                   .dbsym r t 16 s
+ 0BA2                   .dbstacksize -4
+ 0BA2                   .dbfunc e delay_ms _delay_ms#Fvt fV 722 10399316
+ 0BA2           ;            dly -> R16,R17
+                        .even
+ 0BA2           _delay_ms#Fvt::
+ 0BA2                   .dbblock 723
+ 0BA2                   .dbline 723
+ 0BA2 09C0              xjmp L468
+ 0BA4           L467:
+ 0BA4                   .dbline 726
+ 0BA4 2224              clr R2
+ 0BA6 20920300          sts _msTick#Vh,R2
+ 0BAA           L470:
+ 0BAA           L471:
+ 0BAA                   .dbline 727
+ 0BAA 20900300          lds R2,_msTick#Vh
+ 0BAE 2220              tst R2
+ 0BB0 E1F3              breq L470
+ 0BB2           X170:
+ 0BB2                   .dbline 728
+ 0BB2 0150              subi R16,1
+ 0BB4 1040              sbci R17,0
+ 0BB6           L468:
+ 0BB6                   .dbline 724
+ 0BB6 0030              cpi R16,0
+ 0BB8 0107              cpc R16,R17
+ 0BBA A1F7              brne L467
+ 0BBC           X171:
+ 0BBC                   .dbblkend 730
+ 0BBC           L466:
+ 0BBC 0895              ret
+ 0BBE                   .dbfuncend
+ 0BBE                   .dbsym r dly 16 s
+ 0BBE                   .dbstacksize -4
+ 0BBE                   .dbfunc e timer0_compa_isr _timer0_compa_isr#Fvv fV 733 10399316
+                        .even
+ 0BBE           _timer0_compa_isr#Fvv::
+ 0BBE 8A93              st -y,R24
+ 0BC0 8FB7              IN R24,63
+ 0BC2 8A93              st -y,R24
+ 0BC4                   .dbblock 734
+ 0BC4                   .dbline 736
+ 0BC4 A895              wdr
+ 0BC6                   .dbline 737
+ 0BC6 81E0              ldi R24,1
+ 0BC8 80930300          sts _msTick#Vh,R24
+ 0BCC                   .dbblkend 739
+ 0BCC           L473:
+ 0BCC 8991              ld R24,y+
+ 0BCE 8FBF              OUT 63,R24
+ 0BD0 8991              ld R24,y+
+ 0BD2 1895              reti
+ 0BD4                   .dbfuncend
+ 0BD4                   .dbstacksize 0
+ 0BD4                   .dbfunc e checkOddParity _checkOddParity#Fht fc 742 10399316
+ 0BD4           ;           ones -> R10
+ 0BD4           ;         bitCnt -> R20
+ 0BD4           ;              i -> R12,R13
+                        .even
+ 0BD4           _checkOddParity#Fht::
+ 0BD4 0E940000          xcall push_xgset303C
+ 0BD8 6801              movw R12,R16
+ 0BDA                   .dbblock 743
+ 0BDA                   .dbline 744
+ 0BDA AA24              clr R10
+ 0BDC                   .dbline 745
+ 0BDC 4427              clr R20
+ 0BDE 06C0              xjmp L478
+ 0BE0           L475:
+ 0BE0                   .dbline 747
+ 0BE0 C0FE              sbrs R12,0
+ 0BE2 01C0              rjmp L479
+ 0BE4           X172:
+ 0BE4                   .dbline 747
+ 0BE4 A394              inc R10
+ 0BE6           L479:
+ 0BE6                   .dbline 748
+ 0BE6 D694              lsr R13
+ 0BE8 C794              ror R12
+ 0BEA           L476:
+ 0BEA                   .dbline 745
+ 0BEA 4395              inc R20
+ 0BEC           L478:
+ 0BEC                   .dbline 745
+ 0BEC 4930              cpi R20,9
+ 0BEE C0F3              brlo L475
+ 0BF0           X173:
+ 0BF0                   .dbline 750
+ 0BF0 22E0              ldi R18,2
+ 0BF2 30E0              ldi R19,0
+ 0BF4 0A2D              mov R16,R10
+ 0BF6 1127              clr R17
+ 0BF8 0E940000          xcall mod16s
+ 0BFC 0023              tst R16
+ 0BFE 11F0              breq L481
+ 0C00           X174:
+ 0C00                   .dbline 750
+ 0C00 0027              clr R16
+ 0C02 01C0              xjmp L474
+ 0C04           L481:
+ 0C04                   .dbline 751
+ 0C04 01E0              ldi R16,1
+ 0C06                   .dbblkend 752
+ 0C06           L474:
+ 0C06 0C940000          xjmp pop_xgset303C
+ 0C0A 0895              ret
+ 0C0C                   .dbfuncend
+ 0C0C                   .dbsym r ones 10 c
+ 0C0C                   .dbsym r bitCnt 20 c
+ 0C0C                   .dbsym r i 12 s
+ 0C0C                   .dbstacksize 2
+ 0C0C                   .dbfunc e getOddParity _getOddParity#Fhh fc 755 10399316
+ 0C0C           ;           ones -> R10
+ 0C0C           ;         bitCnt -> R20
+ 0C0C           ;              i -> R12
+                        .even
+ 0C0C           _getOddParity#Fhh::
+ 0C0C 0E940000          xcall push_xgset303C
+ 0C10 C02E              mov R12,R16
+ 0C12                   .dbblock 756
+ 0C12                   .dbline 757
+ 0C12 AA24              clr R10
+ 0C14                   .dbline 758
+ 0C14 4427              clr R20
+ 0C16 05C0              xjmp L487
+ 0C18           L484:
+ 0C18                   .dbline 760
+ 0C18 C0FE              sbrs R12,0
+ 0C1A 01C0              rjmp L488
+ 0C1C           X175:
+ 0C1C                   .dbline 760
+ 0C1C A394              inc R10
+ 0C1E           L488:
+ 0C1E                   .dbline 761
+ 0C1E C694              lsr R12
+ 0C20           L485:
+ 0C20                   .dbline 758
+ 0C20 4395              inc R20
+ 0C22           L487:
+ 0C22                   .dbline 758
+ 0C22 4830              cpi R20,8
+ 0C24 C8F3              brlo L484
+ 0C26           X176:
+ 0C26                   .dbline 763
+ 0C26 22E0              ldi R18,2
+ 0C28 30E0              ldi R19,0
+ 0C2A 0A2D              mov R16,R10
+ 0C2C 1127              clr R17
+ 0C2E 0E940000          xcall mod16s
+ 0C32 0023              tst R16
+ 0C34 11F4              brne L490
+ 0C36           X177:
+ 0C36                   .dbline 763
+ 0C36 0027              clr R16
+ 0C38 01C0              xjmp L483
+ 0C3A           L490:
+ 0C3A                   .dbline 764
+ 0C3A 01E0              ldi R16,1
+ 0C3C                   .dbblkend 765
+ 0C3C           L483:
+ 0C3C 0C940000          xjmp pop_xgset303C
+ 0C40 0895              ret
+ 0C42                   .dbfuncend
+ 0C42                   .dbsym r ones 10 c
+ 0C42                   .dbsym r bitCnt 20 c
+ 0C42                   .dbsym r i 12 c
+ 0C42                   .dbstacksize 2
+ 0C42                   .dbfunc e INT0_isr _INT0_isr#Fvv fV 768 10399316
+ 0C42                   .dbsym s bitCnt L494 c
+ 0C42                   .dbsym s dataFrame L493 s
+ 0C42           ;           sreg -> y+0
+                        .even
+ 0C42           _INT0_isr#Fvv::
+ 0C42 2A92              st -y,R2
+ 0C44 3A92              st -y,R3
+ 0C46 8A93              st -y,R24
+ 0C48 9A93              st -y,R25
+ 0C4A 2FB6              IN R2,63
+ 0C4C 2A92              st -y,R2
+ 0C4E 2197              sbiw R28,1
+ 0C50                   .dbblock 769
+ 0C50                   .dbline 774
+ 0C50 2FB6              in R2,0x3f
+ 0C52 2882              std y+0,R2
+ 0C54                   .dbline 775
+ 0C54 F894              cli
+ 0C56                   .dbline 776
+ 0C56 80911200          lds R24,_kb#us2_32+17
+ 0C5A 8230              cpi R24,2
+ 0C5C 09F0              breq X187
+ 0C5E 43C0              xjmp L495
+ 0C60           X187:
+ 0C60           X178:
+ 0C60                   .dbline 778
+ 0C60 20900400          lds R2,_sysReady#Vh
+ 0C64 2220              tst R2
+ 0C66 21F0              breq L501
+ 0C68           X179:
+ 0C68 20901000          lds R2,_kb#us2_32+15
+ 0C6C 2220              tst R2
+ 0C6E 09F4              brne L498
+ 0C70           X180:
+ 0C70           L501:
+ 0C70                   .dbline 778
+ 0C70 6DC0              xjmp L502
+ 0C72           L498:
+ 0C72                   .dbline 779
+ 0C72 20900500          lds R2,L493
+ 0C76 30900600          lds R3,L493+1
+ 0C7A 3694              lsr R3
+ 0C7C 2794              ror R2
+ 0C7E 30920600          sts L493+1,R3
+ 0C82 20920500          sts L493,R2
+ 0C86                   .dbline 780
+ 0C86 4B9B              sbis 0x9,3
+ 0C88 09C0              rjmp L503
+ 0C8A           X181:
+ 0C8A                   .dbline 780
+ 0C8A 80910500          lds R24,L493
+ 0C8E 90910600          lds R25,L493+1
+ 0C92 9260              ori R25,2
+ 0C94 90930600          sts L493+1,R25
+ 0C98 80930500          sts L493,R24
+ 0C9C           L503:
+ 0C9C                   .dbline 781
+ 0C9C 80910700          lds R24,L494
+ 0CA0 8F5F              subi R24,255    ; addi 1
+ 0CA2 282E              mov R2,R24
+ 0CA4 20920700          sts L494,R2
+ 0CA8 89E0              ldi R24,9
+ 0CAA 8215              cp R24,R2
+ 0CAC 08F0              brlo X188
+ 0CAE 4EC0              xjmp L496
+ 0CB0           X188:
+ 0CB0           X182:
+ 0CB0                   .dbline 783
+ 0CB0 2224              clr R2
+ 0CB2 20920700          sts L494,R2
+ 0CB6                   .dbline 783
+ 0CB6 20921000          sts _kb#us2_32+15,R2
+ 0CBA                   .dbline 784
+ 0CBA 20900500          lds R2,L493
+ 0CBE 30900600          lds R3,L493+1
+ 0CC2 30921400          sts _kb#us2_32+18+1,R3
+ 0CC6 20921300          sts _kb#us2_32+18,R2
+ 0CCA                   .dbline 785
+ 0CCA 2224              clr R2
+ 0CCC 3324              clr R3
+ 0CCE 30920600          sts L493+1,R3
+ 0CD2 20920500          sts L493,R2
+ 0CD6                   .dbline 786
+ 0CD6 81E0              ldi R24,1
+ 0CD8 80931100          sts _kb#us2_32+16,R24
+ 0CDC                   .dbline 787
+ 0CDC E19A              sbi 0x1c,1
+ 0CDE                   .dbline 788
+ 0CDE E99A              sbi 0x1d,1
+ 0CE0                   .dbline 789
+ 0CE0 20920700          sts _kb#us2_32+6,R2
+ 0CE4                   .dbline 791
+ 0CE4 33C0              xjmp L496
+ 0CE6           L495:
+ 0CE6                   .dbline 791
+ 0CE6 80911200          lds R24,_kb#us2_32+17
+ 0CEA 8330              cpi R24,3
+ 0CEC 79F5              brne L511
+ 0CEE           X183:
+ 0CEE                   .dbline 792
+ 0CEE 20901000          lds R2,_kb#us2_32+15
+ 0CF2 2220              tst R2
+ 0CF4 39F4              brne L514
+ 0CF6           X184:
+ 0CF6                   .dbline 792
+ 0CF6 2224              clr R2
+ 0CF8 20920700          sts L494,R2
+ 0CFC                   .dbline 792
+ 0CFC 81E0              ldi R24,1
+ 0CFE 80931000          sts _kb#us2_32+15,R24
+ 0D02                   .dbline 792
+ 0D02 24C0              xjmp L515
+ 0D04           L514:
+ 0D04                   .dbline 795
+ 0D04 80910700          lds R24,L494
+ 0D08 8F5F              subi R24,255    ; addi 1
+ 0D0A 80930700          sts L494,R24
+ 0D0E 8B30              cpi R24,11
+ 0D10 90F4              brsh L518
+ 0D12           X185:
+ 0D12                   .dbline 797
+ 0D12 20901500          lds R2,_kb#us2_32+20
+ 0D16 20FE              sbrs R2,0
+ 0D18 02C0              rjmp L520
+ 0D1A           X186:
+ 0D1A                   .dbline 797
+ 0D1A 5B9A              sbi 0xb,3
+ 0D1C 01C0              xjmp L521
+ 0D1E           L520:
+ 0D1E                   .dbline 798
+ 0D1E 5B98              cbi 0xb,3
+ 0D20           L521:
+ 0D20                   .dbline 799
+ 0D20 20901500          lds R2,_kb#us2_32+20
+ 0D24 30901600          lds R3,_kb#us2_32+20+1
+ 0D28 3694              lsr R3
+ 0D2A 2794              ror R2
+ 0D2C 30921600          sts _kb#us2_32+20+1,R3
+ 0D30 20921500          sts _kb#us2_32+20,R2
+ 0D34                   .dbline 800
+ 0D34 0BC0              xjmp L519
+ 0D36           L518:
+ 0D36                   .dbline 801
+ 0D36 2224              clr R2
+ 0D38 20920700          sts L494,R2
+ 0D3C                   .dbline 802
+ 0D3C 81E0              ldi R24,1
+ 0D3E 80931100          sts _kb#us2_32+16,R24
+ 0D42                   .dbline 803
+ 0D42 80916900          lds R24,105
+ 0D46 8E7F              andi R24,254
+ 0D48 80936900          sts 105,R24
+ 0D4C           L519:
+ 0D4C           L515:
+ 0D4C           L511:
+ 0D4C           L496:
+ 0D4C           L502:
+ 0D4C                   .dbline 808
+ 0D4C E09A              sbi 0x1c,0
+ 0D4E                   .dbline 810
+ 0D4E 2880              ldd R2,y+0
+ 0D50 2FBE              out 0x3f,R2
+ 0D52                   .dbblkend 812
+ 0D52           L492:
+ 0D52 2196              adiw R28,1
+ 0D54 2990              ld R2,y+
+ 0D56 2FBE              OUT 63,R2
+ 0D58 9991              ld R25,y+
+ 0D5A 8991              ld R24,y+
+ 0D5C 3990              ld R3,y+
+ 0D5E 2990              ld R2,y+
+ 0D60 1895              reti
+ 0D62                   .dbfuncend
+ 0D62                   .dbsym l sreg 0 c
+ 0D62                   .dbstacksize 4
+ 0D62                   .dbfunc e INT1_isr _INT1_isr#Fvv fV 815 10399316
+ 0D62           ;           sreg -> y+0
+                        .even
+ 0D62           _INT1_isr#Fvv::
+ 0D62 2A92              st -y,R2
+ 0D64 3A92              st -y,R3
+ 0D66 8A93              st -y,R24
+ 0D68 9A93              st -y,R25
+ 0D6A 2FB6              IN R2,63
+ 0D6C 2A92              st -y,R2
+ 0D6E 2197              sbiw R28,1
+ 0D70                   .dbblock 816
+ 0D70                   .dbline 819
+ 0D70 2FB6              in R2,0x3f
+ 0D72 2882              std y+0,R2
+ 0D74                   .dbline 820
+ 0D74 F894              cli
+ 0D76                   .dbline 821
+ 0D76 20900400          lds R2,_sysReady#Vh
+ 0D7A 2220              tst R2
+ 0D7C 09F4              brne L526
+ 0D7E           X189:
+ 0D7E                   .dbline 821
+ 0D7E 2EC0              xjmp L528
+ 0D80           L526:
+ 0D80                   .dbline 822
+ 0D80 80911200          lds R24,_kb#us2_32+17
+ 0D84 8230              cpi R24,2
+ 0D86 51F5              brne L529
+ 0D88           X190:
+ 0D88                   .dbline 824
+ 0D88 81E0              ldi R24,1
+ 0D8A 80930700          sts _kb#us2_32+6,R24
+ 0D8E                   .dbline 825
+ 0D8E E898              cbi 0x1d,0
+ 0D90                   .dbline 826
+ 0D90 5298              cbi 0xa,2
+ 0D92                   .dbline 827
+ 0D92 2224              clr R2
+ 0D94 3324              clr R3
+ 0D96 30928500          sts 132+1,R3
+ 0D9A 20928400          sts 132,R2
+ 0D9E           L533:
+ 0D9E           L534:
+ 0D9E                   .dbline 828
+ 0D9E 4A9B              sbis 0x9,2
+ 0DA0 09C0              rjmp L536
+ 0DA2           X191:
+ 0DA2 84E1              ldi R24,1300
+ 0DA4 95E0              ldi R25,5
+ 0DA6 20908400          lds R2,132
+ 0DAA 30908500          lds R3,132+1
+ 0DAE 2816              cp R2,R24
+ 0DB0 3906              cpc R3,R25
+ 0DB2 A8F3              brlo L533
+ 0DB4           X192:
+ 0DB4           L536:
+ 0DB4                   .dbline 829
+ 0DB4 84E1              ldi R24,1300
+ 0DB6 95E0              ldi R25,5
+ 0DB8 20908400          lds R2,132
+ 0DBC 30908500          lds R3,132+1
+ 0DC0 2816              cp R2,R24
+ 0DC2 3906              cpc R3,R25
+ 0DC4 58F4              brsh L537
+ 0DC6           X193:
+ 0DC6                   .dbline 831
+ 0DC6 E998              cbi 0x1d,1
+ 0DC8                   .dbline 832
+ 0DC8 8CB3              in R24,0x1c
+ 0DCA 8360              ori R24,3
+ 0DCC 8CBB              out 0x1c,R24
+ 0DCE                   .dbline 833
+ 0DCE E89A              sbi 0x1d,0
+ 0DD0                   .dbline 834
+ 0DD0 8AB1              in R24,0xa
+ 0DD2 837F              andi R24,243
+ 0DD4 8AB9              out 0xa,R24
+ 0DD6                   .dbline 835
+ 0DD6 81E0              ldi R24,1
+ 0DD8 80931000          sts _kb#us2_32+15,R24
+ 0DDC           L537:
+ 0DDC           L529:
+ 0DDC           L528:
+ 0DDC                   .dbline 840
+ 0DDC 2880              ldd R2,y+0
+ 0DDE 2FBE              out 0x3f,R2
+ 0DE0                   .dbblkend 842
+ 0DE0           L525:
+ 0DE0 2196              adiw R28,1
+ 0DE2 2990              ld R2,y+
+ 0DE4 2FBE              OUT 63,R2
+ 0DE6 9991              ld R25,y+
+ 0DE8 8991              ld R24,y+
+ 0DEA 3990              ld R3,y+
+ 0DEC 2990              ld R2,y+
+ 0DEE 1895              reti
+ 0DF0                   .dbfuncend
+ 0DF0                   .dbsym l sreg 0 c
+ 0DF0                   .dbstacksize 4
+ 0DF0                   .dbfunc e usart_rxc_isr _usart_rxc_isr#Fvv fV 845 10399316
+ 0DF0           ;           temp -> y+0
+                        .even
+ 0DF0           _usart_rxc_isr#Fvv::
+ 0DF0 2A92              st -y,R2
+ 0DF2 8A93              st -y,R24
+ 0DF4 2FB6              IN R2,63
+ 0DF6 2A92              st -y,R2
+ 0DF8 2197              sbiw R28,1
+ 0DFA                   .dbblock 846
+ 0DFA                   .dbline 848
+ 0DFA 2090C600          lds R2,198
+ 0DFE 2882              std y+0,R2
+ 0E00 822D              mov R24,R2
+ 0E02 8E3E              cpi R24,238
+ 0E04 19F4              brne L541
+ 0E06           X194:
+ 0E06                   .dbline 848
+ 0E06 81E0              ldi R24,1
+ 0E08 80930F00          sts _kb#us2_32+14,R24
+ 0E0C           L541:
+ 0E0C                   .dbblkend 849
+ 0E0C           L540:
+ 0E0C 2196              adiw R28,1
+ 0E0E 2990              ld R2,y+
+ 0E10 2FBE              OUT 63,R2
+ 0E12 8991              ld R24,y+
+ 0E14 2990              ld R2,y+
+ 0E16 1895              reti
+ 0E18                   .dbfuncend
+ 0E18                   .dbsym l temp 0 c
+ 0E18                   .dbstacksize 2
+                        .area  func_lit(rom, con, rel)
+ 0052                   .dbstruct 0 24 .32
+ 0052                   .dbfield 0 rightShift c
+ 0052                   .dbfield 1 leftShift c
+ 0052                   .dbfield 2 scancode c
+ 0052                   .dbfield 3 writeStatus c
+ 0052                   .dbfield 4 keyBreak c
+ 0052                   .dbfield 5 reset c
+ 0052                   .dbfield 6 busy c
+ 0052                   .dbfield 7 extdKey c
+ 0052                   .dbfield 8 ledCmd c
+ 0052                   .dbfield 9 numLock c
+ 0052                   .dbfield 10 capsLock c
+ 0052                   .dbfield 11 scrollLock c
+ 0052                   .dbfield 12 noRepeat c
+ 0052                   .dbfield 13 extKeyUp c
+ 0052                   .dbfield 14 detect c
+ 0052                   .dbfield 15 startBit c
+ 0052                   .dbfield 16 frameComplete c
+ 0052                   .dbfield 17 comMode c
+ 0052                   .dbfield 18 dataFrame s
+ 0052                   .dbfield 20 tempCmd s
+ 0052                   .dbfield 22 cmdWord s
+ 0052                   .dbend
+                        .area text(rom, con, rel)
+ 0E18                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+                        .area bss(ram, con, rel)
+ 0001                   .dbfile D:\iccavr8+projects\ps2KbHost\main.c
+ 0001           _kb#us2_32::
+ 0001                   .blkb 24
+ 0019                   .dbsym e kb _kb#us2_32 S[.32]

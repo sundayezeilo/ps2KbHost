@@ -1,0 +1,2658 @@
+NOTE: Code bytes are displayed in order matching the disassembly format in AVR documentation.
+  For example, 'CALL 2B16' (example only, only labels should normally be used) is displayed as
+  0x940E2B16 rather than in little endian byte order.
+
+Interrupt Vectors
+
+Program Code (text area)
+_exit:
+    000D5 CFFF      RJMP	_exit
+FILE: D:\iccavr8+projects\ps2KbHost\main.c
+(0001) /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+(0002) $$-------Project:       PS2 KEYBOARD HOST----------------------------$$
+(0003) $$-------Description:   Bidirectional communication with ps2 keyboard---------'$$
+(0004) $$-------Protocol:      Software-based---------------------------------$$
+(0005) $$-------Platform:     ATMEL AVR MCU --------------------------------$$
+(0006) $$-------Hardware:    ATMEGA328P-----------------------------------$$
+(0007) $$-------Software:     C Language-------------------------------------$$
+(0008) $$-------Compiler:      Imagecraft C Compiler for AVR (ICCAVR) version 8-----'$$
+(0009) $$----------------------------------------------------------------$$
+(0010) $$----------------------------------------------------------------$$
+(0011) $$-------Author:       Engr Sunday Ezeilo (OND, B.Eng)--------------------'$$
+(0012) $$-------Company:     zeilotech integrated systems------------------------$$
+(0013) $$-------Email:         chezsunnez@gmail.com-----------------------------$$
+(0014) $$-------Phone:        2348064717555, 2348088974499-------------------$$
+(0015) $$-------Release:      December, 2016---------------------------------$$
+(0016) $$-------License:      Free-------------------------------------------$$
+(0017) $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+(0018) 
+(0019) #include<iom328pv.h>
+(0020) #include<stdio.h>
+(0021) #include<stdlib.h>
+(0022) #include<macros.h>
+(0023) #include<string.h>
+(0024) #include<ctype.h>
+(0025) #include<stdint.h>
+(0026) //**********************************************************************************************
+(0027) //**********************************************************************************************
+(0028) #define setbit(x, y)    (x|=1<<y)
+(0029) #define clearbit(x, y)  (x&=~(1<<y))
+(0030) #define checkbit(x, y)  (x&(1<<y))
+(0031) #define toggleBit(x,y)    (x^=(1<<y))
+(0032) //**********************************************************************************************
+(0033) //**********************************************************************************************
+(0034) #define F_CPU (uint32_t)20000000UL
+(0035) //**********************************************************************************************
+(0036) //**********************************************************************************************
+(0037) #define T0ClkSel (uint8_t)4UL		   //prescaling of 256 at 20 MHz used!!!
+(0038) #define T0Prescaler (uint16_t)256UL
+(0039) #define T0CompVal (uint8_t)((F_CPU/T0Prescaler)*0.001)	 //1 msec timebase here
+(0040) 
+(0041) #define T1Clock (uint8_t)1UL		   //prescaling of 8 used!!!
+(0042) #define T1Prescaler (uint8_t)1UL
+(0043) #define T1CompVal (uint16_t)((F_CPU/T1Prescaler)*0.000001)	 //1 u sec timebase here
+(0044) //**********************************************************************************************
+(0045) //**********************************************************************************************
+(0046) #pragma interrupt_handler INT0_isr: iv_INT0
+(0047) #pragma interrupt_handler INT1_isr: iv_INT1
+(0048) #pragma interrupt_handler PCINT0_isr: iv_PCINT0
+(0049) #pragma interrupt_handler PCINT1_isr: iv_PCINT1
+(0050) #pragma interrupt_handler PCINT2_isr: iv_PCINT2
+(0051) #pragma interrupt_handler wdt_isr: iv_WDT
+(0052) #pragma interrupt_handler timer2_compa_isr: iv_TIMER2_COMPA
+(0053) #pragma interrupt_handler timer2_compb_isr: iv_TIMER2_COMPB
+(0054) #pragma interrupt_handler timer2_ovf_isr: iv_TIMER2_OVF
+(0055) #pragma interrupt_handler timer1_capt_isr: iv_TIMER1_CAPT
+(0056) #pragma interrupt_handler timer1_compa_isr: iv_TIMER1_COMPA
+(0057) #pragma interrupt_handler timer1_compb_isr: iv_TIMER1_COMPB
+(0058) #pragma interrupt_handler timer1_ovf_isr: iv_TIMER1_OVF
+(0059) #pragma interrupt_handler timer0_compa_isr: iv_TIMER0_COMPA
+(0060) #pragma interrupt_handler timer0_compb_isr: iv_TIMER0_COMPB
+(0061) #pragma interrupt_handler timer0_ovf_isr: iv_TIMER0_OVF
+(0062) #pragma interrupt_handler spi_stc_isr: iv_SPI_STC
+(0063) #pragma interrupt_handler usart_rxc_isr: iv_USART0_RX
+(0064) #pragma interrupt_handler usart_udre_isr: iv_USART0_UDRE
+(0065) #pragma interrupt_handler usart_txc_isr: iv_USART0_TX
+(0066) #pragma interrupt_handler adc_isr: iv_ADC
+(0067) #pragma interrupt_handler ee_ready_isr: iv_EE_READY
+(0068) #pragma interrupt_handler analog_comp_isr: iv_ANALOG_COMP
+(0069) #pragma interrupt_handler twi_isr: iv_TWI
+(0070) #pragma interrupt_handler spm_rdy_isr: iv_SPM_READY
+(0071) //**********************************************************************************************
+(0072) //**********************************************************************************************
+(0073) //void INT0_isr(void){}
+(0074) //void INT1_isr(void){}
+(0075) void PCINT0_isr(void){}
+_PCINT0_isr:
+    000D6 9518      RETI
+(0076) void PCINT1_isr(void){}
+_PCINT1_isr:
+    000D7 9518      RETI
+(0077) void PCINT2_isr(void){}
+_PCINT2_isr:
+    000D8 9518      RETI
+(0078) void wdt_isr(void){}
+_wdt_isr:
+    000D9 9518      RETI
+(0079) void timer2_compa_isr(void){}
+_timer2_compa_isr:
+    000DA 9518      RETI
+(0080) void timer2_compb_isr(void){}
+_timer2_compb_isr:
+    000DB 9518      RETI
+(0081) void timer2_ovf_isr(void){}
+_timer2_ovf_isr:
+    000DC 9518      RETI
+(0082) void timer1_capt_isr(void){}
+_timer1_capt_isr:
+    000DD 9518      RETI
+(0083) void timer1_compa_isr(void){}
+_timer1_compa_isr:
+    000DE 9518      RETI
+(0084) void timer1_compb_isr(void){}
+_timer1_compb_isr:
+    000DF 9518      RETI
+(0085) void timer1_ovf_isr(void){}
+_timer1_ovf_isr:
+    000E0 9518      RETI
+(0086) //void timer0_compa_isr(void){}
+(0087) void timer0_compb_isr(void){}
+_timer0_compb_isr:
+    000E1 9518      RETI
+(0088) void timer0_ovf_isr(void){}
+_timer0_ovf_isr:
+    000E2 9518      RETI
+(0089) void spi_stc_isr(void){}
+_spi_stc_isr:
+    000E3 9518      RETI
+(0090) //void usart_rxc_isr(void){}
+(0091) void usart_udre_isr(void){}
+_usart_udre_isr:
+    000E4 9518      RETI
+(0092) void usart_txc_isr(void){}
+_usart_txc_isr:
+    000E5 9518      RETI
+(0093) void adc_isr(void){}
+_adc_isr:
+    000E6 9518      RETI
+(0094) void ee_ready_isr(void){}
+_ee_ready_isr:
+    000E7 9518      RETI
+(0095) void analog_comp_isr(void){}
+_analog_comp_isr:
+    000E8 9518      RETI
+(0096) void twi_isr(void){}
+_twi_isr:
+    000E9 9518      RETI
+(0097) void spm_rdy_isr(void){}
+_spm_rdy_isr:
+    000EA 9518      RETI
+_writeUart:
+  c                    --> Y,+0
+    000EB 931A      ST	-Y,R17
+    000EC 930A      ST	-Y,R16
+(0098) //**********************************************************************************************
+(0099) //**********************************************************************************************
+(0100) void writeUart(volatile uint8_t c)	   //insert delay here
+(0101) {
+(0102) 	while(!(UCSR0A&(1<<UDRE0)));
+    000ED 9020 00C0 LDS	R2,0xC0
+    000EF FE25      SBRS	R2,5
+    000F0 CFFC      RJMP	0x00ED
+(0103) 	UDR0=c;
+    000F1 8028      LD	R2,Y
+    000F2 9220 00C6 STS	0xC6,R2
+(0104) 	while(!(UCSR0A&(1<<TXC0)));	  //wait until last bit sent out here for mux switchover
+    000F4 9020 00C0 LDS	R2,0xC0
+    000F6 FE26      SBRS	R2,6
+    000F7 CFFC      RJMP	0x00F4
+(0105) 	UCSR0A|=1<<TXC0;
+    000F8 9180 00C0 LDS	R24,0xC0
+    000FA 6480      ORI	R24,0x40
+    000FB 9380 00C0 STS	0xC0,R24
+    000FD 9622      ADIW	R28,2
+    000FE 9508      RET
+(0106) }
+_uartInit:
+  baudRate             --> Y,+4
+    000FF 940E 07E1 CALL	<LIBRARY>|push_arg4
+    00101 940E 088A CALL	push_xgsetF000
+(0107) //************************
+(0108) //**************************
+(0109) /*void writeTextUart(uint8_t *s)
+(0110) {
+(0111)  	while(*s)writeUart(*s++);
+(0112) }*/
+(0113) //**************************
+(0114) //**************************
+(0115) /*void debug(const char *s)
+(0116) {
+(0117)  	while(*s)writeUart(*s++);
+(0118) }*/
+(0119) //**************************
+(0120) //**************************
+(0121) #define rxdPort PORTD
+(0122) #define rxdPin PIND
+(0123) #define rxdDDR DDRD
+(0124) #define rxd PD0
+(0125) //**************************
+(0126) //**************************
+(0127) void uartInit(uint32_t baudRate)
+(0128) {
+(0129)  	UCSR0B &=~(1<<RXCIE0);
+    00103 9180 00C1 LDS	R24,0xC1
+    00105 778F      ANDI	R24,0x7F
+    00106 9380 00C1 STS	0xC1,R24
+(0130) 	rxdPort|=1<<rxd;	  	 		  					    //pull this pin up here for load
+    00108 9A58      SBI	0x0B,0
+(0131) 	rxdDDR&=~(1<<rxd);
+    00109 9850      CBI	0x0A,0
+(0132) 	baudRate=((F_CPU/baudRate)/8)-1;  		  		//replace ((F_CPU/baudRate)/16)-1; for non-double speed mode
+    0010A 802C      LDD	R2,Y+4
+    0010B 803D      LDD	R3,Y+5
+    0010C 804E      LDD	R4,Y+6
+    0010D 805F      LDD	R5,Y+7
+    0010E E040      LDI	R20,0
+    0010F E25D      LDI	R21,0x2D
+    00110 E361      LDI	R22,0x31
+    00111 E071      LDI	R23,1
+    00112 925A      ST	-Y,R5
+    00113 924A      ST	-Y,R4
+    00114 923A      ST	-Y,R3
+    00115 922A      ST	-Y,R2
+    00116 018A      MOVW	R16,R20
+    00117 019B      MOVW	R18,R22
+    00118 940E 0820 CALL	div32u
+    0011A E083      LDI	R24,3
+    0011B E090      LDI	R25,0
+    0011C 938A      ST	-Y,R24
+    0011D 940E 08B9 CALL	lsr32
+    0011F 0118      MOVW	R2,R16
+    00120 0129      MOVW	R4,R18
+    00121 E041      LDI	R20,1
+    00122 E050      LDI	R21,0
+    00123 E060      LDI	R22,0
+    00124 E070      LDI	R23,0
+    00125 1A24      SUB	R2,R20
+    00126 0A35      SBC	R3,R21
+    00127 0A46      SBC	R4,R22
+    00128 0A57      SBC	R5,R23
+    00129 822C      STD	Y+4,R2
+    0012A 823D      STD	Y+5,R3
+    0012B 824E      STD	Y+6,R4
+    0012C 825F      STD	Y+7,R5
+(0133) 	UBRR0H=baudRate>>8;
+    0012D E088      LDI	R24,0x8
+    0012E E090      LDI	R25,0
+    0012F 810C      LDD	R16,Y+4
+    00130 811D      LDD	R17,Y+5
+    00131 812E      LDD	R18,Y+6
+    00132 813F      LDD	R19,Y+7
+    00133 938A      ST	-Y,R24
+    00134 940E 08B9 CALL	lsr32
+    00136 9300 00C5 STS	0xC5,R16
+(0134)  	UBRR0L=baudRate;
+    00138 802C      LDD	R2,Y+4
+    00139 9220 00C4 STS	0xC4,R2
+(0135)  	UCSR0A|=(1<<U2X0);  // set double speed mode. delete this line if double speed mode is not desired
+    0013B 9180 00C0 LDS	R24,0xC0
+    0013D 6082      ORI	R24,2
+    0013E 9380 00C0 STS	0xC0,R24
+(0136) 	UCSR0B=(1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
+    00140 E988      LDI	R24,0x98
+    00141 9380 00C1 STS	0xC1,R24
+(0137) 	UCSR0C=(3<<UCSZ00);
+    00143 E086      LDI	R24,6
+    00144 9380 00C2 STS	0xC2,R24
+    00146 940E 088F CALL	pop_xgsetF000
+    00148 9624      ADIW	R28,4
+    00149 9508      RET
+(0138) }
+(0139) //**********************************************************************************************
+(0140) //**********************************************************************************************
+(0141) void initTimer0(void)
+(0142) {
+(0143)  	 TIFR0|=1<<OCF0A;
+_initTimer0:
+    0014A 9AA9      SBI	0x15,1
+(0144) 	 TCCR0B&=~0x07;
+    0014B B585      IN	R24,0x25
+    0014C 7F88      ANDI	R24,0xF8
+    0014D BD85      OUT	0x25,R24
+(0145) 	 TCCR0A=0x00;
+    0014E 2422      CLR	R2
+    0014F BC24      OUT	0x24,R2
+(0146) 	 TCCR0A|=1<<WGM01;
+    00150 B584      IN	R24,0x24
+    00151 6082      ORI	R24,2
+    00152 BD84      OUT	0x24,R24
+(0147) 	 TCNT0=0x00;
+    00153 BC26      OUT	0x26,R2
+(0148) 	 OCR0A=T0CompVal;
+    00154 E48E      LDI	R24,0x4E
+    00155 BD87      OUT	0x27,R24
+(0149) 	 TIMSK0|=(1<<OCIE0A);
+    00156 9180 006E LDS	R24,0x6E
+    00158 6082      ORI	R24,2
+    00159 9380 006E STS	0x6E,R24
+(0150) 	 TCCR0B|=T0ClkSel;
+    0015B B585      IN	R24,0x25
+    0015C 6084      ORI	R24,4
+    0015D BD85      OUT	0x25,R24
+    0015E 9508      RET
+(0151) }
+(0152) 
+(0153) void initTimer1(void)
+(0154) {
+(0155)  	 TIFR1|=(1<<TOV1)|(1<<OCF1A);
+_initTimer1:
+    0015F B386      IN	R24,0x16
+    00160 6083      ORI	R24,3
+    00161 BB86      OUT	0x16,R24
+(0156) 	 TCCR1B&=~0x07;
+    00162 9180 0081 LDS	R24,0x81
+    00164 7F88      ANDI	R24,0xF8
+    00165 9380 0081 STS	0x81,R24
+(0157) 	 TCCR1A=0x00;
+    00167 2422      CLR	R2
+    00168 9220 0080 STS	0x80,R2
+(0158) 	 TCNT1=0x0000;
+    0016A 2433      CLR	R3
+    0016B 9230 0085 STS	0x85,R3
+    0016D 9220 0084 STS	0x84,R2
+(0159) 	 //TIMSK1|=(1<<TOIE1);
+(0160) 	 TCCR1B|=T1Clock;
+    0016F 9180 0081 LDS	R24,0x81
+    00171 6081      ORI	R24,1
+    00172 9380 0081 STS	0x81,R24
+    00174 9508      RET
+(0161) }
+(0162) /*void watchDogDisable(void)
+(0163) {
+(0164) 	   WDTCSR|=(1<<WDCE)|(1<<WDE);
+(0165)        WDTCSR=0x00;
+(0166) }
+(0167) 
+(0168) void watchDogEnable(void)
+(0169) {
+(0170) 	   MCUSR&=~(1<<WDRF);
+(0171)   	   WDTCSR=0x00;
+(0172)   	   WDTCSR=(1<<WDE)|(1<<WDP2)|(1<<WDP1);		 	   		 	   //timeout of 1 sec chosen
+(0173) }*/
+(0174) //**********************************************************************************************
+(0175) //**********************************************************************************************
+(0176) uint8_t resetKb(void);
+(0177) uint8_t detectKb(void);
+(0178) void delay_us(uint16_t);
+(0179) void delay_ms(uint16_t);
+(0180) uint8_t scanKey(uint8_t);
+(0181) uint8_t checkFrame(void);
+(0182) uint8_t writeKeyboard(void);
+(0183) uint8_t getOddParity(uint8_t);
+(0184) uint8_t checkOddParity(uint16_t);
+(0185) //**********************************************************************************************
+(0186) //**********************************************************************************************
+(0187) ////////////////////////////////////////////
+(0188)          //   control keys scancodes   //
+(0189) ////////////////////////////////////////////
+(0190) #define CAPS 0x58
+(0191) #define R_SHIFT 0x59
+(0192) #define L_SHIFT 0x12
+(0193) #define NUM_LOCK 0x77
+(0194) #define KEY_UP 0xF0
+(0195) #define EXTD_KEY 0xE0
+(0196) ////////////////////////////////////////////
+(0197)     //   Function Keys return values   //
+(0198) ////////////////////////////////////////////
+(0199) #define HOME (uint8_t)11UL
+(0200) #define ENTER '\r' //(uint8_t)13UL //CR = 0x0D
+(0201) #define BACKSPACE '\b'//(uint8_t)8UL
+(0202) #define TAB '\t'    //(uint8_t)9UL //horizontal tab = 0x09
+(0203) #define L_CTRL (uint8_t)18UL
+(0204) #define R_CTRL (uint8_t)19UL
+(0205) #define L_ALT (uint8_t)20UL
+(0206) #define R_ALT (uint8_t)21UL
+(0207) #define SCROLL_LOCK (uint8_t)22UL
+(0208) #define INS (uint8_t)23UL
+(0209) #define UP_ARROW (uint8_t)24UL
+(0210) #define DOWN_ARROW (uint8_t)25UL
+(0211) #define R_ARROW (uint8_t)26UL
+(0212) #define ESC (uint8_t)27UL
+(0213) #define L_ARROW (uint8_t)28UL
+(0214) #define DEL (uint8_t)127UL
+(0215) 
+(0216) #define F1 (uint8_t)128UL
+(0217) #define F2 (uint8_t)129UL
+(0218) #define F3 (uint8_t)130UL
+(0219) #define F4 (uint8_t)131UL
+(0220) #define F5 (uint8_t)132UL
+(0221) #define F6 (uint8_t)133UL
+(0222) #define F7 (uint8_t)134UL
+(0223) #define F8 (uint8_t)135UL
+(0224) #define F9 (uint8_t)136UL
+(0225) #define F10 (uint8_t)137UL
+(0226) #define F11 (uint8_t)138UL
+(0227) #define F12 (uint8_t)139UL
+(0228) #define GUI (uint8_t)140UL      //Windows Logo key
+(0229) #define PG_UP (uint8_t)141UL
+(0230) #define PG_DN (uint8_t)142UL
+(0231) #define END (uint8_t)143UL
+(0232) #define PAUSE_BREAK (uint8_t)144UL
+(0233) #define PRINT_SCREEN (uint8_t)145UL
+(0234) #define APPS (uint8_t)146UL
+(0235) ////////////////////////////////////////////
+(0236)     //   End of Function Keys return values   //
+(0237) ////////////////////////////////////////////
+(0238) ////////////////////////////////////////////
+(0239)        //   Keyboard-To-Host commands   //
+(0240) ////////////////////////////////////////////
+(0241) #define KB_ACK 0xFA
+(0242) #define ERROR_1 0x00
+(0243) #define ERROR_2 0xFF
+(0244) #define ECHO_RESPONSE 0xEE
+(0245) #define LED_STATUS_CMD 0xED
+(0246) #define SELF_TEST_PASSED 0xAA
+(0247) #define RESEND_REQUEST 0xFE
+(0248) ////////////////////////////////////////////
+(0249)        //    Host-To-Keyboard commands   //
+(0250) ////////////////////////////////////////////
+(0251) #define SCROLL_LOCK_LED_CTRL_BIT 0x00
+(0252) #define NUM_LOCK_LED_CTRL_BIT 0x01
+(0253) #define CAPS_LOCK_LED_CTRL_BIT 0x02
+(0254) ////////////////////////////////////////////
+(0255)        //    End of Keyboard commands   //
+(0256) ////////////////////////////////////////////
+(0257) //**********************************************************************************************
+(0258) //**********************************************************************************************
+(0259) const uint8_t shiftedNumbers[]={')','!','@','#','$','%','^','&','*','('};
+(0260) const uint8_t shiftedSymbols[]={'<','>','?',':','"','{','}','_','+','|','~',' '}; //replace '?' with '\?' if escape sequence is required forsome compilers
+(0261) const uint8_t asciiSymbols[]={',','.','/',';','\'','[',']','-','=','\\','`',' '};
+(0262) const uint8_t symbolsScancodes[]={0x41,0x49,0x4A,0x4C,0x52,0x54,0x5B,0x4E,0x55,0x5D,0x0E,0x29};
+(0263) const uint8_t alphaScancodes[]={
+(0264)     0x1C, 0x32, 0x21, 0x23, 0x24, 0x2B, 0x34, 0x33, 0x43,
+(0265)     0x3B, 0x42, 0x4B, 0x3A, 0x31, 0x44, 0x4D, 0x15, 0x2D,
+(0266)     0x1B, 0x2C, 0x3C, 0x2A, 0x1D, 0x22, 0x35, 0x1A
+(0267) };
+(0268) const uint8_t numbersScancodes[]={0x45,0x16, 0x1E, 0x26, 0x25, 0x2E, 0x36, 0x3D, 0x3E,0x46};
+(0269) const uint8_t numKeysScancodes[]={0x70, 0x69, 0x72, 0x7A, 0x6B, 0x73, 0x74, 0x6C, 0x75, 0x7D};
+(0270) //**********************************************************************************************
+(0271) //**********************************************************************************************
+(0272) struct{
+(0273)     uint8_t rightShift,leftShift,scancode,writeStatus,keyBreak,reset,busy,
+(0274) 	extdKey,ledCmd,numLock,capsLock,scrollLock,noRepeat,extKeyUp,detect;
+(0275) 	volatile uint8_t startBit,frameComplete,comMode;
+(0276) 	volatile uint16_t dataFrame,tempCmd,cmdWord;
+(0277) }kb;
+(0278) //**********************************************************************************************
+(0279) //**********************************************************************************************
+(0280) #define KB_TO_HOST (uint8_t)2UL
+(0281) #define HOST_TO_KB (uint8_t)3UL
+(0282) 
+(0283) #define writeSuccess (uint8_t)0UL
+(0284) #define writeFail (uint8_t)1UL
+(0285) //**********************************************************************************************
+(0286) //**********************************************************************************************
+(0287) #define KB_PORT PORTD
+(0288) #define KB_DDR DDRD
+(0289) #define KB_PIN PIND
+(0290) #define KB_CLK PD2
+(0291) #define KB_DT PD3
+(0292) //**********************************************************************************************
+(0293) //**********************************************************************************************
+(0294)  void resetKBVars(void)
+(0295) {
+(0296)     kb.busy=0;kb.detect=0; kb.ledCmd=0; kb.startBit=0;
+_resetKBVars:
+    00175 2422      CLR	R2
+    00176 9220 010F STS	_kb+6,R2
+    00178 9220 0117 STS	_kb+14,R2
+    0017A 9220 0111 STS	_kb+8,R2
+    0017C 9220 0118 STS	_kb+15,R2
+(0297) 	kb.extdKey=0; kb.numLock=0;	kb.cmdWord=0; kb.capsLock=0;
+    0017E 9220 0110 STS	_kb+7,R2
+    00180 9220 0112 STS	_kb+9,R2
+    00182 2433      CLR	R3
+    00183 9230 0120 STS	_kb+23,R3
+    00185 9220 011F STS	_kb+22,R2
+    00187 9220 0113 STS	_kb+10,R2
+(0298) 	kb.leftShift=0; kb.noRepeat=0; kb.keyBreak=0; kb.scancode=0;
+    00189 9220 010A STS	_kb+1,R2
+    0018B 9220 0115 STS	_kb+12,R2
+    0018D 9220 010D STS	_kb+4,R2
+    0018F 9220 010B STS	_kb+2,R2
+(0299)     kb.scrollLock=0; kb.rightShift=0; kb.dataFrame=0; kb.frameComplete=0;
+    00191 9220 0114 STS	_kb+11,R2
+    00193 9220 0109 STS	_kb,R2
+    00195 9230 011C STS	_kb+19,R3
+    00197 9220 011B STS	_kb+18,R2
+    00199 9220 0119 STS	_kb+16,R2
+(0300)     kb.writeStatus=writeFail; kb.comMode=KB_TO_HOST;
+    0019B E081      LDI	R24,1
+    0019C 9380 010C STS	_kb+3,R24
+    0019E E082      LDI	R24,2
+    0019F 9380 011A STS	_kb+17,R24
+    001A1 9508      RET
+(0301) }
+(0302) //**********************************************************************************************
+(0303) //**********************************************************************************************
+(0304) void initExtInt(void)
+(0305) {
+(0306) 	//KB_PORT|=(1<<KB_CLK)|(1<<KB_DT);    //keep in idle state      //pull-up enabled on clock I/O, though keyboards are provided with internal pull-up
+(0307) 	//KB_DDR&=~((1<<KB_CLK)|(1<<KB_DT));  //DDRD, PD2, PD3      //clock I/O is always input, since the keyboard generates clock in all data transaction
+(0308)     EIFR|=(1<<INTF0)|(1<<INTF1);
+_initExtInt:
+    001A2 B38C      IN	R24,0x1C
+    001A3 6083      ORI	R24,3
+    001A4 BB8C      OUT	0x1C,R24
+(0309)     EICRA=0x00;
+    001A5 2422      CLR	R2
+    001A6 9220 0069 STS	0x69,R2
+(0310)     EICRA|=(1<<ISC01)|(1<<ISC11);				 		  //enable detect zero cross at falling edge
+    001A8 9180 0069 LDS	R24,0x69
+    001AA 608A      ORI	R24,0xA
+    001AB 9380 0069 STS	0x69,R24
+(0311)     EIMSK=0x00;
+    001AD BA2D      OUT	0x1D,R2
+(0312)     EIMSK|=(1<<INT0)|(1<<INT1);
+    001AE B38D      IN	R24,0x1D
+    001AF 6083      ORI	R24,3
+    001B0 BB8D      OUT	0x1D,R24
+    001B1 9508      RET
+(0313) }
+_scanKey:
+  ctr                  --> R20
+  i                    --> R16
+    001B2 934A      ST	-Y,R20
+    001B3 936A      ST	-Y,R22
+(0314) //**********************************************************************************************
+(0315) //**********************************************************************************************
+(0316) uint8_t scanKey(uint8_t i)
+(0317) {
+(0318)     uint8_t ctr=0;
+    001B4 2744      CLR	R20
+(0319) 	if(kb.extdKey)
+    001B5 9020 0110 LDS	R2,_kb+7
+    001B7 2022      TST	R2
+    001B8 F409      BNE	0x01BA
+    001B9 C063      RJMP	0x021D
+(0320) 	{
+(0321) 	    switch(i)
+    001BA 2F60      MOV	R22,R16
+    001BB 340A      CPI	R16,0x4A
+    001BC F409      BNE	0x01BE
+    001BD C041      RJMP	0x01FF
+    001BE E48A      LDI	R24,0x4A
+    001BF 1780      CP	R24,R16
+    001C0 F068      BCS	0x01CE
+    001C1 3161      CPI	R22,0x11
+    001C2 F409      BNE	0x01C4
+    001C3 C046      RJMP	0x020A
+    001C4 3164      CPI	R22,0x14
+    001C5 F409      BNE	0x01C7
+    001C6 C04C      RJMP	0x0213
+    001C7 3161      CPI	R22,0x11
+    001C8 F408      BCC	0x01CA
+    001C9 C051      RJMP	0x021B
+    001CA 326F      CPI	R22,0x2F
+    001CB F409      BNE	0x01CD
+    001CC C034      RJMP	0x0201
+    001CD C04D      RJMP	0x021B
+    001CE 3669      CPI	R22,0x69
+    001CF F159      BEQ	0x01FB
+    001D0 366B      CPI	R22,0x6B
+    001D1 F0B9      BEQ	0x01E9
+    001D2 366C      CPI	R22,0x6C
+    001D3 F0F9      BEQ	0x01F3
+    001D4 3760      CPI	R22,0x70
+    001D5 F0D9      BEQ	0x01F1
+    001D6 3761      CPI	R22,0x71
+    001D7 F109      BEQ	0x01F9
+    001D8 3762      CPI	R22,0x72
+    001D9 F0A9      BEQ	0x01EF
+    001DA 3764      CPI	R22,0x74
+    001DB F079      BEQ	0x01EB
+    001DC 3765      CPI	R22,0x75
+    001DD F079      BEQ	0x01ED
+    001DE 376A      CPI	R22,0x7A
+    001DF F0B9      BEQ	0x01F7
+    001E0 E78A      LDI	R24,0x7A
+    001E1 1786      CP	R24,R22
+    001E2 F018      BCS	0x01E6
+    001E3 356A      CPI	R22,0x5A
+    001E4 F0C1      BEQ	0x01FD
+    001E5 C035      RJMP	0x021B
+    001E6 376D      CPI	R22,0x7D
+    001E7 F069      BEQ	0x01F5
+    001E8 C032      RJMP	0x021B
+(0322) 		{
+(0323) 			case 0x6B: ctr=L_ARROW;break;
+    001E9 E14C      LDI	R20,0x1C
+    001EA C030      RJMP	0x021B
+(0324) 			case 0x74: ctr=R_ARROW;break;
+    001EB E14A      LDI	R20,0x1A
+    001EC C02E      RJMP	0x021B
+(0325) 			case 0x75: ctr=UP_ARROW;break;
+    001ED E148      LDI	R20,0x18
+    001EE C02C      RJMP	0x021B
+(0326) 			case 0x72: ctr=DOWN_ARROW;break;
+    001EF E149      LDI	R20,0x19
+    001F0 C02A      RJMP	0x021B
+(0327) 			case 0x70: ctr=INS;break;
+    001F1 E147      LDI	R20,0x17
+    001F2 C028      RJMP	0x021B
+(0328) 			case 0x6C: ctr=HOME;break;
+    001F3 E04B      LDI	R20,0xB
+    001F4 C026      RJMP	0x021B
+(0329) 			case 0x7D: ctr=PG_UP;break;
+    001F5 E84D      LDI	R20,0x8D
+    001F6 C024      RJMP	0x021B
+(0330) 			case 0x7A: ctr=PG_DN;break;
+    001F7 E84E      LDI	R20,0x8E
+    001F8 C022      RJMP	0x021B
+(0331) 			case 0x71: ctr=DEL;break;
+    001F9 E74F      LDI	R20,0x7F
+    001FA C020      RJMP	0x021B
+(0332) 			case 0x69: ctr=END;break;
+    001FB E84F      LDI	R20,0x8F
+    001FC C01E      RJMP	0x021B
+(0333) 			case 0x5A: ctr=ENTER;break;
+    001FD E04D      LDI	R20,0xD
+    001FE C01C      RJMP	0x021B
+(0334) 			case 0x4A: ctr='/';break;
+    001FF E24F      LDI	R20,0x2F
+    00200 C01A      RJMP	0x021B
+(0335) 			case 0x2F:  if(!kb.noRepeat){kb.noRepeat=1;ctr=APPS;}//avoid APPS key repeating when held down, so LED doesn't flicker
+    00201 9020 0115 LDS	R2,_kb+12
+    00203 2022      TST	R2
+    00204 F4B1      BNE	0x021B
+    00205 E081      LDI	R24,1
+    00206 9380 0115 STS	_kb+12,R24
+    00208 E942      LDI	R20,0x92
+(0336)                 break;
+    00209 C011      RJMP	0x021B
+(0337)             case 0x11:  if(!kb.noRepeat){kb.noRepeat=1;ctr=R_ALT;}//avoid ALT key repeating when held down, so LED doesn't flicker
+    0020A 9020 0115 LDS	R2,_kb+12
+    0020C 2022      TST	R2
+    0020D F469      BNE	0x021B
+    0020E E081      LDI	R24,1
+    0020F 9380 0115 STS	_kb+12,R24
+    00211 E145      LDI	R20,0x15
+(0338)                 break;
+    00212 C008      RJMP	0x021B
+(0339)             case 0x14:  if(!kb.noRepeat){kb.noRepeat=1;ctr=R_CTRL;}//avoid Ctrl key repeating when held down, so LED doesn't flicker
+    00213 9020 0115 LDS	R2,_kb+12
+    00215 2022      TST	R2
+    00216 F421      BNE	0x021B
+    00217 E081      LDI	R24,1
+    00218 9380 0115 STS	_kb+12,R24
+    0021A E143      LDI	R20,0x13
+(0340)                 break;
+(0341)             default:	  break;
+(0342)         }
+(0343)         return ctr;
+    0021B 2F04      MOV	R16,R20
+    0021C C118      RJMP	0x0335
+(0344)     }
+(0345)     if(kb.numLock)  //note that this loop must come before the following 'switch' block, to ensure that
+    0021D 9020 0112 LDS	R2,_kb+9
+    0021F 2022      TST	R2
+    00220 F0A9      BEQ	0x0236
+(0346)     {                  //Num Lock takes priority over the 2nd function of number keys (ie. when the Num Lock is off)
+(0347)         if(i==0x71)return '.';
+    00221 3701      CPI	R16,0x71
+    00222 F411      BNE	0x0225
+    00223 E20E      LDI	R16,0x2E
+    00224 C110      RJMP	0x0335
+(0348)         for(ctr=0;ctr<10;ctr++)
+    00225 2744      CLR	R20
+    00226 C00D      RJMP	0x0234
+(0349)         {
+(0350)             if(i==numKeysScancodes[ctr])return(ctr+'0');
+    00227 E584      LDI	R24,0x54
+    00228 E091      LDI	R25,1
+    00229 2FE4      MOV	R30,R20
+    0022A 27FF      CLR	R31
+    0022B 0FE8      ADD	R30,R24
+    0022C 1FF9      ADC	R31,R25
+    0022D 9024      LPM	R2,Z
+    0022E 1502      CP	R16,R2
+    0022F F419      BNE	0x0233
+    00230 2F04      MOV	R16,R20
+    00231 5D00      SUBI	R16,0xD0
+    00232 C102      RJMP	0x0335
+    00233 9543      INC	R20
+    00234 304A      CPI	R20,0xA
+    00235 F388      BCS	0x0227
+(0351)         }
+(0352)     }
+(0353)     switch(i)
+    00236 2F60      MOV	R22,R16
+    00237 3609      CPI	R16,0x69
+    00238 F408      BCC	0x023A
+    00239 C02A      RJMP	0x0264
+    0023A E78D      LDI	R24,0x7D
+    0023B 1780      CP	R24,R16
+    0023C F138      BCS	0x0264
+    0023D EB80      LDI	R24,0xB0
+    0023E E090      LDI	R25,0
+    0023F 2FE6      MOV	R30,R22
+    00240 56E9      SUBI	R30,0x69
+    00241 27FF      CLR	R31
+    00242 0FEE      LSL	R30
+    00243 1FFF      ROL	R31
+    00244 0FE8      ADD	R30,R24
+    00245 1FF9      ADC	R31,R25
+    00246 9025      LPM	R2,Z+
+    00247 9034      LPM	R3,Z
+    00248 01F1      MOVW	R30,R2
+    00249 9409      IJMP
+(0354)     {//scan for 2nd function of Num keys, not including "Enter' and '/' keys which have extended scan codes.
+(0355)         case 0x7C: return '*';      //all keys with extended scan codes have been taken care of in the 'switch' block above
+    0024A E20A      LDI	R16,0x2A
+    0024B C0E9      RJMP	0x0335
+(0356) 		case 0x7B: return '-';
+    0024C E20D      LDI	R16,0x2D
+    0024D C0E7      RJMP	0x0335
+(0357) 		case 0x79: return '+';
+    0024E E20B      LDI	R16,0x2B
+    0024F C0E5      RJMP	0x0335
+(0358) 	    case 0x71: return DEL;
+    00250 E70F      LDI	R16,0x7F
+    00251 C0E3      RJMP	0x0335
+(0359) 	    case 0x70: return INS;
+    00252 E107      LDI	R16,0x17
+    00253 C0E1      RJMP	0x0335
+(0360) 	    case 0x69: return END;
+    00254 E80F      LDI	R16,0x8F
+    00255 C0DF      RJMP	0x0335
+(0361) 	    case 0x72: return DOWN_ARROW;
+    00256 E109      LDI	R16,0x19
+    00257 C0DD      RJMP	0x0335
+(0362) 	    case 0x7A: return PG_DN;
+    00258 E80E      LDI	R16,0x8E
+    00259 C0DB      RJMP	0x0335
+(0363) 	    case 0x6B: return L_ARROW;
+    0025A E10C      LDI	R16,0x1C
+    0025B C0D9      RJMP	0x0335
+(0364) 	    case 0x74: return R_ARROW;
+    0025C E10A      LDI	R16,0x1A
+    0025D C0D7      RJMP	0x0335
+(0365) 	    case 0x6C: return HOME;
+    0025E E00B      LDI	R16,0xB
+    0025F C0D5      RJMP	0x0335
+(0366) 	    case 0x75: return UP_ARROW;
+    00260 E108      LDI	R16,0x18
+    00261 C0D3      RJMP	0x0335
+(0367) 	    case 0x7D: return PG_UP;
+    00262 E80D      LDI	R16,0x8D
+    00263 C0D1      RJMP	0x0335
+(0368) 		default: break;
+(0369)     }
+(0370)     switch (i)
+    00264 2F60      MOV	R22,R16
+    00265 3606      CPI	R16,0x66
+    00266 F409      BNE	0x0268
+    00267 C041      RJMP	0x02A9
+    00268 E686      LDI	R24,0x66
+    00269 1780      CP	R24,R16
+    0026A F0B0      BCS	0x0281
+    0026B 3061      CPI	R22,1
+    0026C F408      BCC	0x026E
+    0026D C051      RJMP	0x02BF
+    0026E E184      LDI	R24,0x14
+    0026F 1786      CP	R24,R22
+    00270 F068      BCS	0x027E
+    00271 ED8A      LDI	R24,0xDA
+    00272 E090      LDI	R25,0
+    00273 2FE6      MOV	R30,R22
+    00274 50E1      SUBI	R30,1
+    00275 27FF      CLR	R31
+    00276 0FEE      LSL	R30
+    00277 1FFF      ROL	R31
+    00278 0FE8      ADD	R30,R24
+    00279 1FF9      ADC	R31,R25
+    0027A 9025      LPM	R2,Z+
+    0027B 9034      LPM	R3,Z
+    0027C 01F1      MOVW	R30,R2
+    0027D 9409      IJMP
+    0027E 356A      CPI	R22,0x5A
+    0027F F139      BEQ	0x02A7
+    00280 C03E      RJMP	0x02BF
+    00281 3766      CPI	R22,0x76
+    00282 F051      BEQ	0x028D
+    00283 3768      CPI	R22,0x78
+    00284 F0F1      BEQ	0x02A3
+    00285 3766      CPI	R22,0x76
+    00286 F408      BCC	0x0288
+    00287 C037      RJMP	0x02BF
+    00288 3863      CPI	R22,0x83
+    00289 F089      BEQ	0x029B
+    0028A C034      RJMP	0x02BF
+(0371) 	{
+(0372) 	    case 0x0D: return TAB;
+    0028B E009      LDI	R16,0x9
+    0028C C0A8      RJMP	0x0335
+(0373) 	    case 0x76: return ESC;
+    0028D E10B      LDI	R16,0x1B
+    0028E C0A6      RJMP	0x0335
+(0374) 	    case 0x05: return F1;
+    0028F E800      LDI	R16,0x80
+    00290 C0A4      RJMP	0x0335
+(0375) 	    case 0x06: return F2;
+    00291 E801      LDI	R16,0x81
+    00292 C0A2      RJMP	0x0335
+(0376) 	    case 0x04: return F3;
+    00293 E802      LDI	R16,0x82
+    00294 C0A0      RJMP	0x0335
+(0377) 	    case 0x0C: return F4;
+    00295 E803      LDI	R16,0x83
+    00296 C09E      RJMP	0x0335
+(0378) 	    case 0x03: return F5;
+    00297 E804      LDI	R16,0x84
+    00298 C09C      RJMP	0x0335
+(0379) 	    case 0x0B: return F6;
+    00299 E805      LDI	R16,0x85
+    0029A C09A      RJMP	0x0335
+(0380) 	    case 0x83: return F7;
+    0029B E806      LDI	R16,0x86
+    0029C C098      RJMP	0x0335
+(0381) 	    case 0x0A: return F8;
+    0029D E807      LDI	R16,0x87
+    0029E C096      RJMP	0x0335
+(0382) 	    case 0x01: return F9;
+    0029F E808      LDI	R16,0x88
+    002A0 C094      RJMP	0x0335
+(0383) 	    case 0x09: return F10;
+    002A1 E809      LDI	R16,0x89
+    002A2 C092      RJMP	0x0335
+(0384) 	    case 0x78: return F11;
+    002A3 E80A      LDI	R16,0x8A
+    002A4 C090      RJMP	0x0335
+(0385) 	    case 0x07: return F12;
+    002A5 E80B      LDI	R16,0x8B
+    002A6 C08E      RJMP	0x0335
+(0386) 	    case 0x5A: return ENTER;
+    002A7 E00D      LDI	R16,0xD
+    002A8 C08C      RJMP	0x0335
+(0387) 		case 0x66: return BACKSPACE;
+    002A9 E008      LDI	R16,0x8
+    002AA C08A      RJMP	0x0335
+(0388) 		case 0x11:  if(!kb.noRepeat){kb.noRepeat=1;return L_ALT;}  //avoid ALT key repeating when held down, so LED doesn't flicker
+    002AB 9020 0115 LDS	R2,_kb+12
+    002AD 2022      TST	R2
+    002AE F009      BEQ	0x02B0
+    002AF C084      RJMP	0x0334
+    002B0 E081      LDI	R24,1
+    002B1 9380 0115 STS	_kb+12,R24
+    002B3 E104      LDI	R16,0x14
+    002B4 C080      RJMP	0x0335
+(0389)             break;
+(0390) 	    case 0x14:  if(!kb.noRepeat){kb.noRepeat=1;return L_CTRL;} //avoid Ctrl key repeating when held down, so LED doesn't flicker
+    002B5 9020 0115 LDS	R2,_kb+12
+    002B7 2022      TST	R2
+    002B8 F009      BEQ	0x02BA
+    002B9 C07A      RJMP	0x0334
+    002BA E081      LDI	R24,1
+    002BB 9380 0115 STS	_kb+12,R24
+    002BD E102      LDI	R16,0x12
+    002BE C076      RJMP	0x0335
+(0391)             break;
+(0392) 	    default:
+(0393) 	        for(ctr=0;ctr<26;ctr++)
+    002BF 2744      CLR	R20
+    002C0 C02A      RJMP	0x02EB
+(0394)             {
+(0395)                 if(i==(alphaScancodes[ctr]))
+    002C1 E380      LDI	R24,0x30
+    002C2 E091      LDI	R25,1
+    002C3 2FE4      MOV	R30,R20
+    002C4 27FF      CLR	R31
+    002C5 0FE8      ADD	R30,R24
+    002C6 1FF9      ADC	R31,R25
+    002C7 9024      LPM	R2,Z
+    002C8 1502      CP	R16,R2
+    002C9 F501      BNE	0x02EA
+(0396)                 {
+(0397)                     if(kb.capsLock)
+    002CA 9020 0113 LDS	R2,_kb+10
+    002CC 2022      TST	R2
+    002CD F071      BEQ	0x02DC
+(0398)                   	{
+(0399)                   	    if(kb.rightShift||kb.leftShift)return(ctr+'a');
+    002CE 9020 0109 LDS	R2,_kb
+    002D0 2022      TST	R2
+    002D1 F421      BNE	0x02D6
+    002D2 9020 010A LDS	R2,_kb+1
+    002D4 2022      TST	R2
+    002D5 F019      BEQ	0x02D9
+    002D6 2F04      MOV	R16,R20
+    002D7 590F      SUBI	R16,0x9F
+    002D8 C05C      RJMP	0x0335
+(0400)                         return (ctr+'A');
+    002D9 2F04      MOV	R16,R20
+    002DA 5B0F      SUBI	R16,0xBF
+    002DB C059      RJMP	0x0335
+(0401)                   	}
+(0402)                     else if(kb.rightShift||kb.leftShift)return(ctr+'A');
+    002DC 9020 0109 LDS	R2,_kb
+    002DE 2022      TST	R2
+    002DF F421      BNE	0x02E4
+    002E0 9020 010A LDS	R2,_kb+1
+    002E2 2022      TST	R2
+    002E3 F019      BEQ	0x02E7
+    002E4 2F04      MOV	R16,R20
+    002E5 5B0F      SUBI	R16,0xBF
+    002E6 C04E      RJMP	0x0335
+(0403)                     return (ctr+'a');
+    002E7 2F04      MOV	R16,R20
+    002E8 590F      SUBI	R16,0x9F
+    002E9 C04B      RJMP	0x0335
+    002EA 9543      INC	R20
+    002EB 314A      CPI	R20,0x1A
+    002EC F2A0      BCS	0x02C1
+(0404)                 }
+(0405)             }
+(0406)             for(ctr=0;ctr<10;ctr++)
+    002ED 2744      CLR	R20
+    002EE C01D      RJMP	0x030C
+(0407)             {
+(0408)                 if(i==numbersScancodes[ctr])
+    002EF E48A      LDI	R24,0x4A
+    002F0 E091      LDI	R25,1
+    002F1 2FE4      MOV	R30,R20
+    002F2 27FF      CLR	R31
+    002F3 0FE8      ADD	R30,R24
+    002F4 1FF9      ADC	R31,R25
+    002F5 9024      LPM	R2,Z
+    002F6 1502      CP	R16,R2
+    002F7 F499      BNE	0x030B
+(0409) 		    	{
+(0410) 		    	    if(kb.rightShift||kb.leftShift)return(shiftedNumbers[ctr]);
+    002F8 9020 0109 LDS	R2,_kb
+    002FA 2022      TST	R2
+    002FB F421      BNE	0x0300
+    002FC 9020 010A LDS	R2,_kb+1
+    002FE 2022      TST	R2
+    002FF F041      BEQ	0x0308
+    00300 E082      LDI	R24,2
+    00301 E091      LDI	R25,1
+    00302 2FE4      MOV	R30,R20
+    00303 27FF      CLR	R31
+    00304 0FE8      ADD	R30,R24
+    00305 1FF9      ADC	R31,R25
+    00306 9104      LPM	R16,Z
+    00307 C02D      RJMP	0x0335
+(0411) 		         	return (ctr+'0');
+    00308 2F04      MOV	R16,R20
+    00309 5D00      SUBI	R16,0xD0
+    0030A C02A      RJMP	0x0335
+    0030B 9543      INC	R20
+    0030C 304A      CPI	R20,0xA
+    0030D F308      BCS	0x02EF
+(0412) 		    	}
+(0413)             }
+(0414)             for(ctr=0;ctr<12;ctr++)
+    0030E 2744      CLR	R20
+    0030F C022      RJMP	0x0332
+(0415)             {
+(0416)                 if(i==symbolsScancodes[ctr])
+    00310 E284      LDI	R24,0x24
+    00311 E091      LDI	R25,1
+    00312 2FE4      MOV	R30,R20
+    00313 27FF      CLR	R31
+    00314 0FE8      ADD	R30,R24
+    00315 1FF9      ADC	R31,R25
+    00316 9024      LPM	R2,Z
+    00317 1502      CP	R16,R2
+    00318 F4C1      BNE	0x0331
+(0417) 		    	{
+(0418) 		    	    if(kb.rightShift||kb.leftShift)return(shiftedSymbols[ctr]);
+    00319 9020 0109 LDS	R2,_kb
+    0031B 2022      TST	R2
+    0031C F421      BNE	0x0321
+    0031D 9020 010A LDS	R2,_kb+1
+    0031F 2022      TST	R2
+    00320 F041      BEQ	0x0329
+    00321 E08C      LDI	R24,0xC
+    00322 E091      LDI	R25,1
+    00323 2FE4      MOV	R30,R20
+    00324 27FF      CLR	R31
+    00325 0FE8      ADD	R30,R24
+    00326 1FF9      ADC	R31,R25
+    00327 9104      LPM	R16,Z
+    00328 C00C      RJMP	0x0335
+(0419) 			     	return (asciiSymbols[ctr]);
+    00329 E188      LDI	R24,0x18
+    0032A E091      LDI	R25,1
+    0032B 2FE4      MOV	R30,R20
+    0032C 27FF      CLR	R31
+    0032D 0FE8      ADD	R30,R24
+    0032E 1FF9      ADC	R31,R25
+    0032F 9104      LPM	R16,Z
+    00330 C004      RJMP	0x0335
+    00331 9543      INC	R20
+    00332 304C      CPI	R20,0xC
+    00333 F2E0      BCS	0x0310
+(0420) 		    	}
+(0421)             }
+(0422)             break;
+(0423)     }
+(0424)  	return 0;
+    00334 2700      CLR	R16
+    00335 9169      LD	R22,Y+
+    00336 9149      LD	R20,Y+
+    00337 9508      RET
+(0425) }
+_readKey:
+  c                    --> R20
+  scancode             --> R22
+    00338 940E 0894 CALL	push_xgsetF00C
+    0033A 2F60      MOV	R22,R16
+(0426) //**********************************************************************************************
+(0427) //**********************************************************************************************
+(0428) uint8_t readKey(uint8_t scancode)
+(0429) {
+(0430)     static uint8_t pauseBreakCnt=0, printScreenCnt=0,printScreenUp=0;
+(0431) 	uint8_t c=0;
+    0033B 2744      CLR	R20
+(0432)     if(scancode==0xE1){pauseBreakCnt++; return 0;}
+    0033C 3E61      CPI	R22,0xE1
+    0033D F439      BNE	0x0345
+    0033E 9180 0100 LDS	R24,main.c:pauseBreakCnt
+    00340 5F8F      SUBI	R24,0xFF
+    00341 9380 0100 STS	main.c:pauseBreakCnt,R24
+    00343 2700      CLR	R16
+    00344 C181      RJMP	0x04C6
+(0433)     if(pauseBreakCnt)
+    00345 9020 0100 LDS	R2,main.c:pauseBreakCnt
+    00347 2022      TST	R2
+    00348 F139      BEQ	0x0370
+(0434)     {
+(0435)         switch(scancode)
+    00349 2EA6      MOV	R10,R22
+    0034A 3767      CPI	R22,0x77
+    0034B F089      BEQ	0x035D
+    0034C E787      LDI	R24,0x77
+    0034D 1786      CP	R24,R22
+    0034E F020      BCS	0x0353
+    0034F 2D8A      MOV	R24,R10
+    00350 3184      CPI	R24,0x14
+    00351 F029      BEQ	0x0357
+    00352 C01B      RJMP	0x036E
+    00353 2D8A      MOV	R24,R10
+    00354 3F80      CPI	R24,0xF0
+    00355 F099      BEQ	0x0369
+    00356 C017      RJMP	0x036E
+(0436)         {
+(0437)             case 0x14: pauseBreakCnt++; break;
+    00357 9180 0100 LDS	R24,main.c:pauseBreakCnt
+    00359 5F8F      SUBI	R24,0xFF
+    0035A 9380 0100 STS	main.c:pauseBreakCnt,R24
+    0035C C011      RJMP	0x036E
+(0438)             case 0x77: pauseBreakCnt++;
+    0035D 9180 0100 LDS	R24,main.c:pauseBreakCnt
+    0035F 5F8F      SUBI	R24,0xFF
+    00360 9380 0100 STS	main.c:pauseBreakCnt,R24
+(0439)                 if(pauseBreakCnt>=8)
+    00362 3088      CPI	R24,0x8
+    00363 F050      BCS	0x036E
+(0440)                 {
+(0441)                     pauseBreakCnt=0;
+    00364 2422      CLR	R2
+    00365 9220 0100 STS	main.c:pauseBreakCnt,R2
+(0442)                     return PAUSE_BREAK;
+    00367 E900      LDI	R16,0x90
+    00368 C15D      RJMP	0x04C6
+(0443)                 }
+(0444)                 break;
+(0445) 			case 0xF0:  pauseBreakCnt++; break;
+    00369 9180 0100 LDS	R24,main.c:pauseBreakCnt
+    0036B 5F8F      SUBI	R24,0xFF
+    0036C 9380 0100 STS	main.c:pauseBreakCnt,R24
+(0446) 			default: break;
+(0447)         }
+(0448)         return 0;
+    0036E 2700      CLR	R16
+    0036F C156      RJMP	0x04C6
+(0449)     }
+(0450)     if((!printScreenUp)&&(printScreenCnt))
+    00370 9020 0102 LDS	R2,main.c:printScreenUp
+    00372 2022      TST	R2
+    00373 F529      BNE	0x0399
+    00374 9020 0101 LDS	R2,main.c:printScreenCnt
+    00376 2022      TST	R2
+    00377 F109      BEQ	0x0399
+(0451)     {
+(0452)         switch(scancode)
+    00378 2EA6      MOV	R10,R22
+    00379 2D8A      MOV	R24,R10
+    0037A 3162      CPI	R22,0x12
+    0037B F031      BEQ	0x0382
+    0037C 3162      CPI	R22,0x12
+    0037D F0D8      BCS	0x0399
+    0037E 2D8A      MOV	R24,R10
+    0037F 378C      CPI	R24,0x7C
+    00380 F041      BEQ	0x0389
+    00381 C017      RJMP	0x0399
+(0453)         {
+(0454)             case 0x12: printScreenCnt++; return 0;
+    00382 9180 0101 LDS	R24,main.c:printScreenCnt
+    00384 5F8F      SUBI	R24,0xFF
+    00385 9380 0101 STS	main.c:printScreenCnt,R24
+    00387 2700      CLR	R16
+    00388 C13D      RJMP	0x04C6
+(0455) 			case 0x7C: printScreenCnt++;
+    00389 9180 0101 LDS	R24,main.c:printScreenCnt
+    0038B 5F8F      SUBI	R24,0xFF
+    0038C 9380 0101 STS	main.c:printScreenCnt,R24
+(0456)                 if(printScreenCnt>=4)
+    0038E 3084      CPI	R24,4
+    0038F F038      BCS	0x0397
+(0457)                 {
+(0458)                     printScreenCnt=0;
+    00390 2422      CLR	R2
+    00391 9220 0101 STS	main.c:printScreenCnt,R2
+(0459)                     kb.extdKey=0;
+    00393 9220 0110 STS	_kb+7,R2
+(0460)                     return PRINT_SCREEN;
+    00395 E901      LDI	R16,0x91
+    00396 C12F      RJMP	0x04C6
+(0461)                 }
+(0462)                 return 0;
+    00397 2700      CLR	R16
+    00398 C12D      RJMP	0x04C6
+(0463) 			default: break;
+(0464)         }
+(0465)     }
+(0466)     if(printScreenCnt)
+    00399 9020 0101 LDS	R2,main.c:printScreenCnt
+    0039B 2022      TST	R2
+    0039C F409      BNE	0x039E
+    0039D C039      RJMP	0x03D7
+(0467) 	{
+(0468) 	    switch(scancode)
+    0039E 2EA6      MOV	R10,R22
+    0039F 376C      CPI	R22,0x7C
+    003A0 F0D1      BEQ	0x03BB
+    003A1 E78C      LDI	R24,0x7C
+    003A2 1786      CP	R24,R22
+    003A3 F020      BCS	0x03A8
+    003A4 2D8A      MOV	R24,R10
+    003A5 3182      CPI	R24,0x12
+    003A6 F0D9      BEQ	0x03C2
+    003A7 C02F      RJMP	0x03D7
+    003A8 2D8A      MOV	R24,R10
+    003A9 3F80      CPI	R24,0xF0
+    003AA F009      BEQ	0x03AC
+    003AB C02B      RJMP	0x03D7
+(0469) 	  	{
+(0470) 	  	    case 0xF0:  printScreenCnt++;
+    003AC 9180 0101 LDS	R24,main.c:printScreenCnt
+    003AE 5F8F      SUBI	R24,0xFF
+    003AF 9380 0101 STS	main.c:printScreenCnt,R24
+(0471)                            printScreenUp=1;
+    003B1 E081      LDI	R24,1
+    003B2 9380 0102 STS	main.c:printScreenUp,R24
+(0472)                            kb.keyBreak=1;
+    003B4 9380 010D STS	_kb+4,R24
+(0473)                            kb.noRepeat=0;return 0;		//still acknowledge general key-up
+    003B6 2422      CLR	R2
+    003B7 9220 0115 STS	_kb+12,R2
+    003B9 2700      CLR	R16
+    003BA C10B      RJMP	0x04C6
+(0474) 			case 0x7C:  printScreenCnt++; return 0;
+    003BB 9180 0101 LDS	R24,main.c:printScreenCnt
+    003BD 5F8F      SUBI	R24,0xFF
+    003BE 9380 0101 STS	main.c:printScreenCnt,R24
+    003C0 2700      CLR	R16
+    003C1 C104      RJMP	0x04C6
+(0475)             case 0x12:  printScreenCnt++;
+    003C2 9180 0101 LDS	R24,main.c:printScreenCnt
+    003C4 5F8F      SUBI	R24,0xFF
+    003C5 9380 0101 STS	main.c:printScreenCnt,R24
+(0476)                 if(printScreenCnt>=6)
+    003C7 3086      CPI	R24,6
+    003C8 F060      BCS	0x03D5
+(0477)                 {
+(0478)                     kb.extdKey=0;
+    003C9 2422      CLR	R2
+    003CA 9220 0110 STS	_kb+7,R2
+(0479)                     kb.keyBreak=0;
+    003CC 9220 010D STS	_kb+4,R2
+(0480)                     printScreenUp=0;
+    003CE 9220 0102 STS	main.c:printScreenUp,R2
+(0481)                     printScreenCnt=0;
+    003D0 9220 0101 STS	main.c:printScreenCnt,R2
+(0482)                     printScreenUp=1;
+    003D2 E081      LDI	R24,1
+    003D3 9380 0102 STS	main.c:printScreenUp,R24
+(0483)                 }
+(0484)                 return 0;
+    003D5 2700      CLR	R16
+    003D6 C0EF      RJMP	0x04C6
+(0485) 			default:    break;
+(0486)         }
+(0487)     }
+(0488)     switch(scancode)
+    003D7 2EA6      MOV	R10,R22
+    003D8 3767      CPI	R22,0x77
+    003D9 F409      BNE	0x03DB
+    003DA C076      RJMP	0x0451
+    003DB E787      LDI	R24,0x77
+    003DC 1786      CP	R24,R22
+    003DD F070      BCS	0x03EC
+    003DE 2D8A      MOV	R24,R10
+    003DF 3182      CPI	R24,0x12
+    003E0 F409      BNE	0x03E2
+    003E1 C061      RJMP	0x0443
+    003E2 3182      CPI	R24,0x12
+    003E3 F408      BCC	0x03E5
+    003E4 C0A5      RJMP	0x048A
+    003E5 2D8A      MOV	R24,R10
+    003E6 3588      CPI	R24,0x58
+    003E7 F181      BEQ	0x0418
+    003E8 3589      CPI	R24,0x59
+    003E9 F409      BNE	0x03EB
+    003EA C04A      RJMP	0x0435
+    003EB C09E      RJMP	0x048A
+    003EC 2D8A      MOV	R24,R10
+    003ED 3E80      CPI	R24,0xE0
+    003EE F061      BEQ	0x03FB
+    003EF EE80      LDI	R24,0xE0
+    003F0 158A      CP	R24,R10
+    003F1 F028      BCS	0x03F7
+    003F2 2D8A      MOV	R24,R10
+    003F3 378E      CPI	R24,0x7E
+    003F4 F409      BNE	0x03F6
+    003F5 C078      RJMP	0x046E
+    003F6 C093      RJMP	0x048A
+    003F7 2D8A      MOV	R24,R10
+    003F8 3F80      CPI	R24,0xF0
+    003F9 F0A9      BEQ	0x040F
+    003FA C08F      RJMP	0x048A
+(0489) 	{
+(0490) 	    case EXTD_KEY: printScreenCnt++;kb.extdKey=1;printScreenUp=0;
+    003FB 9180 0101 LDS	R24,main.c:printScreenCnt
+    003FD 5F8F      SUBI	R24,0xFF
+    003FE 9380 0101 STS	main.c:printScreenCnt,R24
+    00400 E081      LDI	R24,1
+    00401 9380 0110 STS	_kb+7,R24
+    00403 2422      CLR	R2
+    00404 9220 0102 STS	main.c:printScreenUp,R2
+(0491)             if(kb.keyBreak){kb.keyBreak=0;}
+    00406 9020 010D LDS	R2,_kb+4
+    00408 2022      TST	R2
+    00409 F409      BNE	0x040B
+    0040A C0BA      RJMP	0x04C5
+    0040B 2422      CLR	R2
+    0040C 9220 010D STS	_kb+4,R2
+(0492)             break;
+    0040E C0B6      RJMP	0x04C5
+(0493)         case KEY_UP: kb.keyBreak=1; kb.noRepeat=0;
+    0040F E081      LDI	R24,1
+    00410 9380 010D STS	_kb+4,R24
+    00412 2422      CLR	R2
+    00413 9220 0115 STS	_kb+12,R2
+(0494)             printScreenUp=1; break;
+    00415 9380 0102 STS	main.c:printScreenUp,R24
+    00417 C0AD      RJMP	0x04C5
+(0495)         case CAPS: if(kb.keyBreak){kb.keyBreak=0;break;}
+    00418 9020 010D LDS	R2,_kb+4
+    0041A 2022      TST	R2
+    0041B F021      BEQ	0x0420
+    0041C 2422      CLR	R2
+    0041D 9220 010D STS	_kb+4,R2
+    0041F C0A5      RJMP	0x04C5
+(0496)             if(!kb.noRepeat)        //avoid CAPS_LOCK repeating when held down, so LED doesn't flicker
+    00420 9020 0115 LDS	R2,_kb+12
+    00422 2022      TST	R2
+    00423 F009      BEQ	0x0425
+    00424 C0A0      RJMP	0x04C5
+(0497)             {
+(0498)                 kb.capsLock^=0x01;
+    00425 E081      LDI	R24,1
+    00426 9020 0113 LDS	R2,_kb+10
+    00428 2628      EOR	R2,R24
+    00429 9220 0113 STS	_kb+10,R2
+(0499)                 kb.noRepeat=1;
+    0042B 9380 0115 STS	_kb+12,R24
+(0500)                 kb.ledCmd^=(1<<CAPS_LOCK_LED_CTRL_BIT);    //toggle bit 2 (CAPS LOCK) of status LED
+    0042D E084      LDI	R24,4
+    0042E 9020 0111 LDS	R2,_kb+8
+    00430 2628      EOR	R2,R24
+    00431 9220 0111 STS	_kb+8,R2
+(0501)                 return HOST_TO_KB;
+    00433 E003      LDI	R16,3
+    00434 C091      RJMP	0x04C6
+(0502)             }
+(0503)             break;
+(0504)         case R_SHIFT: if(kb.keyBreak){kb.keyBreak=0; kb.rightShift=0; break;}
+    00435 9020 010D LDS	R2,_kb+4
+    00437 2022      TST	R2
+    00438 F031      BEQ	0x043F
+    00439 2422      CLR	R2
+    0043A 9220 010D STS	_kb+4,R2
+    0043C 9220 0109 STS	_kb,R2
+    0043E C086      RJMP	0x04C5
+(0505)             kb.rightShift=1; break;
+    0043F E081      LDI	R24,1
+    00440 9380 0109 STS	_kb,R24
+    00442 C082      RJMP	0x04C5
+(0506)         case L_SHIFT: if(kb.keyBreak){kb.keyBreak=0; kb.leftShift=0; break;}
+    00443 9020 010D LDS	R2,_kb+4
+    00445 2022      TST	R2
+    00446 F031      BEQ	0x044D
+    00447 2422      CLR	R2
+    00448 9220 010D STS	_kb+4,R2
+    0044A 9220 010A STS	_kb+1,R2
+    0044C C078      RJMP	0x04C5
+(0507)             kb.leftShift=1; break;
+    0044D E081      LDI	R24,1
+    0044E 9380 010A STS	_kb+1,R24
+    00450 C074      RJMP	0x04C5
+(0508) 		case NUM_LOCK: if(kb.keyBreak){kb.keyBreak=0;break;}
+    00451 9020 010D LDS	R2,_kb+4
+    00453 2022      TST	R2
+    00454 F021      BEQ	0x0459
+    00455 2422      CLR	R2
+    00456 9220 010D STS	_kb+4,R2
+    00458 C06C      RJMP	0x04C5
+(0509)             if(!kb.noRepeat)//avoid NUM_LOCK repeating when held down, so LED doesn't flicker
+    00459 9020 0115 LDS	R2,_kb+12
+    0045B 2022      TST	R2
+    0045C F009      BEQ	0x045E
+    0045D C067      RJMP	0x04C5
+(0510)             {
+(0511)                 kb.numLock^=0x01;
+    0045E E081      LDI	R24,1
+    0045F 9020 0112 LDS	R2,_kb+9
+    00461 2628      EOR	R2,R24
+    00462 9220 0112 STS	_kb+9,R2
+(0512)                 kb.noRepeat=1;
+    00464 9380 0115 STS	_kb+12,R24
+(0513)                 kb.ledCmd^=(1<<NUM_LOCK_LED_CTRL_BIT);    //toggle bit 1 (NUM LOCK) of status LED
+    00466 E082      LDI	R24,2
+    00467 9020 0111 LDS	R2,_kb+8
+    00469 2628      EOR	R2,R24
+    0046A 9220 0111 STS	_kb+8,R2
+(0514)                 return HOST_TO_KB;
+    0046C E003      LDI	R16,3
+    0046D C058      RJMP	0x04C6
+(0515)             }
+(0516)             break;
+(0517) 		case 0x7E: if(kb.keyBreak){kb.keyBreak=0;break;}
+    0046E 9020 010D LDS	R2,_kb+4
+    00470 2022      TST	R2
+    00471 F021      BEQ	0x0476
+    00472 2422      CLR	R2
+    00473 9220 010D STS	_kb+4,R2
+    00475 C04F      RJMP	0x04C5
+(0518)             if(!kb.noRepeat)//avoid SCROLL_LOCK repeating when held down, so LED doesn't flicker
+    00476 9020 0115 LDS	R2,_kb+12
+    00478 2022      TST	R2
+    00479 F009      BEQ	0x047B
+    0047A C04A      RJMP	0x04C5
+(0519)             {
+(0520)                 kb.scrollLock^=0x01;
+    0047B E081      LDI	R24,1
+    0047C 9020 0114 LDS	R2,_kb+11
+    0047E 2628      EOR	R2,R24
+    0047F 9220 0114 STS	_kb+11,R2
+(0521)                 kb.noRepeat=1;
+    00481 9380 0115 STS	_kb+12,R24
+(0522)                 kb.ledCmd^=(1<<SCROLL_LOCK_LED_CTRL_BIT);    //toggle bit 0 (SCROLL LOCK) of status LED
+    00483 9020 0111 LDS	R2,_kb+8
+    00485 2628      EOR	R2,R24
+    00486 9220 0111 STS	_kb+8,R2
+(0523)                 return SCROLL_LOCK;
+    00488 E106      LDI	R16,0x16
+    00489 C03C      RJMP	0x04C6
+(0524)             }
+(0525)             break;
+(0526) 		default:
+(0527) 		    if(kb.keyBreak&&kb.extdKey)//key up is set again in the 'if statement' for printScreenCnt above, even if it is cleared on key up
+    0048A 9020 010D LDS	R2,_kb+4
+    0048C 2022      TST	R2
+    0048D F0E9      BEQ	0x04AB
+    0048E 9020 0110 LDS	R2,_kb+7
+    00490 2022      TST	R2
+    00491 F0C9      BEQ	0x04AB
+(0528)             {
+(0529)                 c=0;printScreenCnt=0;printScreenUp=0;kb.extdKey=0;kb.keyBreak=0;
+    00492 2744      CLR	R20
+    00493 2422      CLR	R2
+    00494 9220 0101 STS	main.c:printScreenCnt,R2
+    00496 9220 0102 STS	main.c:printScreenUp,R2
+    00498 9220 0110 STS	_kb+7,R2
+    0049A 9220 010D STS	_kb+4,R2
+(0530)                 switch(scancode)
+    0049C 2EA6      MOV	R10,R22
+    0049D 2D8A      MOV	R24,R10
+    0049E 316F      CPI	R22,0x1F
+    0049F F031      BEQ	0x04A6
+    004A0 316F      CPI	R22,0x1F
+    004A1 F038      BCS	0x04A9
+    004A2 2D8A      MOV	R24,R10
+    004A3 3287      CPI	R24,0x27
+    004A4 F019      BEQ	0x04A8
+    004A5 C003      RJMP	0x04A9
+(0531)                 {//return GUI (Windows Logo) key on key release
+(0532)                     case 0x1F: c=GUI;break; //1F=left GUI
+    004A6 E84C      LDI	R20,0x8C
+    004A7 C001      RJMP	0x04A9
+(0533)                     case 0x27: c=GUI;break; //27=right GUI
+    004A8 E84C      LDI	R20,0x8C
+(0534)                     default:    break;
+(0535)                 }
+(0536)                 return c;
+    004A9 2F04      MOV	R16,R20
+    004AA C01B      RJMP	0x04C6
+(0537)             }
+(0538)             if(kb.keyBreak){kb.keyBreak=0;printScreenCnt=0;printScreenUp=0;kb.extdKey=0;break;}//discard any other key returned on key up
+    004AB 9020 010D LDS	R2,_kb+4
+    004AD 2022      TST	R2
+    004AE F051      BEQ	0x04B9
+    004AF 2422      CLR	R2
+    004B0 9220 010D STS	_kb+4,R2
+    004B2 9220 0101 STS	main.c:printScreenCnt,R2
+    004B4 9220 0102 STS	main.c:printScreenUp,R2
+    004B6 9220 0110 STS	_kb+7,R2
+    004B8 C00C      RJMP	0x04C5
+(0539)             if((c=scanKey(scancode))){kb.extdKey=0;printScreenCnt=0;printScreenUp=0;break;}
+    004B9 2F06      MOV	R16,R22
+    004BA DCF7      RCALL	_scanKey
+    004BB 2F40      MOV	R20,R16
+    004BC 2344      TST	R20
+    004BD F039      BEQ	0x04C5
+    004BE 2422      CLR	R2
+    004BF 9220 0110 STS	_kb+7,R2
+    004C1 9220 0101 STS	main.c:printScreenCnt,R2
+    004C3 9220 0102 STS	main.c:printScreenUp,R2
+(0540)             break;
+(0541)     }
+(0542) 	return c;
+    004C5 2F04      MOV	R16,R20
+    004C6 940C 089B JMP	pop_xgsetF00C
+    004C8 9508      RET
+(0543) }
+_writeKeyboard:
+  status               --> R20
+    004C9 934A      ST	-Y,R20
+(0544) //**********************************************************************************************
+(0545) //**********************************************************************************************
+(0546) #define KB_MAX_BIT_TIME (uint16_t)(65*T1CompVal) //65us
+(0547) #define HOST2KB_START_COND (uint16_t)60UL //65 us
+(0548) uint8_t writeKeyboard(void)
+(0549) {
+(0550)     uint8_t status=writeFail;
+    004CA E041      LDI	R20,1
+(0551)     kb.tempCmd=kb.cmdWord;
+    004CB 9020 011F LDS	R2,_kb+22
+    004CD 9030 0120 LDS	R3,_kb+23
+    004CF 9230 011E STS	_kb+21,R3
+    004D1 9220 011D STS	_kb+20,R2
+(0552)     if(!(getOddParity(kb.tempCmd)))kb.tempCmd|=0x100;    //append parity bit
+    004D3 9100 011D LDS	R16,_kb+20
+    004D5 D205      RCALL	_getOddParity
+    004D6 2300      TST	R16
+    004D7 F449      BNE	0x04E1
+    004D8 9180 011D LDS	R24,_kb+20
+    004DA 9190 011E LDS	R25,_kb+21
+    004DC 6091      ORI	R25,1
+    004DD 9390 011E STS	_kb+21,R25
+    004DF 9380 011D STS	_kb+20,R24
+(0553)     kb.tempCmd|=0x200;    //append stop bit (bit 9)
+    004E1 9180 011D LDS	R24,_kb+20
+    004E3 9190 011E LDS	R25,_kb+21
+    004E5 6092      ORI	R25,2
+    004E6 9390 011E STS	_kb+21,R25
+    004E8 9380 011D STS	_kb+20,R24
+(0554)     kb.busy=1;
+    004EA E081      LDI	R24,1
+    004EB 9380 010F STS	_kb+6,R24
+(0555)     kb.comMode=HOST_TO_KB;
+    004ED E083      LDI	R24,3
+    004EE 9380 011A STS	_kb+17,R24
+(0556)     EIMSK&=~((1<<INT0)|(1<<INT1));  //disable EXT INT
+    004F0 B38D      IN	R24,0x1D
+    004F1 7F8C      ANDI	R24,0xFC
+    004F2 BB8D      OUT	0x1D,R24
+(0557)     KB_PORT|=(1<<KB_DT);
+    004F3 9A5B      SBI	0x0B,3
+(0558)     KB_PORT&=~(1<<KB_CLK);  //pull clock low for at least 65 us
+    004F4 985A      CBI	0x0B,2
+(0559)     KB_DDR|=(1<<KB_CLK)|(1<<KB_DT);
+    004F5 B18A      IN	R24,0x0A
+    004F6 608C      ORI	R24,0xC
+    004F7 B98A      OUT	0x0A,R24
+(0560)     delay_us(HOST2KB_START_COND);
+    004F8 E30C      LDI	R16,0x3C
+    004F9 E010      LDI	R17,0
+    004FA D195      RCALL	_delay_us
+(0561)     KB_PORT&=~(1<<KB_DT);   //pull data low
+    004FB 985B      CBI	0x0B,3
+(0562)     delay_us(5);
+    004FC E005      LDI	R16,5
+    004FD E010      LDI	R17,0
+    004FE D191      RCALL	_delay_us
+(0563)     KB_PORT|=(1<<KB_CLK); //release the clock line
+    004FF 9A5A      SBI	0x0B,2
+(0564)     KB_DDR&=~(1<<KB_CLK);
+    00500 9852      CBI	0x0A,2
+(0565)     delay_us(5);
+    00501 E005      LDI	R16,5
+    00502 E010      LDI	R17,0
+    00503 D18C      RCALL	_delay_us
+(0566)     EIFR|=(1<<INTF0);EICRA|=(1<<ISC01);EIMSK|=(1<<INT0);
+    00504 9AE0      SBI	0x1C,0
+    00505 9180 0069 LDS	R24,0x69
+    00507 6082      ORI	R24,2
+    00508 9380 0069 STS	0x69,R24
+    0050A 9AE8      SBI	0x1D,0
+(0567)     kb.startBit=0;
+    0050B 2422      CLR	R2
+    0050C 9220 0118 STS	_kb+15,R2
+(0568)     TCNT1=0;
+    0050E 2433      CLR	R3
+    0050F 9230 0085 STS	0x85,R3
+    00511 9220 0084 STS	0x84,R2
+(0569)     while((!kb.startBit)&&((TCNT1<(1000*T1CompVal))));  //1 ms timeout
+    00513 9020 0118 LDS	R2,_kb+15
+    00515 2022      TST	R2
+    00516 F449      BNE	0x0520
+    00517 E280      LDI	R24,0x20
+    00518 E49E      LDI	R25,0x4E
+    00519 9020 0084 LDS	R2,0x84
+    0051B 9030 0085 LDS	R3,0x85
+    0051D 1628      CP	R2,R24
+    0051E 0639      CPC	R3,R25
+    0051F F398      BCS	0x0513
+(0570)     if(!kb.startBit)goto exit;
+    00520 9020 0118 LDS	R2,_kb+15
+    00522 2022      TST	R2
+    00523 F409      BNE	0x0525
+    00524 C040      RJMP	0x0565
+(0571)     EIFR|=(1<<INTF0);
+    00525 9AE0      SBI	0x1C,0
+(0572)     EICRA|=(1<<ISC01)|(1<<ISC00);   //change INT0 to rising edge
+    00526 9180 0069 LDS	R24,0x69
+    00528 6083      ORI	R24,3
+    00529 9380 0069 STS	0x69,R24
+(0573)     TCNT1=0;
+    0052B 2422      CLR	R2
+    0052C 2433      CLR	R3
+    0052D 9230 0085 STS	0x85,R3
+    0052F 9220 0084 STS	0x84,R2
+(0574)     kb.frameComplete=0;
+    00531 9220 0119 STS	_kb+16,R2
+(0575)     while((!kb.frameComplete)&&(TCNT1<(1500*T1CompVal)));    //1.5 ms timeout
+    00533 9020 0119 LDS	R2,_kb+16
+    00535 2022      TST	R2
+    00536 F449      BNE	0x0540
+    00537 E380      LDI	R24,0x30
+    00538 E795      LDI	R25,0x75
+    00539 9020 0084 LDS	R2,0x84
+    0053B 9030 0085 LDS	R3,0x85
+    0053D 1628      CP	R2,R24
+    0053E 0639      CPC	R3,R25
+    0053F F398      BCS	0x0533
+(0576)     if(!kb.frameComplete){goto exit;}
+    00540 9020 0119 LDS	R2,_kb+16
+    00542 2022      TST	R2
+    00543 F409      BNE	0x0545
+    00544 C020      RJMP	0x0565
+(0577)     TCNT1=0;
+    00545 2422      CLR	R2
+    00546 2433      CLR	R3
+    00547 9230 0085 STS	0x85,R3
+    00549 9220 0084 STS	0x84,R2
+(0578)     KB_PORT|=(1<<KB_CLK);
+    0054B 9A5A      SBI	0x0B,2
+(0579)     KB_DDR&=~(1<<KB_DT);    //change DT to input read the ack bit from the keyboard
+    0054C 9853      CBI	0x0A,3
+(0580)     delay_us(5);
+    0054D E005      LDI	R16,5
+    0054E E010      LDI	R17,0
+    0054F D140      RCALL	_delay_us
+(0581)     while((KB_PIN&(1<<KB_DT))&&(TCNT1<KB_MAX_BIT_TIME));
+    00550 9B4B      SBIS	0x09,3
+    00551 C009      RJMP	0x055B
+    00552 E184      LDI	R24,0x14
+    00553 E095      LDI	R25,5
+    00554 9020 0084 LDS	R2,0x84
+    00556 9030 0085 LDS	R3,0x85
+    00558 1628      CP	R2,R24
+    00559 0639      CPC	R3,R25
+    0055A F3A8      BCS	0x0550
+(0582)     if(TCNT1<KB_MAX_BIT_TIME)status=writeSuccess;
+    0055B E184      LDI	R24,0x14
+    0055C E095      LDI	R25,5
+    0055D 9020 0084 LDS	R2,0x84
+    0055F 9030 0085 LDS	R3,0x85
+    00561 1628      CP	R2,R24
+    00562 0639      CPC	R3,R25
+    00563 F408      BCC	0x0565
+    00564 2744      CLR	R20
+(0583)     exit:
+(0584)         KB_PORT|=(1<<KB_DT);    //release data line upon receiving ack
+    00565 9A5B      SBI	0x0B,3
+(0585)         KB_DDR|=(1<<KB_DT);
+    00566 9A53      SBI	0x0A,3
+(0586)         kb.comMode=KB_TO_HOST;
+    00567 E082      LDI	R24,2
+    00568 9380 011A STS	_kb+17,R24
+(0587)         initExtInt();   //reset INT
+    0056A DC37      RCALL	_initExtInt
+(0588)         kb.startBit=0;
+    0056B 2422      CLR	R2
+    0056C 9220 0118 STS	_kb+15,R2
+(0589)         kb.busy=0;
+    0056E 9220 010F STS	_kb+6,R2
+(0590)         return(kb.writeStatus=status);
+    00570 9340 010C STS	_kb+3,R20
+    00572 2F04      MOV	R16,R20
+    00573 9149      LD	R20,Y+
+    00574 9508      RET
+(0591) }
+_resetKb:
+  c                    --> R10
+  tryWrite             --> R20
+    00575 92AA      ST	-Y,R10
+    00576 934A      ST	-Y,R20
+(0592) //**********************************************************************************************
+(0593) //**********************************************************************************************
+(0594) uint8_t resetKb(void)
+(0595) {
+(0596)     uint8_t c,tryWrite=0;
+    00577 2744      CLR	R20
+(0597)     kb.cmdWord=0xFF;   //host-to-keyboard reset command
+    00578 EF8F      LDI	R24,0xFF
+    00579 E090      LDI	R25,0
+    0057A 9390 0120 STS	_kb+23,R25
+    0057C 9380 011F STS	_kb+22,R24
+    0057E C006      RJMP	0x0585
+(0598)     while(tryWrite<3)
+(0599)     {
+(0600)         if(!(c=writeKeyboard()))break;
+    0057F DF49      RCALL	_writeKeyboard
+    00580 2EA0      MOV	R10,R16
+    00581 20AA      TST	R10
+    00582 F409      BNE	0x0584
+    00583 C003      RJMP	0x0587
+(0601)         tryWrite++;
+    00584 9543      INC	R20
+    00585 3043      CPI	R20,3
+    00586 F3C0      BCS	0x057F
+(0602)     }
+(0603)     return c;
+    00587 2D0A      MOV	R16,R10
+    00588 9149      LD	R20,Y+
+    00589 90A9      LD	R10,Y+
+    0058A 9508      RET
+(0604) }
+_toggleLed:
+  c                    --> R10
+  tryWrite             --> R20
+    0058B 92AA      ST	-Y,R10
+    0058C 934A      ST	-Y,R20
+(0605) //**********************************************************************************************
+(0606) //**********************************************************************************************
+(0607) uint8_t toggleLed(void)
+(0608) {
+(0609)     uint8_t c,tryWrite=0;
+    0058D 2744      CLR	R20
+(0610)     kb.cmdWord=LED_STATUS_CMD;
+    0058E EE8D      LDI	R24,0xED
+    0058F E090      LDI	R25,0
+    00590 9390 0120 STS	_kb+23,R25
+    00592 9380 011F STS	_kb+22,R24
+    00594 C006      RJMP	0x059B
+(0611)     while(tryWrite<3)
+(0612)     {
+(0613)         if(!(c=writeKeyboard()))break;
+    00595 DF33      RCALL	_writeKeyboard
+    00596 2EA0      MOV	R10,R16
+    00597 20AA      TST	R10
+    00598 F409      BNE	0x059A
+    00599 C003      RJMP	0x059D
+(0614)         tryWrite++;
+    0059A 9543      INC	R20
+    0059B 3043      CPI	R20,3
+    0059C F3C0      BCS	0x0595
+(0615)     }
+(0616)     if(!c)
+    0059D 20AA      TST	R10
+    0059E F579      BNE	0x05CE
+(0617)     {
+(0618)         TCNT1=0;
+    0059F 2422      CLR	R2
+    005A0 2433      CLR	R3
+    005A1 9230 0085 STS	0x85,R3
+    005A3 9220 0084 STS	0x84,R2
+(0619)         kb.frameComplete=0;
+    005A5 9220 0119 STS	_kb+16,R2
+(0620)         kb.comMode=KB_TO_HOST;
+    005A7 E082      LDI	R24,2
+    005A8 9380 011A STS	_kb+17,R24
+(0621)         while((!kb.frameComplete)&&(TCNT1<(2000*T1CompVal))); //wait response from KB for 2 ms max
+    005AA 9020 0119 LDS	R2,_kb+16
+    005AC 2022      TST	R2
+    005AD F449      BNE	0x05B7
+    005AE E480      LDI	R24,0x40
+    005AF E99C      LDI	R25,0x9C
+    005B0 9020 0084 LDS	R2,0x84
+    005B2 9030 0085 LDS	R3,0x85
+    005B4 1628      CP	R2,R24
+    005B5 0639      CPC	R3,R25
+    005B6 F398      BCS	0x05AA
+(0622)         if((kb.frameComplete)&&((kb.dataFrame&0xff)==KB_ACK))
+    005B7 9020 0119 LDS	R2,_kb+16
+    005B9 2022      TST	R2
+    005BA F099      BEQ	0x05CE
+    005BB 9180 011B LDS	R24,_kb+18
+    005BD 7F8F      ANDI	R24,0xFF
+    005BE 3F8A      CPI	R24,0xFA
+    005BF F471      BNE	0x05CE
+(0623)         {
+(0624)             kb.comMode=HOST_TO_KB;
+    005C0 E083      LDI	R24,3
+    005C1 9380 011A STS	_kb+17,R24
+(0625)             kb.cmdWord=kb.ledCmd;
+    005C3 9020 0111 LDS	R2,_kb+8
+    005C5 2433      CLR	R3
+    005C6 9230 0120 STS	_kb+23,R3
+    005C8 9220 011F STS	_kb+22,R2
+(0626)             return(kb.writeStatus=writeKeyboard());
+    005CA DEFE      RCALL	_writeKeyboard
+    005CB 9300 010C STS	_kb+3,R16
+    005CD C001      RJMP	0x05CF
+(0627)         }
+(0628)     }
+(0629)     return c;
+    005CE 2D0A      MOV	R16,R10
+    005CF 9149      LD	R20,Y+
+    005D0 90A9      LD	R10,Y+
+    005D1 9508      RET
+(0630) }
+_detectKb:
+  c                    --> R10
+  tryWrite             --> R20
+    005D2 92AA      ST	-Y,R10
+    005D3 934A      ST	-Y,R20
+(0631) //**********************************************************************************************
+(0632) //**********************************************************************************************
+(0633) uint8_t detectKb(void)
+(0634) {
+(0635)     uint8_t c,tryWrite=0;
+    005D4 2744      CLR	R20
+(0636)     kb.cmdWord=ECHO_RESPONSE;   //command byte to get echo from the keyboard
+    005D5 EE8E      LDI	R24,0xEE
+    005D6 E090      LDI	R25,0
+    005D7 9390 0120 STS	_kb+23,R25
+    005D9 9380 011F STS	_kb+22,R24
+    005DB C006      RJMP	0x05E2
+(0637)     while(tryWrite<3)
+(0638)     {
+(0639)         if(!(c=writeKeyboard()))break;
+    005DC DEEC      RCALL	_writeKeyboard
+    005DD 2EA0      MOV	R10,R16
+    005DE 20AA      TST	R10
+    005DF F409      BNE	0x05E1
+    005E0 C003      RJMP	0x05E4
+(0640)         tryWrite++;
+    005E1 9543      INC	R20
+    005E2 3043      CPI	R20,3
+    005E3 F3C0      BCS	0x05DC
+(0641)     }
+(0642)     if(!c)
+    005E4 20AA      TST	R10
+    005E5 F519      BNE	0x0609
+(0643)     {
+(0644)         TCNT1=0;
+    005E6 2422      CLR	R2
+    005E7 2433      CLR	R3
+    005E8 9230 0085 STS	0x85,R3
+    005EA 9220 0084 STS	0x84,R2
+(0645)         kb.frameComplete=0;
+    005EC 9220 0119 STS	_kb+16,R2
+(0646)         kb.comMode=KB_TO_HOST;
+    005EE E082      LDI	R24,2
+    005EF 9380 011A STS	_kb+17,R24
+(0647)         while((!kb.frameComplete)&&(TCNT1<(2000*T1CompVal))); //wait response from KB for 2 ms max
+    005F1 9020 0119 LDS	R2,_kb+16
+    005F3 2022      TST	R2
+    005F4 F449      BNE	0x05FE
+    005F5 E480      LDI	R24,0x40
+    005F6 E99C      LDI	R25,0x9C
+    005F7 9020 0084 LDS	R2,0x84
+    005F9 9030 0085 LDS	R3,0x85
+    005FB 1628      CP	R2,R24
+    005FC 0639      CPC	R3,R25
+    005FD F398      BCS	0x05F1
+(0648)         if((kb.frameComplete)&&((kb.dataFrame&0xff)==ECHO_RESPONSE))return 0;
+    005FE 9020 0119 LDS	R2,_kb+16
+    00600 2022      TST	R2
+    00601 F039      BEQ	0x0609
+    00602 9180 011B LDS	R24,_kb+18
+    00604 7F8F      ANDI	R24,0xFF
+    00605 3E8E      CPI	R24,0xEE
+    00606 F411      BNE	0x0609
+    00607 2700      CLR	R16
+    00608 C001      RJMP	0x060A
+(0649)     }
+(0650)     return 1;
+    00609 E001      LDI	R16,1
+    0060A 9149      LD	R20,Y+
+    0060B 90A9      LD	R10,Y+
+    0060C 9508      RET
+(0651) }
+_getKb:
+    0060D 92AA      ST	-Y,R10
+    0060E 934A      ST	-Y,R20
+(0652) //**********************************************************************************************
+(0653) //**********************************************************************************************
+(0654) void getKb(void)
+(0655) {
+    0060F C069      RJMP	0x0679
+(0656)     static uint8_t c;
+(0657)     while(1)
+(0658)     {
+(0659)         if(!kb.reset){resetKb();kb.reset=1;}
+    00610 9020 010E LDS	R2,_kb+5
+    00612 2022      TST	R2
+    00613 F421      BNE	0x0618
+    00614 DF60      RCALL	_resetKb
+    00615 E081      LDI	R24,1
+    00616 9380 010E STS	_kb+5,R24
+(0660)         if(kb.frameComplete)
+    00618 9020 0119 LDS	R2,_kb+16
+    0061A 2022      TST	R2
+    0061B F409      BNE	0x061D
+    0061C C048      RJMP	0x0665
+(0661)         {
+(0662)             kb.frameComplete=0;
+    0061D 2422      CLR	R2
+    0061E 9220 0119 STS	_kb+16,R2
+(0663)             if((!(kb.dataFrame&0x200))||(checkOddParity(kb.dataFrame&0x1ff)))
+    00620 9020 011B LDS	R2,_kb+18
+    00622 9030 011C LDS	R3,_kb+19
+    00624 FE31      SBRS	R3,1
+    00625 C008      RJMP	0x062E
+    00626 9100 011B LDS	R16,_kb+18
+    00628 9110 011C LDS	R17,_kb+19
+    0062A 7011      ANDI	R17,1
+    0062B D093      RCALL	_checkOddParity
+    0062C 2300      TST	R16
+    0062D F039      BEQ	0x0635
+(0664)             {
+(0665)                 kb.dataFrame=0;
+    0062E 2422      CLR	R2
+    0062F 2433      CLR	R3
+    00630 9230 011C STS	_kb+19,R3
+    00632 9220 011B STS	_kb+18,R2
+(0666)             }else{
+    00634 C030      RJMP	0x0665
+(0667)                 kb.scancode=kb.dataFrame;
+    00635 9020 011B LDS	R2,_kb+18
+    00637 9220 010B STS	_kb+2,R2
+(0668)                 kb.dataFrame=0;
+    00639 2422      CLR	R2
+    0063A 2433      CLR	R3
+    0063B 9230 011C STS	_kb+19,R3
+    0063D 9220 011B STS	_kb+18,R2
+(0669)                 if((kb.scancode==ERROR_1)||(kb.scancode==ERROR_2)||(kb.scancode==SELF_TEST_PASSED))resetKBVars();
+    0063F 9020 010B LDS	R2,_kb+2
+    00641 2022      TST	R2
+    00642 F029      BEQ	0x0648
+    00643 2D82      MOV	R24,R2
+    00644 3F8F      CPI	R24,0xFF
+    00645 F011      BEQ	0x0648
+    00646 3A8A      CPI	R24,0xAA
+    00647 F411      BNE	0x064A
+    00648 DB2C      RCALL	_resetKBVars
+    00649 C01B      RJMP	0x0665
+(0670)                 //else if(kb.scancode==SELF_TEST_PASSED)debug("keyboard detected\r");
+(0671)                 else{
+(0672)                     c=readKey(kb.scancode);
+    0064A 9100 010B LDS	R16,_kb+2
+    0064C DCEB      RCALL	_readKey
+    0064D 9300 0108 STS	main.c:c,R16
+(0673)                     if((c==HOST_TO_KB)||(c==SCROLL_LOCK))
+    0064F 2F40      MOV	R20,R16
+    00650 3003      CPI	R16,3
+    00651 F011      BEQ	0x0654
+    00652 3106      CPI	R16,0x16
+    00653 F459      BNE	0x065F
+(0674)                     {
+(0675)                         kb.comMode=HOST_TO_KB;
+    00654 E083      LDI	R24,3
+    00655 9380 011A STS	_kb+17,R24
+(0676)                         if(c==SCROLL_LOCK)writeUart(c);
+    00657 9180 0108 LDS	R24,main.c:c
+    00659 3186      CPI	R24,0x16
+    0065A F411      BNE	0x065D
+    0065B 2F08      MOV	R16,R24
+    0065C DA8E      RCALL	_writeUart
+(0677)                         toggleLed();
+    0065D DF2D      RCALL	_toggleLed
+(0678)                     }else{if(c)writeUart(c);}
+    0065E C006      RJMP	0x0665
+    0065F 9020 0108 LDS	R2,main.c:c
+    00661 2022      TST	R2
+    00662 F011      BEQ	0x0665
+    00663 2D02      MOV	R16,R2
+    00664 DA86      RCALL	_writeUart
+(0679)                 }
+(0680)             }
+(0681)         }
+(0682)         if((!kb.busy)&&(kb.detect))
+    00665 9020 010F LDS	R2,_kb+6
+    00667 2022      TST	R2
+    00668 F481      BNE	0x0679
+    00669 9020 0117 LDS	R2,_kb+14
+    0066B 2022      TST	R2
+    0066C F061      BEQ	0x0679
+(0683)         {
+(0684)             kb.detect=0;
+    0066D 2422      CLR	R2
+    0066E 9220 0117 STS	_kb+14,R2
+(0685)             if(!detectKb())writeUart(ECHO_RESPONSE);//send 'keyboard presence' to the user
+    00670 DF61      RCALL	_detectKb
+    00671 2EA0      MOV	R10,R16
+    00672 2300      TST	R16
+    00673 F419      BNE	0x0677
+    00674 EE0E      LDI	R16,0xEE
+    00675 DA75      RCALL	_writeUart
+    00676 C002      RJMP	0x0679
+(0686)             else{writeUart(ERROR_2);}   //send 'keyboard' absence to the user
+    00677 EF0F      LDI	R16,0xFF
+    00678 DA72      RCALL	_writeUart
+    00679 CF96      RJMP	0x0610
+    0067A 9149      LD	R20,Y+
+    0067B 90A9      LD	R10,Y+
+    0067C 9508      RET
+(0687)         }
+(0688)         //user code can be placed here, if the same chip is to be used for other applications.
+(0689)         //However, it should be noted that INT0, INT1 and TIMER 1 are dedicated to keyboard routines
+(0690)     }
+(0691) }
+(0692) //**********************************************************************************************
+(0693) //**********************************************************************************************
+(0694) volatile uint8_t msTick=0,sysReady=0;
+(0695) int main(void)
+(0696) {
+(0697) 	resetKBVars();
+_main:
+    0067D DAF7      RCALL	_resetKBVars
+(0698)     kb.reset=0;
+    0067E 2422      CLR	R2
+    0067F 9220 010E STS	_kb+5,R2
+(0699) 	uartInit(57600);    //57.6 kb/s
+    00681 E000      LDI	R16,0
+    00682 EE11      LDI	R17,0xE1
+    00683 E020      LDI	R18,0
+    00684 E030      LDI	R19,0
+    00685 DA79      RCALL	_uartInit
+(0700) 	sysReady=1;
+    00686 E081      LDI	R24,1
+    00687 9380 0104 STS	_sysReady,R24
+(0701) 	initTimer1();
+    00689 DAD5      RCALL	_initTimer1
+(0702) 	//initTimer0();
+(0703) 	initExtInt();
+    0068A DB17      RCALL	_initExtInt
+(0704) 	asm("sei");
+    0068B 9478      BSET	7
+    0068C C001      RJMP	0x068E
+(0705) 	//watchDogEnable();
+(0706) 	while(1){getKb();}
+    0068D DF7F      RCALL	_getKb
+    0068E CFFE      RJMP	0x068D
+    0068F 9508      RET
+(0707) 	return 0;
+(0708) }
+(0709) //**********************************************************************************************
+(0710) //**********************************************************************************************
+(0711) void delay_us(uint16_t t)
+(0712) {
+_delay_us:
+  t                    --> R16
+    00690 C011      RJMP	0x06A2
+(0713)     while(t)
+(0714) 	{
+(0715) 	    TCNT1=0x00;
+    00691 2422      CLR	R2
+    00692 2433      CLR	R3
+    00693 9230 0085 STS	0x85,R3
+    00695 9220 0084 STS	0x84,R2
+(0716) 		while(TCNT1<T1CompVal);
+    00697 E184      LDI	R24,0x14
+    00698 E090      LDI	R25,0
+    00699 9020 0084 LDS	R2,0x84
+    0069B 9030 0085 LDS	R3,0x85
+    0069D 1628      CP	R2,R24
+    0069E 0639      CPC	R3,R25
+    0069F F3B8      BCS	0x0697
+(0717) 		t--;
+    006A0 5001      SUBI	R16,1
+    006A1 4010      SBCI	R17,0
+    006A2 3000      CPI	R16,0
+    006A3 0701      CPC	R16,R17
+    006A4 F761      BNE	0x0691
+    006A5 9508      RET
+(0718) 	}
+(0719) }
+(0720) //**********************************************************************************************
+(0721) //**********************************************************************************************
+(0722) void delay_ms(uint16_t dly)
+(0723) {
+_delay_ms:
+  dly                  --> R16
+    006A6 C009      RJMP	0x06B0
+(0724)  	while(dly)
+(0725) 	{
+(0726) 	    msTick=0;
+    006A7 2422      CLR	R2
+    006A8 9220 0103 STS	_msTick,R2
+(0727) 		while(!msTick);
+    006AA 9020 0103 LDS	R2,_msTick
+    006AC 2022      TST	R2
+    006AD F3E1      BEQ	0x06AA
+(0728) 		dly--;
+    006AE 5001      SUBI	R16,1
+    006AF 4010      SBCI	R17,0
+    006B0 3000      CPI	R16,0
+    006B1 0701      CPC	R16,R17
+    006B2 F7A1      BNE	0x06A7
+    006B3 9508      RET
+(0729) 	}
+(0730) }
+_timer0_compa_isr:
+    006B4 938A      ST	-Y,R24
+    006B5 B78F      IN	R24,0x3F
+    006B6 938A      ST	-Y,R24
+(0731) //**********************************************************************************************
+(0732) //**********************************************************************************************
+(0733) void timer0_compa_isr(void)
+(0734) {
+(0735)     //volatile static uint16_t cnt=0;
+(0736)     asm("wdr");
+    006B7 95A8      WDR
+(0737)     msTick=1;
+    006B8 E081      LDI	R24,1
+    006B9 9380 0103 STS	_msTick,R24
+    006BB 9189      LD	R24,Y+
+    006BC BF8F      OUT	0x3F,R24
+    006BD 9189      LD	R24,Y+
+    006BE 9518      RETI
+(0738)     //if(++cnt>=5000){cnt=0;kb.detect=1;}
+(0739) }
+_checkOddParity:
+  ones                 --> R10
+  bitCnt               --> R20
+  i                    --> R12
+    006BF 940E 08A2 CALL	push_xgset303C
+    006C1 0168      MOVW	R12,R16
+(0740) //**********************************************************************************************
+(0741) //**********************************************************************************************
+(0742) uint8_t checkOddParity(uint16_t i)
+(0743) {
+(0744)     uint8_t ones=0,bitCnt;
+    006C2 24AA      CLR	R10
+(0745)     for(bitCnt=0;bitCnt<9;bitCnt++)
+    006C3 2744      CLR	R20
+    006C4 C006      RJMP	0x06CB
+(0746)     {
+(0747)         if(i&0x01)ones++;
+    006C5 FEC0      SBRS	R12,0
+    006C6 C001      RJMP	0x06C8
+    006C7 94A3      INC	R10
+(0748)         i>>=1;
+    006C8 94D6      LSR	R13
+    006C9 94C7      ROR	R12
+    006CA 9543      INC	R20
+    006CB 3049      CPI	R20,0x9
+    006CC F3C0      BCS	0x06C5
+(0749)     }
+(0750)     if(ones%2)return 0; //return 0 if there is odd number of ones (odd parity) in the word
+    006CD E022      LDI	R18,2
+    006CE E030      LDI	R19,0
+    006CF 2D0A      MOV	R16,R10
+    006D0 2711      CLR	R17
+    006D1 940E 07E6 CALL	mod16s
+    006D3 2300      TST	R16
+    006D4 F011      BEQ	0x06D7
+    006D5 2700      CLR	R16
+    006D6 C001      RJMP	0x06D8
+(0751)     return 1;
+    006D7 E001      LDI	R16,1
+    006D8 940C 08A9 JMP	pop_xgset303C
+    006DA 9508      RET
+(0752) }
+_getOddParity:
+  ones                 --> R10
+  bitCnt               --> R20
+  i                    --> R12
+    006DB 940E 08A2 CALL	push_xgset303C
+    006DD 2EC0      MOV	R12,R16
+(0753) //**********************************************************************************************
+(0754) //**********************************************************************************************
+(0755) uint8_t getOddParity(uint8_t i)
+(0756) {
+(0757)     uint8_t ones=0,bitCnt;
+    006DE 24AA      CLR	R10
+(0758)     for(bitCnt=0;bitCnt<8;bitCnt++)
+    006DF 2744      CLR	R20
+    006E0 C005      RJMP	0x06E6
+(0759) 	{
+(0760) 	    if(i&0x01)ones++;
+    006E1 FEC0      SBRS	R12,0
+    006E2 C001      RJMP	0x06E4
+    006E3 94A3      INC	R10
+(0761) 	    i>>=1;
+    006E4 94C6      LSR	R12
+    006E5 9543      INC	R20
+    006E6 3048      CPI	R20,0x8
+    006E7 F3C8      BCS	0x06E1
+(0762) 	}
+(0763) 	if(!(ones%2))return 0;
+    006E8 E022      LDI	R18,2
+    006E9 E030      LDI	R19,0
+    006EA 2D0A      MOV	R16,R10
+    006EB 2711      CLR	R17
+    006EC 940E 07E6 CALL	mod16s
+    006EE 2300      TST	R16
+    006EF F411      BNE	0x06F2
+    006F0 2700      CLR	R16
+    006F1 C001      RJMP	0x06F3
+(0764) 	return 1;
+    006F2 E001      LDI	R16,1
+    006F3 940C 08A9 JMP	pop_xgset303C
+    006F5 9508      RET
+(0765) }
+_INT0_isr:
+  sreg                 --> Y,+0
+    006F6 922A      ST	-Y,R2
+    006F7 923A      ST	-Y,R3
+    006F8 938A      ST	-Y,R24
+    006F9 939A      ST	-Y,R25
+    006FA B62F      IN	R2,0x3F
+    006FB 922A      ST	-Y,R2
+    006FC 9721      SBIW	R28,1
+(0766) //**********************************************************************************************
+(0767) //**********************************************************************************************
+(0768) void INT0_isr(void)
+(0769) {
+(0770)     static volatile uint16_t dataFrame=0;
+(0771)     static volatile uint8_t bitCnt=0;
+(0772)     volatile uint8_t sreg;
+(0773)     //watchDogDisable();
+(0774)     sreg=SREG;
+    006FD B62F      IN	R2,0x3F
+    006FE 8228      ST	Y,R2
+(0775)     asm("cli");
+    006FF 94F8      BCLR	7
+(0776)     if(kb.comMode==KB_TO_HOST)
+    00700 9180 011A LDS	R24,_kb+17
+    00702 3082      CPI	R24,2
+    00703 F009      BEQ	0x0705
+    00704 C043      RJMP	0x0748
+(0777)     {
+(0778)         if((!sysReady)||(!kb.startBit))goto exitIsr;
+    00705 9020 0104 LDS	R2,_sysReady
+    00707 2022      TST	R2
+    00708 F021      BEQ	0x070D
+    00709 9020 0118 LDS	R2,_kb+15
+    0070B 2022      TST	R2
+    0070C F409      BNE	0x070E
+    0070D C06D      RJMP	0x077B
+(0779)         dataFrame>>=1;
+    0070E 9020 0105 LDS	R2,main.c:dataFrame
+    00710 9030 0106 LDS	R3,main.c:dataFrame+1
+    00712 9436      LSR	R3
+    00713 9427      ROR	R2
+    00714 9230 0106 STS	main.c:dataFrame+1,R3
+    00716 9220 0105 STS	main.c:dataFrame,R2
+(0780)         if(KB_PIN&(1<<KB_DT))dataFrame|=0x200;
+    00718 9B4B      SBIS	0x09,3
+    00719 C009      RJMP	0x0723
+    0071A 9180 0105 LDS	R24,main.c:dataFrame
+    0071C 9190 0106 LDS	R25,main.c:dataFrame+1
+    0071E 6092      ORI	R25,2
+    0071F 9390 0106 STS	main.c:dataFrame+1,R25
+    00721 9380 0105 STS	main.c:dataFrame,R24
+(0781)         if(++bitCnt>9)
+    00723 9180 0107 LDS	R24,main.c:bitCnt
+    00725 5F8F      SUBI	R24,0xFF
+    00726 2E28      MOV	R2,R24
+    00727 9220 0107 STS	main.c:bitCnt,R2
+    00729 E089      LDI	R24,0x9
+    0072A 1582      CP	R24,R2
+    0072B F008      BCS	0x072D
+    0072C C04E      RJMP	0x077B
+(0782)         {
+(0783)             bitCnt=0; kb.startBit=0;
+    0072D 2422      CLR	R2
+    0072E 9220 0107 STS	main.c:bitCnt,R2
+    00730 9220 0118 STS	_kb+15,R2
+(0784)             kb.dataFrame=dataFrame;
+    00732 9020 0105 LDS	R2,main.c:dataFrame
+    00734 9030 0106 LDS	R3,main.c:dataFrame+1
+    00736 9230 011C STS	_kb+19,R3
+    00738 9220 011B STS	_kb+18,R2
+(0785)             dataFrame=0;
+    0073A 2422      CLR	R2
+    0073B 2433      CLR	R3
+    0073C 9230 0106 STS	main.c:dataFrame+1,R3
+    0073E 9220 0105 STS	main.c:dataFrame,R2
+(0786)             kb.frameComplete=1;
+    00740 E081      LDI	R24,1
+    00741 9380 0119 STS	_kb+16,R24
+(0787)             EIFR|=(1<<INTF1);
+    00743 9AE1      SBI	0x1C,1
+(0788)             EIMSK|=(1<<INT1);   //re-enable INT1
+    00744 9AE9      SBI	0x1D,1
+(0789)             kb.busy=0;
+    00745 9220 010F STS	_kb+6,R2
+(0790)         }
+(0791)     }else if(kb.comMode==HOST_TO_KB){
+    00747 C033      RJMP	0x077B
+    00748 9180 011A LDS	R24,_kb+17
+    0074A 3083      CPI	R24,3
+    0074B F579      BNE	0x077B
+(0792)         if(!kb.startBit){bitCnt=0;kb.startBit=1;}
+    0074C 9020 0118 LDS	R2,_kb+15
+    0074E 2022      TST	R2
+    0074F F439      BNE	0x0757
+    00750 2422      CLR	R2
+    00751 9220 0107 STS	main.c:bitCnt,R2
+    00753 E081      LDI	R24,1
+    00754 9380 0118 STS	_kb+15,R24
+    00756 C024      RJMP	0x077B
+(0793)         else
+(0794)         {
+(0795)             if(++bitCnt<11)
+    00757 9180 0107 LDS	R24,main.c:bitCnt
+    00759 5F8F      SUBI	R24,0xFF
+    0075A 9380 0107 STS	main.c:bitCnt,R24
+    0075C 308B      CPI	R24,0xB
+    0075D F490      BCC	0x0770
+(0796)             {
+(0797)                 if(kb.tempCmd&0x01)KB_PORT|=(1<<KB_DT);
+    0075E 9020 011D LDS	R2,_kb+20
+    00760 FE20      SBRS	R2,0
+    00761 C002      RJMP	0x0764
+    00762 9A5B      SBI	0x0B,3
+    00763 C001      RJMP	0x0765
+(0798)                 else{KB_PORT&=~(1<<KB_DT);}
+    00764 985B      CBI	0x0B,3
+(0799)                 kb.tempCmd>>=1;
+    00765 9020 011D LDS	R2,_kb+20
+    00767 9030 011E LDS	R3,_kb+21
+    00769 9436      LSR	R3
+    0076A 9427      ROR	R2
+    0076B 9230 011E STS	_kb+21,R3
+    0076D 9220 011D STS	_kb+20,R2
+(0800)             }else{
+    0076F C00B      RJMP	0x077B
+(0801)                 bitCnt=0;
+    00770 2422      CLR	R2
+    00771 9220 0107 STS	main.c:bitCnt,R2
+(0802)                 kb.frameComplete=1;         //use frameComplete flag to detect ack bit from the keyboard
+    00773 E081      LDI	R24,1
+    00774 9380 0119 STS	_kb+16,R24
+(0803)                 EICRA&=~(1<<ISC00);goto exitIsr;  //set flag and change INT0 to falling edge to detect KB ack bit
+    00776 9180 0069 LDS	R24,0x69
+    00778 7F8E      ANDI	R24,0xFE
+    00779 9380 0069 STS	0x69,R24
+(0804)             }
+(0805)         }
+(0806)     }
+(0807)     exitIsr:
+(0808)         EIFR|=(1<<INTF0);
+    0077B 9AE0      SBI	0x1C,0
+(0809)         //asm("sei");
+(0810)         SREG=sreg;
+    0077C 8028      LD	R2,Y
+    0077D BE2F      OUT	0x3F,R2
+    0077E 9621      ADIW	R28,1
+    0077F 9029      LD	R2,Y+
+    00780 BE2F      OUT	0x3F,R2
+    00781 9199      LD	R25,Y+
+    00782 9189      LD	R24,Y+
+    00783 9039      LD	R3,Y+
+    00784 9029      LD	R2,Y+
+    00785 9518      RETI
+(0811)         //watchDogEnable();
+(0812) }
+_INT1_isr:
+  sreg                 --> Y,+0
+    00786 922A      ST	-Y,R2
+    00787 923A      ST	-Y,R3
+    00788 938A      ST	-Y,R24
+    00789 939A      ST	-Y,R25
+    0078A B62F      IN	R2,0x3F
+    0078B 922A      ST	-Y,R2
+    0078C 9721      SBIW	R28,1
+(0813) //**********************************************************************************************
+(0814) //**********************************************************************************************
+(0815) void INT1_isr(void)
+(0816) {
+(0817)     volatile uint8_t sreg;
+(0818)     //watchDogDisable();
+(0819)     sreg=SREG;
+    0078D B62F      IN	R2,0x3F
+    0078E 8228      ST	Y,R2
+(0820)     asm("cli");
+    0078F 94F8      BCLR	7
+(0821)     if(!sysReady)goto exitIsr;
+    00790 9020 0104 LDS	R2,_sysReady
+    00792 2022      TST	R2
+    00793 F409      BNE	0x0795
+    00794 C02E      RJMP	0x07C3
+(0822)     if(kb.comMode==KB_TO_HOST)
+    00795 9180 011A LDS	R24,_kb+17
+    00797 3082      CPI	R24,2
+    00798 F551      BNE	0x07C3
+(0823)     {
+(0824)         kb.busy=1;
+    00799 E081      LDI	R24,1
+    0079A 9380 010F STS	_kb+6,R24
+(0825)         EIMSK&=~(1<<INT0);
+    0079C 98E8      CBI	0x1D,0
+(0826)         KB_DDR&=~(1<<KB_CLK);   //turn clk_pin to input
+    0079D 9852      CBI	0x0A,2
+(0827)         TCNT1=0;
+    0079E 2422      CLR	R2
+    0079F 2433      CLR	R3
+    007A0 9230 0085 STS	0x85,R3
+    007A2 9220 0084 STS	0x84,R2
+(0828)         while((KB_PIN&(1<<KB_CLK))&&(TCNT1<KB_MAX_BIT_TIME));
+    007A4 9B4A      SBIS	0x09,2
+    007A5 C009      RJMP	0x07AF
+    007A6 E184      LDI	R24,0x14
+    007A7 E095      LDI	R25,5
+    007A8 9020 0084 LDS	R2,0x84
+    007AA 9030 0085 LDS	R3,0x85
+    007AC 1628      CP	R2,R24
+    007AD 0639      CPC	R3,R25
+    007AE F3A8      BCS	0x07A4
+(0829)         if(TCNT1<KB_MAX_BIT_TIME)
+    007AF E184      LDI	R24,0x14
+    007B0 E095      LDI	R25,5
+    007B1 9020 0084 LDS	R2,0x84
+    007B3 9030 0085 LDS	R3,0x85
+    007B5 1628      CP	R2,R24
+    007B6 0639      CPC	R3,R25
+    007B7 F458      BCC	0x07C3
+(0830)         {
+(0831)             EIMSK&=~(1<<INT1);
+    007B8 98E9      CBI	0x1D,1
+(0832)             EIFR|=(1<<INTF0)|(1<<INTF1);
+    007B9 B38C      IN	R24,0x1C
+    007BA 6083      ORI	R24,3
+    007BB BB8C      OUT	0x1C,R24
+(0833)             EIMSK|=(1<<INT0);
+    007BC 9AE8      SBI	0x1D,0
+(0834)             KB_DDR&=~((1<<KB_DT)|(1<<KB_CLK));  //reconfigure data pin as input I/O
+    007BD B18A      IN	R24,0x0A
+    007BE 7F83      ANDI	R24,0xF3
+    007BF B98A      OUT	0x0A,R24
+(0835)             kb.startBit=1;
+    007C0 E081      LDI	R24,1
+    007C1 9380 0118 STS	_kb+15,R24
+(0836)         }
+(0837)     }
+(0838)     exitIsr:
+(0839)         //asm("sei");
+(0840)         SREG=sreg;
+    007C3 8028      LD	R2,Y
+    007C4 BE2F      OUT	0x3F,R2
+    007C5 9621      ADIW	R28,1
+    007C6 9029      LD	R2,Y+
+    007C7 BE2F      OUT	0x3F,R2
+    007C8 9199      LD	R25,Y+
+    007C9 9189      LD	R24,Y+
+    007CA 9039      LD	R3,Y+
+    007CB 9029      LD	R2,Y+
+    007CC 9518      RETI
+(0841)         //watchDogEnable();
+(0842) }
+_usart_rxc_isr:
+  temp                 --> Y,+0
+    007CD 922A      ST	-Y,R2
+    007CE 938A      ST	-Y,R24
+    007CF B62F      IN	R2,0x3F
+    007D0 922A      ST	-Y,R2
+    007D1 9721      SBIW	R28,1
+(0843) //**********************************************************************************************
+(0844) //**********************************************************************************************
+(0845) void usart_rxc_isr(void)
+(0846) {
+(0847)     volatile uint8_t temp;
+(0848)     if((temp=UDR0)==ECHO_RESPONSE)kb.detect=1;
+    007D2 9020 00C6 LDS	R2,0xC6
+    007D4 8228      ST	Y,R2
+    007D5 2D82      MOV	R24,R2
+    007D6 3E8E      CPI	R24,0xEE
+    007D7 F419      BNE	0x07DB
+    007D8 E081      LDI	R24,1
+    007D9 9380 0117 STS	_kb+14,R24
+    007DB 9621      ADIW	R28,1
+    007DC 9029      LD	R2,Y+
+    007DD BE2F      OUT	0x3F,R2
+    007DE 9189      LD	R24,Y+
+    007DF 9029      LD	R2,Y+
+    007E0 9518      RETI
+(0849) }
+(0850) //**********************************************************************************************
+(0851) //**********************************************************************************************
+<LIBRARY>|push_arg4:
+    007E1 933A      ST	-Y,R19
+    007E2 932A      ST	-Y,R18
+push_arg2:
+    007E3 931A      ST	-Y,R17
+    007E4 930A      ST	-Y,R16
+    007E5 9508      RET
+mod16s:
+    007E6 9468      BSET	6
+    007E7 92DA      ST	-Y,R13
+    007E8 2ED1      MOV	R13,R17
+    007E9 C004      RJMP	0x07EE
+div16s:
+    007EA 94E8      BCLR	6
+    007EB 92DA      ST	-Y,R13
+    007EC 2ED1      MOV	R13,R17
+    007ED 26D3      EOR	R13,R19
+    007EE FF17      SBRS	R17,7
+    007EF C004      RJMP	0x07F4
+    007F0 9510      COM	R17
+    007F1 9500      COM	R16
+    007F2 5F0F      SUBI	R16,0xFF
+    007F3 4F1F      SBCI	R17,0xFF
+    007F4 FF37      SBRS	R19,7
+    007F5 C004      RJMP	0x07FA
+    007F6 9530      COM	R19
+    007F7 9520      COM	R18
+    007F8 5F2F      SUBI	R18,0xFF
+    007F9 4F3F      SBCI	R19,0xFF
+    007FA 940E 0807 CALL	xdiv16u
+    007FC FED7      SBRS	R13,7
+    007FD C004      RJMP	0x0802
+    007FE 9510      COM	R17
+    007FF 9500      COM	R16
+    00800 5F0F      SUBI	R16,0xFF
+    00801 4F1F      SBCI	R17,0xFF
+    00802 90D9      LD	R13,Y+
+    00803 9508      RET
+mod16u:
+    00804 9468      BSET	6
+    00805 C001      RJMP	xdiv16u
+div16u:
+    00806 94E8      BCLR	6
+xdiv16u:
+    00807 92EA      ST	-Y,R14
+    00808 92FA      ST	-Y,R15
+    00809 938A      ST	-Y,R24
+    0080A 24EE      CLR	R14
+    0080B 24FF      CLR	R15
+    0080C E180      LDI	R24,0x10
+    0080D 0F00      LSL	R16
+    0080E 1F11      ROL	R17
+    0080F 1CEE      ROL	R14
+    00810 1CFF      ROL	R15
+    00811 16E2      CP	R14,R18
+    00812 06F3      CPC	R15,R19
+    00813 F018      BCS	0x0817
+    00814 1AE2      SUB	R14,R18
+    00815 0AF3      SBC	R15,R19
+    00816 9503      INC	R16
+    00817 958A      DEC	R24
+    00818 F7A1      BNE	0x080D
+    00819 F416      BRTC	0x081C
+    0081A 2D0E      MOV	R16,R14
+    0081B 2D1F      MOV	R17,R15
+    0081C 9189      LD	R24,Y+
+    0081D 90F9      LD	R15,Y+
+    0081E 90E9      LD	R14,Y+
+    0081F 9508      RET
+div32u:
+    00820 94E8      BCLR	6
+    00821 C001      RJMP	0x0823
+mod32u:
+    00822 9468      BSET	6
+    00823 D030      RCALL	long_div_prolog
+    00824 24CC      CLR	R12
+    00825 C009      RJMP	0x082F
+div32s:
+    00826 94E8      BCLR	6
+    00827 C001      RJMP	0x0829
+mod32s:
+    00828 9468      BSET	6
+    00829 D02A      RCALL	long_div_prolog
+    0082A FD37      SBRC	R19,7
+    0082B 940E 08B0 CALL	neg32
+    0082D FDB7      SBRC	R27,7
+    0082E D052      RCALL	neg_R24_R27
+    0082F 2477      CLR	R7
+    00830 2488      CLR	R8
+    00831 2499      CLR	R9
+    00832 24AA      CLR	R10
+    00833 24BB      CLR	R11
+    00834 D042      RCALL	tst_R16_R19
+    00835 F0C1      BEQ	0x084E
+    00836 D045      RCALL	tst_R24_R27
+    00837 F0B1      BEQ	0x084E
+    00838 E2E8      LDI	R30,0x28
+    00839 0F00      LSL	R16
+    0083A 1F11      ROL	R17
+    0083B 1F22      ROL	R18
+    0083C 1F33      ROL	R19
+    0083D 1C77      ROL	R7
+    0083E 1C88      ROL	R8
+    0083F 1C99      ROL	R9
+    00840 1CAA      ROL	R10
+    00841 1CBB      ROL	R11
+    00842 1688      CP	R8,R24
+    00843 0699      CPC	R9,R25
+    00844 06AA      CPC	R10,R26
+    00845 06BB      CPC	R11,R27
+    00846 F028      BCS	0x084C
+    00847 1A88      SUB	R8,R24
+    00848 0A99      SBC	R9,R25
+    00849 0AAA      SBC	R10,R26
+    0084A 0ABB      SBC	R11,R27
+    0084B 9503      INC	R16
+    0084C 95EA      DEC	R30
+    0084D F759      BNE	0x0839
+    0084E F426      BRTC	0x0853
+    0084F 2D08      MOV	R16,R8
+    00850 2D19      MOV	R17,R9
+    00851 2D2A      MOV	R18,R10
+    00852 2D3B      MOV	R19,R11
+    00853 C013      RJMP	long_div_epilog
+long_div_prolog:
+    00854 927A      ST	-Y,R7
+    00855 928A      ST	-Y,R8
+    00856 929A      ST	-Y,R9
+    00857 92AA      ST	-Y,R10
+    00858 92BA      ST	-Y,R11
+    00859 92CA      ST	-Y,R12
+    0085A 93EA      ST	-Y,R30
+    0085B 938A      ST	-Y,R24
+    0085C 939A      ST	-Y,R25
+    0085D 93AA      ST	-Y,R26
+    0085E 93BA      ST	-Y,R27
+    0085F 858B      LDD	R24,Y+11
+    00860 859C      LDD	R25,Y+12
+    00861 85AD      LDD	R26,Y+13
+    00862 85BE      LDD	R27,Y+14
+    00863 2EC3      MOV	R12,R19
+    00864 F00E      BRTS	0x0866
+    00865 26CB      EOR	R12,R27
+    00866 9508      RET
+long_div_epilog:
+    00867 FCC7      SBRC	R12,7
+    00868 940E 08B0 CALL	neg32
+    0086A 91B9      LD	R27,Y+
+    0086B 91A9      LD	R26,Y+
+    0086C 9199      LD	R25,Y+
+    0086D 9189      LD	R24,Y+
+    0086E 91E9      LD	R30,Y+
+    0086F 90C9      LD	R12,Y+
+    00870 90B9      LD	R11,Y+
+    00871 90A9      LD	R10,Y+
+    00872 9099      LD	R9,Y+
+    00873 9089      LD	R8,Y+
+    00874 9079      LD	R7,Y+
+    00875 9624      ADIW	R28,4
+    00876 9508      RET
+tst_R16_R19:
+    00877 2FE0      MOV	R30,R16
+    00878 2BE1      OR	R30,R17
+    00879 2BE2      OR	R30,R18
+    0087A 2BE3      OR	R30,R19
+    0087B 9508      RET
+tst_R24_R27:
+    0087C 2FE8      MOV	R30,R24
+    0087D 2BE9      OR	R30,R25
+    0087E 2BEA      OR	R30,R26
+    0087F 2BEB      OR	R30,R27
+    00880 9508      RET
+neg_R24_R27:
+    00881 9580      COM	R24
+    00882 9590      COM	R25
+    00883 95A0      COM	R26
+    00884 95B0      COM	R27
+    00885 5F8F      SUBI	R24,0xFF
+    00886 4F9F      SBCI	R25,0xFF
+    00887 4FAF      SBCI	R26,0xFF
+    00888 4FBF      SBCI	R27,0xFF
+    00889 9508      RET
+push_xgsetF000:
+    0088A 937A      ST	-Y,R23
+    0088B 936A      ST	-Y,R22
+    0088C 935A      ST	-Y,R21
+    0088D 934A      ST	-Y,R20
+    0088E 9508      RET
+pop_xgsetF000:
+    0088F 9149      LD	R20,Y+
+    00890 9159      LD	R21,Y+
+    00891 9169      LD	R22,Y+
+    00892 9179      LD	R23,Y+
+    00893 9508      RET
+push_xgsetF00C:
+    00894 937A      ST	-Y,R23
+    00895 936A      ST	-Y,R22
+    00896 935A      ST	-Y,R21
+    00897 934A      ST	-Y,R20
+    00898 92BA      ST	-Y,R11
+    00899 92AA      ST	-Y,R10
+    0089A 9508      RET
+pop_xgsetF00C:
+    0089B 90A9      LD	R10,Y+
+    0089C 90B9      LD	R11,Y+
+    0089D 9149      LD	R20,Y+
+    0089E 9159      LD	R21,Y+
+    0089F 9169      LD	R22,Y+
+    008A0 9179      LD	R23,Y+
+    008A1 9508      RET
+push_xgset303C:
+    008A2 935A      ST	-Y,R21
+    008A3 934A      ST	-Y,R20
+    008A4 92DA      ST	-Y,R13
+    008A5 92CA      ST	-Y,R12
+    008A6 92BA      ST	-Y,R11
+    008A7 92AA      ST	-Y,R10
+    008A8 9508      RET
+pop_xgset303C:
+    008A9 90A9      LD	R10,Y+
+    008AA 90B9      LD	R11,Y+
+    008AB 90C9      LD	R12,Y+
+    008AC 90D9      LD	R13,Y+
+    008AD 9149      LD	R20,Y+
+    008AE 9159      LD	R21,Y+
+    008AF 9508      RET
+neg32:
+    008B0 9500      COM	R16
+    008B1 9510      COM	R17
+    008B2 9520      COM	R18
+    008B3 9530      COM	R19
+    008B4 5F0F      SUBI	R16,0xFF
+    008B5 4F1F      SBCI	R17,0xFF
+    008B6 4F2F      SBCI	R18,0xFF
+    008B7 4F3F      SBCI	R19,0xFF
+    008B8 9508      RET
+lsr32:
+    008B9 920F      PUSH	R0
+    008BA 9009      LD	R0,Y+
+    008BB 2000      TST	R0
+    008BC F031      BEQ	0x08C3
+    008BD 9536      LSR	R19
+    008BE 9527      ROR	R18
+    008BF 9517      ROR	R17
+    008C0 9507      ROR	R16
+    008C1 940A      DEC	R0
+    008C2 CFF8      RJMP	0x08BB
+    008C3 900F      POP	R0
+    008C4 9508      RET

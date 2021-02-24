@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ps2KbHost" />
+		<Option pch_mode="2" />
+		<Option compiler="iccavr" />
+		<Build>
+			<Target title="default">
+				<Option output="./ps2KbHost" prefix_auto="0" extension_auto="0" />
+				<Option object_output="./.objs" />
+				<Option type="1" />
+				<Option compiler="iccavr" />
+				<Option use_console_runner="0" />
+				<Option projectCompilerOptionsRelation="1" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Option projectIncludeDirsRelation="1" />
+				<Option projectResourceIncludeDirsRelation="1" />
+				<Option projectLibDirsRelation="1" />
+				<Compiler>
+					<Add option="-e" />
+					<Add option="-D__ICC_VERSION=82600" />
+					<Add option="-D__BUILD=997" />
+					<Add option="-D_EE_EXTIO" />
+					<Add option="-DATMega328P" />
+					<Add option="-l" />
+					<Add option="-A -A" />
+					<Add option="-g" />
+					<Add option="-MLongJump" />
+					<Add option="-MHasMul" />
+					<Add option="-MEnhanced" />
+					<Add option="-Wf-str_in_flash" />
+					<Add option='-Wf-const_is_flash -DCONST=&quot;&quot;' />
+				</Compiler>
+				<Linker>
+					<Add option="-mATMega328P" />
+					<Add option="-g" />
+					<Add option="-nb:997" />
+					<Add option="-e:0x8000" />
+					<Add option="-ucrtatmega.o" />
+					<Add option="-bfunc_lit:0x68.0x1000" />
+					<Add option="-dram_end:0x8ff" />
+					<Add option="-bdata:0x100.0x8ff" />
+					<Add option="-dhwstk_size:20" />
+					<Add option="-beeprom:0.1024" />
+					<Add option="-fihx_coff" />
+					<Add option="-S2" />
+					<Add library="catmega" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-e" />
+			<Add option="-D__ICC_VERSION=82600" />
+			<Add option="-D__BUILD=997" />
+			<Add option="-D_EE_EXTIO" />
+			<Add option="-DATMega328P" />
+			<Add option="-l" />
+			<Add option="-A -A" />
+			<Add option="-g" />
+			<Add option="-MLongJump" />
+			<Add option="-MHasMul" />
+			<Add option="-MEnhanced" />
+			<Add option="-Wf-str_in_flash" />
+			<Add option='-Wf-const_is_flash -DCONST=&quot;&quot;' />
+		</Compiler>
+		<Linker>
+			<Add option="-mATMega328P" />
+			<Add option="-g" />
+			<Add option="-nb:997" />
+			<Add option="-e:0x8000" />
+			<Add option="-ucrtatmega.o" />
+			<Add option="-bfunc_lit:0x68.0x1000" />
+			<Add option="-dram_end:0x8ff" />
+			<Add option="-bdata:0x100.0x8ff" />
+			<Add option="-dhwstk_size:20" />
+			<Add option="-beeprom:0.1024" />
+			<Add option="-fihx_coff" />
+			<Add option="-S2" />
+			<Add library="catmega" />
+		</Linker>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

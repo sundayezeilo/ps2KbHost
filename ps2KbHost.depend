@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1480838719 source:f:\iccavr8+projects\user+projects\ps2kbhost\main.c
+	<iom328pv.h>
+	<stdio.h>
+	<stdlib.h>
+	<macros.h>
+	<string.h>
+	<ctype.h>
+	<stdint.h>
+
+1482003725 source:d:\iccavr8+projects\ps2kbhost\main.c
+	<iom328pv.h>
+	<stdio.h>
+	<stdlib.h>
+	<macros.h>
+	<string.h>
+	<ctype.h>
+	<stdint.h>
+
