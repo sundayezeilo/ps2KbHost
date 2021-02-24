@@ -58,13 +58,15 @@
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests will be appreciated.
+Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/ezeilo-su/ps2KbHost/issues)
+Feel free to check the [issues page](https://github.com/ezeilo-su/ps2KbHost/issues).
 
 ## Show your support
 
-Show support by giving a ⭐️ if you like this project!
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
 
 ## 📝 License
 
