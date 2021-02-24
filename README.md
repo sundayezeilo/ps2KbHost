@@ -2,11 +2,11 @@
 
 > This document is a user guide for a bi-directional PS2 keyboard communication firmware. The firmware is provided to interface a generic PS2 keyboard with an AVR microcontroller. Any key-press is returned to the host system via USART0 of the MCU.
 
-##  NOTE:	ENSURE TO READ THIS CAREFULLY BEFORE USING THE FIRMWARE
+- Software Platform: 	Embedded C 
+- Hardware Platform:	ATMEL® AVR MCU
+- Firmware Revision:	April, 2018
 
-*** Software Platform: 	Embedded C 
-*** Hardware Platform:	ATMEL® AVR MCU
-*** Firmware Revision:	April, 2018
+##  NOTE:	ENSURE TO READ THIS CAREFULLY BEFORE USING THE FIRMWARE
 
 ### USAGE
 
