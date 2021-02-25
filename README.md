@@ -1,8 +1,8 @@
 # PS2 KEYBOARD HOST FIRMWARE USER GUIDE
 
-> This document is a user guide for a bi-directional PS2 keyboard communication firmware. The firmware is provided to interface a generic PS2 keyboard with an AVR microcontroller. Any key-press is returned to the host system via USART0 of the MCU.
+> Firmware for interfacing a PS2 keyboard with a microcontroller. The firmware provides a bi-directional communication interface between a generic PS2 keyboard and an AVR microcontroller. Any key-press is returned to the host system via the serial port of the MCU.
 
-- Software Platform: 	Embedded C 
+- Language: 	Embedded C 
 - Hardware Platform:	ATMEL® AVR MCU
 - Compiler: ImageCraft for AVR (ICCAVR) v8
 - Firmware Revision:	April, 2018
