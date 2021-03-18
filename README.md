@@ -55,7 +55,7 @@
 
 - Github: [@sundayezeilo](https://github.com/ezeilo-su)
 - Twitter: [@SundayEzeilo](https://twitter.com/SundayEzeilo)
-- Linkedin: [Sunday Ezeilo](https://www.linkedin.com/in/sunday-ezeilo-a6a67664/)
+- Linkedin: [Sunday Ezeilo](https://www.linkedin.com/in/sundayezeilo/)
 
 ## 🤝 Contributing
 
